@@ -84,3 +84,34 @@ export default function RootLayout({
     </html>
   )
 }
+import './globals.css'
+import { ReactNode } from 'react';
+import Script from 'next/script';
+
+export const metadata = {
+  title: 'Streamlined Cleaning Solutions',
+  description: 'Top-tier cleaning services in Lakeland, FL',
+};
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        {/* Google Ads Tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17096447827"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17096447827');
+          `}
+        </Script>
+      </head>
+      <body>{children}</body>
+    </html>
+  );
+}
