@@ -1,13 +1,14 @@
-import type React from "react"
-import "@/app/globals.css"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { PhoneCall } from "lucide-react"
+import type React from "react";
+import "@/app/globals.css";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { PhoneCall } from "lucide-react";
+import Script from "next/script"; // <-- import Script here
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Streamlined Cleaning Solutions | Professional Cleaning Services",
@@ -24,18 +25,42 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Ads gtag.js */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17096447827"
+        />
+        <Script
+          id="google-ads-tag"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17096447827');
+            `,
+          }}
+        />
+      </head>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
           <header className="w-full py-4 bg-white border-b sticky top-0 z-50">
             <div className="container px-4 md:px-6">
               <div className="flex items-center justify-between">
@@ -51,16 +76,28 @@ export default function RootLayout({
                   <span className="text-2xl font-bold text-blue-700">SCS</span>
                 </Link>
                 <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-                  <Link href="/" className="hover:text-blue-600 transition-colors">
+                  <Link
+                    href="/"
+                    className="hover:text-blue-600 transition-colors"
+                  >
                     Home
                   </Link>
-                  <Link href="/#services" className="hover:text-blue-600 transition-colors">
+                  <Link
+                    href="/#services"
+                    className="hover:text-blue-600 transition-colors"
+                  >
                     Services
                   </Link>
-                  <Link href="/about" className="hover:text-blue-600 transition-colors">
+                  <Link
+                    href="/about"
+                    className="hover:text-blue-600 transition-colors"
+                  >
                     About
                   </Link>
-                  <Link href="/#contact" className="hover:text-blue-600 transition-colors">
+                  <Link
+                    href="/#contact"
+                    className="hover:text-blue-600 transition-colors"
+                  >
                     Contact
                   </Link>
                 </nav>
@@ -71,7 +108,10 @@ export default function RootLayout({
                       <span className="sr-only">Contact</span>
                     </Link>
                   </Button>
-                  <Button asChild className="hidden md:inline-flex bg-blue-600 hover:bg-blue-700">
+                  <Button
+                    asChild
+                    className="hidden md:inline-flex bg-blue-600 hover:bg-blue-700"
+                  >
                     <Link href="/#contact">Get a Quote</Link>
                   </Button>
                 </div>
@@ -82,5 +122,6 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
+
