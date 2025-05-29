@@ -1,15 +1,38 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Sparkles, Clock, Shield, PhoneCall, Facebook, Twitter } from "lucide-react";
+import {
+  CheckCircle,
+  Sparkles,
+  Clock,
+  Shield,
+  PhoneCall,
+  Facebook,
+  Twitter,
+} from "lucide-react";
 import TestimonialCard from "@/components/testimonial-card";
 import ServiceCard from "@/components/service-card";
 import ContactForm from "@/components/contact-form";
 import SiteFooter from "@/components/site-footer";
 
 export default function Home() {
+  useEffect(() => {
+    // Dynamically load Booksy widget script
+    const script = document.createElement("script");
+    script.src =
+      "https://booksy.com/widget/code.js?id=1498920&country=us&lang=en";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on component unmount
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -22,8 +45,8 @@ export default function Home() {
                   Streamlined Cleaning Solutions
                 </h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl">
-                  Professional cleaning services tailored to your needs. We make your space shine so you can focus on
-                  what matters.
+                  Professional cleaning services tailored to your needs. We make
+                  your space shine so you can focus on what matters.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -55,10 +78,15 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Why Choose Us</div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Cleaning Excellence, Every Time</h2>
+              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">
+                Why Choose Us
+              </div>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                Cleaning Excellence, Every Time
+              </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
-                We combine professional expertise with attention to detail to deliver exceptional cleaning results.
+                We combine professional expertise with attention to detail to
+                deliver exceptional cleaning results.
               </p>
             </div>
           </div>
@@ -100,8 +128,12 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Our Services</div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Professional Cleaning Solutions</h2>
+              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">
+                Our Services
+              </div>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                Professional Cleaning Solutions
+              </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
                 Tailored cleaning services to meet your specific needs.
               </p>
@@ -152,10 +184,15 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Testimonials</div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">What Our Clients Say</h2>
+              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">
+                Testimonials
+              </div>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                What Our Clients Say
+              </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
-                Don't just take our word for it. Here's what our satisfied customers have to say.
+                Don't just take our word for it. Here's what our satisfied customers
+                have to say.
               </p>
             </div>
           </div>
@@ -183,17 +220,37 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50" id="contact">
+      <section
+        className="w-full py-12 md:py-24 lg:py-32 bg-blue-50"
+        id="contact"
+      >
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Contact Us</div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Ready for a Cleaner Space?</h2>
+              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">
+                Contact Us
+              </div>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+                Ready for a Cleaner Space?
+              </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
-                Get in touch with us today for a free quote or to schedule your cleaning service.
+                Get in touch with us today for a free quote or to schedule your
+                cleaning service.
               </p>
             </div>
           </div>
+
+          {/* Booksy Widget Container */}
+          <div className="mx-auto max-w-5xl py-12">
+            <div
+              id="booksy-widget"
+              className="booksy-widget"
+              data-id="1498920"
+              data-country="us"
+              data-lang="en"
+            ></div>
+          </div>
+
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2">
             <div className="flex flex-col justify-center space-y-4">
               <div className="flex items-center space-x-3">
@@ -208,54 +265,12 @@ export default function Home() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Service Areas</h3>
-                <p className="text-gray-500">We proudly serve the greater metropolitan area and surrounding suburbs.</p>
+                <p className="text-gray-500">
+                  We proudly serve the greater metropolitan area and surrounding
+                  suburbs.
+                </p>
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Follow Us</h3>
                 <div className="flex space-x-4">
-                  <Link
-                    href="https://www.facebook.com/streamlined.cleaning.solution.s.2025/?viewas=100000686899395"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 transition-colors"
-                  >
-                    <Facebook className="h-6 w-6" />
-                    <span className="sr-only">Facebook</span>
-                  </Link>
-                  <Link
-                    href="https://x.com/StreamlinedCS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 transition-colors"
-                  >
-                    <Twitter className="h-6 w-6" />
-                    <span className="sr-only">X (Twitter)</span>
-                  </Link>
-                  <Link
-                    href="https://www.tiktok.com/@streamlined.clean"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 transition-colors"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      className="h-6 w-6"
-                    >
-                      <path d="M9.75 3a1.5 1.5 0 0 1 1.5-1.5h1.5a1.5 1.5 0 0 1 1.5 1.5c0 .828.672 1.5 1.5 1.5h.75a1.5 1.5 0 0 1 1.5 1.5v.938c0 .71-.578 1.288-1.288 1.288a6.75 6.75 0 0 1-2.962-.694v5.956a4.5 4.5 0 1 1-4.5-4" />
-                    </svg>
-                    <span className="sr-only">TikTok</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <ContactForm />
-          </div>
-        </div>
-      </section>
-
-      <SiteFooter />
-    </div>
-  );
-}
+                  <
