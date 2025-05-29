@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Sparkles, Clock, Shield, PhoneCall, Facebook, Twitter } from "lucide-react";
 import TestimonialCard from "@/components/testimonial-card";
 import ServiceCard from "@/components/service-card";
+import ContactForm from "@/components/contact-form";
+import SiteFooter from "@/components/site-footer";
 
 export default function Home() {
   return (
@@ -239,20 +244,19 @@ export default function Home() {
                       viewBox="0 0 24 24"
                       className="h-6 w-6"
                     >
-                      <path d="M9.75 3a1.5 1.5 0 0 1 1.5-1.5h1.5a1.5 1.5 0 0 1 1.5 1.5c0 .828.672 1.5 1.5 1.5h.75a1.5 1.5 0 0 1 1.5 1.5v.938c0 .71-.578 1.288-1.288 1.288a6.75 6.75 0 0 1-2.962-.694v5.956a4.5 4.5 0 1 1-4.5-4.5v-4.5z" />
+                      <path d="M9.75 3a1.5 1.5 0 0 1 1.5-1.5h1.5a1.5 1.5 0 0 1 1.5 1.5c0 .828.672 1.5 1.5 1.5h.75a1.5 1.5 0 0 1 1.5 1.5v.938c0 .71-.578 1.288-1.288 1.288a6.75 6.75 0 0 1-2.962-.694v5.956a4.5 4.5 0 1 1-4.5-4" />
                     </svg>
                     <span className="sr-only">TikTok</span>
                   </Link>
                 </div>
               </div>
             </div>
-            <div>
-              {/* You can add a contact form component here if you have one */}
-              {/* <ContactForm /> */}
-            </div>
+            <ContactForm />
           </div>
         </div>
       </section>
+
+      <SiteFooter />
     </div>
   );
 }
