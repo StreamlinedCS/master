@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import Script from "next/script";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Sparkles, Clock, Shield, PhoneCall, Facebook, Twitter } from "lucide-react";
 import TestimonialCard from "@/components/testimonial-card";
@@ -19,7 +18,7 @@ export default function Home() {
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-blue-700">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl text-blue-700">
                   Streamlined Cleaning Solutions
                 </h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl">
@@ -57,8 +56,8 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Why Choose Us</div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Cleaning Excellence, Every Time</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Cleaning Excellence, Every Time</h2>
+              <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
                 We combine professional expertise with attention to detail to deliver exceptional cleaning results.
               </p>
             </div>
@@ -102,8 +101,8 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Our Services</div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Professional Cleaning Solutions</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Professional Cleaning Solutions</h2>
+              <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
                 Tailored cleaning services to meet your specific needs.
               </p>
             </div>
@@ -154,8 +153,8 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Testimonials</div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">What Our Clients Say</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">What Our Clients Say</h2>
+              <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
                 Don't just take our word for it. Here's what our satisfied customers have to say.
               </p>
             </div>
@@ -189,8 +188,8 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Contact Us</div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Ready for a Cleaner Space?</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Ready for a Cleaner Space?</h2>
+              <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
                 Get in touch with us today for a free quote or to schedule your cleaning service.
               </p>
             </div>
