@@ -1,11 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, Sparkles, Clock, Shield, PhoneCall, Facebook, Twitter } from "lucide-react"
+import { CheckCircle, Sparkles, Clock, Shield, PhoneCall } from "lucide-react"
 import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
 import ContactForm from "@/components/contact-form"
 import SiteFooter from "@/components/site-footer"
+import { Facebook, Twitter } from "lucide-react"
 
 export default function Home() {
   return (
@@ -228,22 +229,6 @@ export default function Home() {
                   >
                     <Twitter className="h-6 w-6" />
                     <span className="sr-only">X (Twitter)</span>
-                  </Link>
-                  <Link
-                    href="https://www.tiktok.com/@streamlined.clean"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 transition-colors"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      className="h-6 w-6"
-                    >
-                      <path d="M9.75 3a1.5 1.5 0 0 1 1.5-1.5h1.5a1.5 1.5 0 0 1 1.5 1.5c0 .828.672 1.5 1.5 1.5h.75a1.5 1.5 0 0 1 1.5 1.5v.938c0 .71-.578 1.288-1.288 1.288a6.75 6.75 0 0 1-2.962-.694v5.956a4.5 4.5 0 1 1-4.5-4.5H9a.75.75 0 0 1 0 1.5h-.25a3 3 0 1 0 3 3V3h-2a.75.75 0 0 1-.75-.75Z"/>
-                    </svg>
-                    <span className="sr-only">TikTok</span>
                   </Link>
                 </div>
               </div>
