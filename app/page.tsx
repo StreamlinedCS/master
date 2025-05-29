@@ -26,11 +26,18 @@ import SiteFooter from "@/components/site-footer";
 
 export default function Home(): JSX.Element {
   useEffect(() => {
-    // Only add the Booksy widget script if the container exists
     const widgetContainer = document.getElementById("booksy-widget");
     if (!widgetContainer) {
       console.warn("Booksy widget container not found");
       return;
+    }
+
+    // Remove previous script if any
+    const existingScript = widgetContainer.querySelector(
+      'script[src*="booksy.com/widget/code.js"]'
+    );
+    if (existingScript) {
+      existingScript.remove();
     }
 
     const script = document.createElement("script");
@@ -45,7 +52,7 @@ export default function Home(): JSX.Element {
       console.error("Failed to load Booksy widget script");
     };
 
-    document.head.appendChild(script);
+    widgetContainer.appendChild(script);
 
     return () => {
       if (script.parentNode) {
@@ -270,8 +277,24 @@ export default function Home(): JSX.Element {
           </div>
 
           <div className="mt-12 flex flex-col items-center space-y-2 text-center text-gray-700">
-            <p>Call us: <a href="tel:+18636622847" className="text-blue-600 hover:underline">(863) 662-2847</a></p>
-            <p>Email: <a href="mailto:streamlinedcleaningsolutions@gmail.com" className="text-blue-600 hover:underline">streamlinedcleaningsolutions@gmail.com</a></p>
+            <p>
+              Call us:{" "}
+              <a
+                href="tel:+18636622847"
+                className="text-blue-600 hover:underline"
+              >
+                (863) 662-2847
+              </a>
+            </p>
+            <p>
+              Email:{" "}
+              <a
+                href="mailto:streamlinedcleaningsolutions@gmail.com"
+                className="text-blue-600 hover:underline"
+              >
+                streamlinedcleaningsolutions@gmail.com
+              </a>
+            </p>
             <div className="flex space-x-6 justify-center mt-4 text-blue-600">
               <a
                 href="https://www.facebook.com/StreamlinedCleaningSolutions"
@@ -279,7 +302,7 @@ export default function Home(): JSX.Element {
                 rel="noopener noreferrer"
                 aria-label="Facebook"
               >
-                <Facebook className="h-6 w-6" />
+                <Facebook size={24} />
               </a>
               <a
                 href="https://twitter.com/StreamlinedClean"
@@ -287,7 +310,7 @@ export default function Home(): JSX.Element {
                 rel="noopener noreferrer"
                 aria-label="Twitter"
               >
-                <Twitter className="h-6 w-6" />
+                <Twitter size={24} />
               </a>
             </div>
           </div>
