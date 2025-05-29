@@ -1,12 +1,15 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
+import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import {
   CheckCircle,
   Sparkles,
   Clock,
   Shield,
+  PhoneCall,
   Facebook,
   Twitter,
   Home,
@@ -22,28 +25,6 @@ import ContactForm from "@/components/contact-form";
 import SiteFooter from "@/components/site-footer";
 
 export default function Home(): JSX.Element {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://booksy.com/widget/code.js?id=1498920&country=us&lang=en";
-    script.async = true;
-
-    script.onload = () => {
-      console.log("Booksy widget script loaded successfully");
-    };
-    script.onerror = () => {
-      console.error("Failed to load Booksy widget script");
-    };
-
-    document.head.appendChild(script);
-
-    return () => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
-  }, []);
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -60,25 +41,13 @@ export default function Home(): JSX.Element {
                   your space shine so you can focus on what matters.
                 </p>
               </div>
-
-              {/* Updated Book Now button as direct external link */}
-              <div className="mt-6">
-                <a
-                  href="https://streamlinedcleaningsolutionsllc.booksy.com/a"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700"
-                >
-                  Book Now
-                </a>
+              <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+                  <Link href="https://streamlinedcleaningsolutionsllc.booksy.com/a" target="_blank" rel="noopener noreferrer">
+                    Book Now
+                  </Link>
+                </Button>
               </div>
-
-              {/* Booksy widget container (optional, can keep or remove) */}
-              <div
-                id="booksy-widget"
-                data-booksy-widget-id="1498920"
-                className="min-h-[400px] mt-6"
-              />
             </div>
             <div className="flex justify-center items-center">
               <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
@@ -107,8 +76,7 @@ export default function Home(): JSX.Element {
                 Cleaning Excellence, Every Time
               </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
-                We combine professional expertise with attention to detail to
-                deliver exceptional cleaning results.
+                We combine professional expertise with attention to detail to deliver exceptional cleaning results.
               </p>
             </div>
           </div>
@@ -162,45 +130,17 @@ export default function Home(): JSX.Element {
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-            <ServiceCard
-              title="Residential Cleaning"
-              description="Comprehensive home cleaning services customized to your preferences and schedule."
-              icon={<Home className="h-8 w-8 text-blue-600" />}
-            />
-            <ServiceCard
-              title="Commercial Cleaning"
-              description="Professional cleaning solutions for offices, retail spaces, and commercial properties."
-              icon={<Building2 className="h-8 w-8 text-blue-600" />}
-            />
-            <ServiceCard
-              title="Deep Cleaning"
-              description="Thorough cleaning of hard-to-reach areas and detailed attention to every surface."
-              icon={<Scan className="h-8 w-8 text-blue-600" />}
-            />
-            <ServiceCard
-              title="Move In/Out Cleaning"
-              description="Prepare your new home or leave your old one spotless with our specialized service."
-              icon={<Truck className="h-8 w-8 text-blue-600" />}
-            />
-            <ServiceCard
-              title="Post-Construction"
-              description="Remove dust, debris, and construction residue after renovation or building projects."
-              icon={<Hammer className="h-8 w-8 text-blue-600" />}
-            />
-            <ServiceCard
-              title="Specialized Services"
-              description="Carpet cleaning, window washing, and other specialized cleaning solutions."
-              icon={<Star className="h-8 w-8 text-blue-600" />}
-            />
+            <ServiceCard title="Residential Cleaning" description="Comprehensive home cleaning services customized to your preferences and schedule." icon={<Home className="h-8 w-8 text-blue-600" />} />
+            <ServiceCard title="Commercial Cleaning" description="Professional cleaning solutions for offices, retail spaces, and commercial properties." icon={<Building2 className="h-8 w-8 text-blue-600" />} />
+            <ServiceCard title="Deep Cleaning" description="Thorough cleaning of hard-to-reach areas and detailed attention to every surface." icon={<Scan className="h-8 w-8 text-blue-600" />} />
+            <ServiceCard title="Move In/Out Cleaning" description="Prepare your new home or leave your old one spotless with our specialized service." icon={<Truck className="h-8 w-8 text-blue-600" />} />
+            <ServiceCard title="Post-Construction" description="Remove dust, debris, and construction residue after renovation or building projects." icon={<Hammer className="h-8 w-8 text-blue-600" />} />
+            <ServiceCard title="Specialized Services" description="Carpet cleaning, window washing, and other specialized cleaning solutions." icon={<Star className="h-8 w-8 text-blue-600" />} />
           </div>
           <div className="flex justify-center">
-            <button
-              disabled
-              className="cursor-not-allowed bg-blue-600 px-6 py-3 text-white rounded opacity-50"
-              title="Use Book Now to book online"
-            >
-              Request a Quote
-            </button>
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Link href="#contact">Request a Quote</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -217,39 +157,20 @@ export default function Home(): JSX.Element {
                 What Our Clients Say
               </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
-                Don't just take our word for it. Here's what our satisfied customers
-                have to say.
+                Don't just take our word for it. Here's what our satisfied customers have to say.
               </p>
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-            <TestimonialCard
-              quote="Streamlined Cleaning Solutions transformed my home. Their attention to detail is remarkable!"
-              author="Sarah"
-              role="Homeowner"
-              rating={5}
-            />
-            <TestimonialCard
-              quote="As a business owner, I need reliable cleaning services. They never disappoint and always exceed expectations."
-              author="Michael"
-              role="Office Manager"
-              rating={5}
-            />
-            <TestimonialCard
-              quote="I've tried many cleaning services, but none compare to the quality and consistency of Streamlined Cleaning."
-              author="Jennifer"
-              role="Property Manager"
-              rating={5}
-            />
+            <TestimonialCard quote="Streamlined Cleaning Solutions transformed my home. Their attention to detail is remarkable!" author="Sarah" role="Homeowner" rating={5} />
+            <TestimonialCard quote="As a business owner, I need reliable cleaning services. They never disappoint and always exceed expectations." author="Michael" role="Office Manager" rating={5} />
+            <TestimonialCard quote="I've tried many cleaning services, but none compare to the quality and consistency of Streamlined Cleaning." author="Jennifer" role="Property Manager" rating={5} />
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section
-        className="w-full py-12 md:py-24 lg:py-32 bg-blue-50"
-        id="contact"
-      >
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50" id="contact">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -264,51 +185,33 @@ export default function Home(): JSX.Element {
               </p>
             </div>
           </div>
-
           <div className="mx-auto max-w-3xl py-12">
             <ContactForm />
           </div>
-
           <div className="mt-12 flex flex-col items-center space-y-2 text-center text-gray-700">
-            <p>
-              Call us:{" "}
-              <a
-                href="tel:+18636622847"
-                className="text-blue-600 hover:underline"
-              >
-                (863) 662-2847
-              </a>
-            </p>
-            <p>
-              Email:{" "}
-              <a
-                href="mailto:streamlinedcleaningsolutions@gmail.com"
-                className="text-blue-600 hover:underline"
-              >
-                streamlinedcleaningsolutions@gmail.com
-              </a>
-            </p>
+            <p>Call us: <a href="tel:+18636622847" className="text-blue-600 hover:underline">(863) 662-2847</a></p>
+            <p>Email: <a href="mailto:streamlinedcleaningsolutions@gmail.com" className="text-blue-600 hover:underline">streamlinedcleaningsolutions@gmail.com</a></p>
             <div className="flex space-x-6 justify-center mt-4 text-blue-600">
-              <a
-                href="https://www.facebook.com/StreamlinedCleaningSolutions"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-              >
+              <a href="https://www.facebook.com/StreamlinedCleaningSolutions" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <Facebook className="h-6 w-6" />
               </a>
-              <a
-                href="https://twitter.com/StreamlinedClean"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-              >
+              <a href="https://twitter.com/StreamlinedClean" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <Twitter className="h-6 w-6" />
               </a>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Business Hours & Service Area */}
+      <div className="text-center text-sm text-gray-600 mt-12 px-4">
+        <p className="font-semibold">Business Hours</p>
+        <p>Monday – Saturday: 8:00 AM – 6:00 PM</p>
+        <p>Sunday: Closed</p>
+        <div className="mt-4">
+          <p>We proudly serve Lakeland and the greater Central Florida area.</p>
+        </div>
+      </div>
 
       {/* Footer */}
       <SiteFooter />
