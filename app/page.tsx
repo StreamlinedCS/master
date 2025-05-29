@@ -20,16 +20,33 @@ import SiteFooter from "@/components/site-footer";
 
 export default function Home() {
   useEffect(() => {
-    // Dynamically load Booksy widget script
+    // Only add the Booksy widget script if the container exists
+    const widgetContainer = document.getElementById("booksy-widget");
+    if (!widgetContainer) {
+      console.warn("Booksy widget container not found");
+      return;
+    }
+
     const script = document.createElement("script");
     script.src =
       "https://booksy.com/widget/code.js?id=1498920&country=us&lang=en";
     script.async = true;
-    document.body.appendChild(script);
+
+    // Log when script loads to help debugging
+    script.onload = () => {
+      console.log("Booksy widget script loaded successfully");
+    };
+    script.onerror = () => {
+      console.error("Failed to load Booksy widget script");
+    };
+
+    // Append to <head> (usually preferred for widget scripts)
+    document.head.appendChild(script);
 
     return () => {
-      // Cleanup script on component unmount
-      document.body.removeChild(script);
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
     };
   }, []);
 
@@ -282,12 +299,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
             <ContactForm />
           </div>
         </div>
       </section>
 
+      {/* Footer */}
       <SiteFooter />
     </div>
   );
