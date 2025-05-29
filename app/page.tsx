@@ -273,4 +273,22 @@ export default function Home() {
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Follow Us</h3>
                 <div className="flex space-x-4">
-                  <
+                  <Link href="https://www.facebook.com/StreamlinedCleaningSolutions" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <Facebook className="h-6 w-6 text-blue-600 hover:text-blue-800" />
+                  </Link>
+                  <Link href="https://twitter.com/StreamlinedCS" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <Twitter className="h-6 w-6 text-blue-600 hover:text-blue-800" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+
+      <SiteFooter />
+    </div>
+  );
+}
