@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,6 +9,7 @@ import {
   Sparkles,
   Clock,
   Shield,
+  PhoneCall,
   Facebook,
   Twitter,
   Home,
@@ -23,6 +25,35 @@ import ContactForm from "@/components/contact-form";
 import SiteFooter from "@/components/site-footer";
 
 export default function Home(): JSX.Element {
+  useEffect(() => {
+    // Only add the Booksy widget script if the container exists
+    const widgetContainer = document.getElementById("booksy-widget");
+    if (!widgetContainer) {
+      console.warn("Booksy widget container not found");
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src =
+      "https://booksy.com/widget/code.js?id=1498920&country=us&lang=en";
+    script.async = true;
+
+    script.onload = () => {
+      console.log("Booksy widget script loaded successfully");
+    };
+    script.onerror = () => {
+      console.error("Failed to load Booksy widget script");
+    };
+
+    document.head.appendChild(script);
+
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -40,17 +71,25 @@ export default function Home(): JSX.Element {
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
                   <a
                     href="https://streamlinedcleaningsolutionsllc.booksy.com/a"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="block w-full h-full"
                   >
                     Book Now
                   </a>
                 </Button>
                 {/* Removed "Our Services" button here */}
               </div>
+
+              {/* Booksy widget container under Book Now */}
+              <div
+                id="booksy-widget"
+                data-booksy-widget-id="1498920"
+                className="min-h-[400px] mt-6"
+              />
             </div>
             <div className="flex justify-center items-center">
               <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
@@ -167,13 +206,7 @@ export default function Home(): JSX.Element {
           </div>
           <div className="flex justify-center">
             <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-              <a
-                href="https://streamlinedcleaningsolutionsllc.booksy.com/a"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Request a Quote
-              </a>
+              <Link href="#contact">Request a Quote</Link>
             </Button>
           </div>
         </div>
@@ -244,24 +277,8 @@ export default function Home(): JSX.Element {
           </div>
 
           <div className="mt-12 flex flex-col items-center space-y-2 text-center text-gray-700">
-            <p>
-              Call us:{" "}
-              <a
-                href="tel:+18636622847"
-                className="text-blue-600 hover:underline"
-              >
-                (863) 662-2847
-              </a>
-            </p>
-            <p>
-              Email:{" "}
-              <a
-                href="mailto:streamlinedcleaningsolutions@gmail.com"
-                className="text-blue-600 hover:underline"
-              >
-                streamlinedcleaningsolutions@gmail.com
-              </a>
-            </p>
+            <p>Call us: <a href="tel:+18636622847" className="text-blue-600 hover:underline">(863) 662-2847</a></p>
+            <p>Email: <a href="mailto:streamlinedcleaningsolutions@gmail.com" className="text-blue-600 hover:underline">streamlinedcleaningsolutions@gmail.com</a></p>
             <div className="flex space-x-6 justify-center mt-4 text-blue-600">
               <a
                 href="https://www.facebook.com/StreamlinedCleaningSolutions"
