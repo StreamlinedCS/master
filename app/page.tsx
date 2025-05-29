@@ -266,6 +266,7 @@ export default function Home(): JSX.Element {
             <ContactForm />
           </div>
 
+          {/* Booksy Widget inserted here */}
           <div className="mx-auto max-w-3xl">
             <div
               id="booksy-widget"
@@ -275,8 +276,24 @@ export default function Home(): JSX.Element {
           </div>
 
           <div className="mt-12 flex flex-col items-center space-y-2 text-center text-gray-700">
-            <p>Call us: <a href="tel:+18636622847" className="text-blue-600 hover:underline">(863) 662-2847</a></p>
-            <p>Email: <a href="mailto:streamlinedcleaningsolutions@gmail.com" className="text-blue-600 hover:underline">streamlinedcleaningsolutions@gmail.com</a></p>
+            <p>
+              Call us:{" "}
+              <a
+                href="tel:+18636622847"
+                className="text-blue-600 hover:underline"
+              >
+                (863) 662-2847
+              </a>
+            </p>
+            <p>
+              Email:{" "}
+              <a
+                href="mailto:streamlinedcleaningsolutions@gmail.com"
+                className="text-blue-600 hover:underline"
+              >
+                streamlinedcleaningsolutions@gmail.com
+              </a>
+            </p>
             <div className="flex space-x-6 justify-center mt-4 text-blue-600">
               <a
                 href="https://www.facebook.com/StreamlinedCleaningSolutions"
