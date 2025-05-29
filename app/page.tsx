@@ -1,15 +1,12 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import {
   CheckCircle,
   Sparkles,
   Clock,
   Shield,
-  PhoneCall,
   Facebook,
   Twitter,
   Home,
@@ -26,13 +23,6 @@ import SiteFooter from "@/components/site-footer";
 
 export default function Home(): JSX.Element {
   useEffect(() => {
-    // Only add the Booksy widget script if the container exists
-    const widgetContainer = document.getElementById("booksy-widget");
-    if (!widgetContainer) {
-      console.warn("Booksy widget container not found");
-      return;
-    }
-
     const script = document.createElement("script");
     script.src =
       "https://booksy.com/widget/code.js?id=1498920&country=us&lang=en";
@@ -70,21 +60,20 @@ export default function Home(): JSX.Element {
                   your space shine so you can focus on what matters.
                 </p>
               </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  <a
-                    href="https://streamlinedcleaningsolutionsllc.booksy.com/a"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full h-full"
-                  >
-                    Book Now
-                  </a>
-                </Button>
-                {/* Removed "Our Services" button here */}
+
+              {/* Updated Book Now button as direct external link */}
+              <div className="mt-6">
+                <a
+                  href="https://streamlinedcleaningsolutionsllc.booksy.com/a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700"
+                >
+                  Book Now
+                </a>
               </div>
 
-              {/* Booksy widget container under Book Now */}
+              {/* Booksy widget container (optional, can keep or remove) */}
               <div
                 id="booksy-widget"
                 data-booksy-widget-id="1498920"
@@ -205,9 +194,13 @@ export default function Home(): JSX.Element {
             />
           </div>
           <div className="flex justify-center">
-            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-              <Link href="#contact">Request a Quote</Link>
-            </Button>
+            <button
+              disabled
+              className="cursor-not-allowed bg-blue-600 px-6 py-3 text-white rounded opacity-50"
+              title="Use Book Now to book online"
+            >
+              Request a Quote
+            </button>
           </div>
         </div>
       </section>
@@ -277,8 +270,24 @@ export default function Home(): JSX.Element {
           </div>
 
           <div className="mt-12 flex flex-col items-center space-y-2 text-center text-gray-700">
-            <p>Call us: <a href="tel:+18636622847" className="text-blue-600 hover:underline">(863) 662-2847</a></p>
-            <p>Email: <a href="mailto:streamlinedcleaningsolutions@gmail.com" className="text-blue-600 hover:underline">streamlinedcleaningsolutions@gmail.com</a></p>
+            <p>
+              Call us:{" "}
+              <a
+                href="tel:+18636622847"
+                className="text-blue-600 hover:underline"
+              >
+                (863) 662-2847
+              </a>
+            </p>
+            <p>
+              Email:{" "}
+              <a
+                href="mailto:streamlinedcleaningsolutions@gmail.com"
+                className="text-blue-600 hover:underline"
+              >
+                streamlinedcleaningsolutions@gmail.com
+              </a>
+            </p>
             <div className="flex space-x-6 justify-center mt-4 text-blue-600">
               <a
                 href="https://www.facebook.com/StreamlinedCleaningSolutions"
