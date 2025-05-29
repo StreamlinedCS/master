@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
-import Link from "next/link";
+import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,7 +8,6 @@ import {
   Sparkles,
   Clock,
   Shield,
-  PhoneCall,
   Facebook,
   Twitter,
   Home,
@@ -25,42 +23,6 @@ import ContactForm from "@/components/contact-form";
 import SiteFooter from "@/components/site-footer";
 
 export default function Home(): JSX.Element {
-  useEffect(() => {
-    const widgetContainer = document.getElementById("booksy-widget");
-    if (!widgetContainer) {
-      console.warn("Booksy widget container not found");
-      return;
-    }
-
-    // Remove previous script if any
-    const existingScript = widgetContainer.querySelector(
-      'script[src*="booksy.com/widget/code.js"]'
-    );
-    if (existingScript) {
-      existingScript.remove();
-    }
-
-    const script = document.createElement("script");
-    script.src =
-      "https://booksy.com/widget/code.js?id=1498920&country=us&lang=en";
-    script.async = true;
-
-    script.onload = () => {
-      console.log("Booksy widget script loaded successfully");
-    };
-    script.onerror = () => {
-      console.error("Failed to load Booksy widget script");
-    };
-
-    widgetContainer.appendChild(script);
-
-    return () => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
-  }, []);
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -79,17 +41,16 @@ export default function Home(): JSX.Element {
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  <Link href="#contact">Book Now</Link>
+                  <a
+                    href="https://streamlinedcleaningsolutionsllc.booksy.com/a"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Book Now
+                  </a>
                 </Button>
                 {/* Removed "Our Services" button here */}
               </div>
-
-              {/* Booksy widget container under Book Now */}
-              <div
-                id="booksy-widget"
-                data-booksy-widget-id="1498920"
-                className="min-h-[400px] mt-6"
-              />
             </div>
             <div className="flex justify-center items-center">
               <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
@@ -206,7 +167,13 @@ export default function Home(): JSX.Element {
           </div>
           <div className="flex justify-center">
             <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-              <Link href="#contact">Request a Quote</Link>
+              <a
+                href="https://streamlinedcleaningsolutionsllc.booksy.com/a"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Request a Quote
+              </a>
             </Button>
           </div>
         </div>
@@ -302,7 +269,7 @@ export default function Home(): JSX.Element {
                 rel="noopener noreferrer"
                 aria-label="Facebook"
               >
-                <Facebook size={24} />
+                <Facebook className="h-6 w-6" />
               </a>
               <a
                 href="https://twitter.com/StreamlinedClean"
@@ -310,7 +277,7 @@ export default function Home(): JSX.Element {
                 rel="noopener noreferrer"
                 aria-label="Twitter"
               >
-                <Twitter size={24} />
+                <Twitter className="h-6 w-6" />
               </a>
             </div>
           </div>
