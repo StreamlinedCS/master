@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -12,13 +12,19 @@ import {
   PhoneCall,
   Facebook,
   Twitter,
+  Home,
+  Building2,
+  Scan,
+  Truck,
+  Hammer,
+  Star,
 } from "lucide-react";
 import TestimonialCard from "@/components/testimonial-card";
 import ServiceCard from "@/components/service-card";
 import ContactForm from "@/components/contact-form";
 import SiteFooter from "@/components/site-footer";
 
-export default function Home() {
+export default function Home(): JSX.Element {
   useEffect(() => {
     // Only add the Booksy widget script if the container exists
     const widgetContainer = document.getElementById("booksy-widget");
@@ -160,32 +166,32 @@ export default function Home() {
             <ServiceCard
               title="Residential Cleaning"
               description="Comprehensive home cleaning services customized to your preferences and schedule."
-              icon="Home"
+              icon={<Home className="h-8 w-8 text-blue-600" />}
             />
             <ServiceCard
               title="Commercial Cleaning"
               description="Professional cleaning solutions for offices, retail spaces, and commercial properties."
-              icon="Building2"
+              icon={<Building2 className="h-8 w-8 text-blue-600" />}
             />
             <ServiceCard
               title="Deep Cleaning"
               description="Thorough cleaning of hard-to-reach areas and detailed attention to every surface."
-              icon="Scan"
+              icon={<Scan className="h-8 w-8 text-blue-600" />}
             />
             <ServiceCard
               title="Move In/Out Cleaning"
               description="Prepare your new home or leave your old one spotless with our specialized service."
-              icon="Truck"
+              icon={<Truck className="h-8 w-8 text-blue-600" />}
             />
             <ServiceCard
               title="Post-Construction"
               description="Remove dust, debris, and construction residue after renovation or building projects."
-              icon="Hammer"
+              icon={<Hammer className="h-8 w-8 text-blue-600" />}
             />
             <ServiceCard
               title="Specialized Services"
               description="Carpet cleaning, window washing, and other specialized cleaning solutions."
-              icon="Star"
+              icon={<Star className="h-8 w-8 text-blue-600" />}
             />
           </div>
           <div className="flex justify-center">
@@ -251,55 +257,44 @@ export default function Home() {
                 Ready for a Cleaner Space?
               </h2>
               <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
-                Get in touch with us today for a free quote or to schedule your
-                cleaning service.
+                Get in touch with us today for a free quote or to book a service.
               </p>
             </div>
           </div>
 
-          {/* Booksy Widget Container */}
-          <div className="mx-auto max-w-5xl py-12">
-            <div
-              id="booksy-widget"
-              className="booksy-widget"
-              data-id="1498920"
-              data-country="us"
-              data-lang="en"
-            ></div>
+          <div className="mx-auto max-w-3xl py-12">
+            <ContactForm />
           </div>
 
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="flex items-center space-x-3">
-                <PhoneCall className="h-6 w-6 text-blue-600" />
-                <span className="text-lg font-medium">Call us: (863) 662-2847</span>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-xl font-bold">Business Hours</h3>
-                <p className="text-gray-500">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                <p className="text-gray-500">Saturday: 9:00 AM - 4:00 PM</p>
-                <p className="text-gray-500">Sunday: Closed</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-xl font-bold">Service Areas</h3>
-                <p className="text-gray-500">
-                  We proudly serve the greater metropolitan area and surrounding
-                  suburbs.
-                </p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-xl font-bold">Follow Us</h3>
-                <div className="flex space-x-4">
-                  <Link href="https://www.facebook.com/StreamlinedCleaningSolutions" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <Facebook className="h-6 w-6 text-blue-600 hover:text-blue-800" />
-                  </Link>
-                  <Link href="https://twitter.com/StreamlinedCS" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                    <Twitter className="h-6 w-6 text-blue-600 hover:text-blue-800" />
-                  </Link>
-                </div>
-              </div>
+          <div className="mx-auto max-w-3xl">
+            <div
+              id="booksy-widget"
+              data-booksy-widget-id="1498920"
+              className="min-h-[400px]"
+            />
+          </div>
+
+          <div className="mt-12 flex flex-col items-center space-y-2 text-center text-gray-700">
+            <p>Call us: <a href="tel:+18636622847" className="text-blue-600 hover:underline">(863) 662-2847</a></p>
+            <p>Email: <a href="mailto:streamlinedcleaningsolutions@gmail.com" className="text-blue-600 hover:underline">streamlinedcleaningsolutions@gmail.com</a></p>
+            <div className="flex space-x-6 justify-center mt-4 text-blue-600">
+              <a
+                href="https://www.facebook.com/StreamlinedCleaningSolutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-6 w-6" />
+              </a>
+              <a
+                href="https://twitter.com/StreamlinedClean"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
+                <Twitter className="h-6 w-6" />
+              </a>
             </div>
-            <ContactForm />
           </div>
         </div>
       </section>
