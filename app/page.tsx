@@ -38,7 +38,6 @@ export default function Home(): JSX.Element {
       "https://booksy.com/widget/code.js?id=1498920&country=us&lang=en";
     script.async = true;
 
-    // Log when script loads to help debugging
     script.onload = () => {
       console.log("Booksy widget script loaded successfully");
     };
@@ -46,7 +45,6 @@ export default function Home(): JSX.Element {
       console.error("Failed to load Booksy widget script");
     };
 
-    // Append to <head> (usually preferred for widget scripts)
     document.head.appendChild(script);
 
     return () => {
@@ -76,10 +74,15 @@ export default function Home(): JSX.Element {
                 <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
                   <Link href="#contact">Book Now</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="#services">Our Services</Link>
-                </Button>
+                {/* Removed "Our Services" button here */}
               </div>
+
+              {/* Booksy widget container under Book Now */}
+              <div
+                id="booksy-widget"
+                data-booksy-widget-id="1498920"
+                className="min-h-[400px] mt-6"
+              />
             </div>
             <div className="flex justify-center items-center">
               <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
@@ -266,34 +269,9 @@ export default function Home(): JSX.Element {
             <ContactForm />
           </div>
 
-          {/* Booksy Widget inserted here */}
-          <div className="mx-auto max-w-3xl">
-            <div
-              id="booksy-widget"
-              data-booksy-widget-id="1498920"
-              className="min-h-[400px]"
-            />
-          </div>
-
           <div className="mt-12 flex flex-col items-center space-y-2 text-center text-gray-700">
-            <p>
-              Call us:{" "}
-              <a
-                href="tel:+18636622847"
-                className="text-blue-600 hover:underline"
-              >
-                (863) 662-2847
-              </a>
-            </p>
-            <p>
-              Email:{" "}
-              <a
-                href="mailto:streamlinedcleaningsolutions@gmail.com"
-                className="text-blue-600 hover:underline"
-              >
-                streamlinedcleaningsolutions@gmail.com
-              </a>
-            </p>
+            <p>Call us: <a href="tel:+18636622847" className="text-blue-600 hover:underline">(863) 662-2847</a></p>
+            <p>Email: <a href="mailto:streamlinedcleaningsolutions@gmail.com" className="text-blue-600 hover:underline">streamlinedcleaningsolutions@gmail.com</a></p>
             <div className="flex space-x-6 justify-center mt-4 text-blue-600">
               <a
                 href="https://www.facebook.com/StreamlinedCleaningSolutions"
