@@ -196,7 +196,7 @@ export default function Home() {
             <div className="flex flex-col justify-center space-y-4">
               <div className="flex items-center space-x-3">
                 <PhoneCall className="h-6 w-6 text-blue-600" />
-                <span className="text-lg font-medium">Call us: (863) 662-2874</span>
+                <span className="text-lg font-medium">Call us: (863) 662-2847</span>
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Business Hours</h3>
