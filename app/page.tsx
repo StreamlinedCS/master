@@ -25,37 +25,39 @@ export default function Home() {
                   what matters.
                 </p>
               </div>
-
-              {/* Square Book Now button */}
-              <a
-                target="_top"
-                href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
-                rel="nofollow"
-                style={{
-                  backgroundColor: "#006aff",
-                  border: "none",
-                  color: "white",
-                  height: "40px",
-                  textTransform: "uppercase",
-                  fontFamily: "'Square Market', sans-serif",
-                  letterSpacing: "1px",
-                  lineHeight: "38px",
-                  padding: "0 28px",
-                  borderRadius: "8px",
-                  fontWeight: "500",
-                  fontSize: "14px",
-                  cursor: "pointer",
-                  display: "inline-block",
-                  marginBottom: "1rem"
-                }}
-              >
-                Book now
-              </a>
-
-              {/* Our Services button only */}
-              <Button asChild variant="outline" size="lg">
-                <Link href="#services">Our Services</Link>
-              </Button>
+              <div className="flex flex-col gap-4 min-[400px]:flex-row">
+                {/* Square Book Now button */}
+                <a
+                  target="_top"
+                  href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
+                  rel="nofollow"
+                  style={{
+                    backgroundColor: "#006aff",
+                    border: "none",
+                    color: "white",
+                    height: "40px",
+                    textTransform: "uppercase",
+                    fontFamily: "'Square Market', sans-serif",
+                    letterSpacing: "1px",
+                    lineHeight: "38px",
+                    padding: "0 28px",
+                    borderRadius: "8px",
+                    fontWeight: "500",
+                    fontSize: "14px",
+                    cursor: "pointer",
+                    display: "inline-block",
+                    width: "auto",
+                    minWidth: "120px",
+                    textAlign: "center",
+                  }}
+                >
+                  Book now
+                </a>
+                {/* Our Services button */}
+                <Button asChild variant="outline" size="lg" className="w-auto">
+                  <Link href="#services">Our Services</Link>
+                </Button>
+              </div>
             </div>
             <div className="flex justify-center items-center">
               <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
@@ -162,7 +164,7 @@ export default function Home() {
             />
           </div>
           <div className="flex justify-center">
-            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 w-auto">
               <Link href="#contact">Request a Quote</Link>
             </Button>
           </div>
@@ -189,15 +191,15 @@ export default function Home() {
               rating={5}
             />
             <TestimonialCard
-              quote="Professional, reliable, and thorough. Highly recommended for office cleaning."
+              quote="As a business owner, I need reliable cleaning services. They never disappoint and always exceed expectations."
               author="Michael"
-              role="Business Owner"
+              role="Office Manager"
               rating={5}
             />
             <TestimonialCard
-              quote="They made moving out stress-free with their excellent move-out cleaning service."
-              author="Jessica"
-              role="Apartment Renter"
+              quote="I've tried many cleaning services, but none compare to the quality and consistency of Streamlined Cleaning."
+              author="Jennifer"
+              role="Property Manager"
               rating={5}
             />
           </div>
