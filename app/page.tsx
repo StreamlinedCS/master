@@ -1,30 +1,14 @@
-"use client";
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { CheckCircle, Sparkles, Clock, Shield, PhoneCall } from "lucide-react"
+import TestimonialCard from "@/components/testimonial-card"
+import ServiceCard from "@/components/service-card"
+import ContactForm from "@/components/contact-form"
+import SiteFooter from "@/components/site-footer"
+import { Facebook, Twitter } from "lucide-react"
 
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import {
-  CheckCircle,
-  Sparkles,
-  Clock,
-  Shield,
-  PhoneCall,
-  Facebook,
-  Twitter,
-  Home,
-  Building2,
-  Scan,
-  Truck,
-  Hammer,
-  Star,
-} from "lucide-react";
-import TestimonialCard from "@/components/testimonial-card";
-import ServiceCard from "@/components/service-card";
-import ContactForm from "@/components/contact-form";
-import SiteFooter from "@/components/site-footer";
-
-export default function Home(): JSX.Element {
+export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -33,19 +17,20 @@ export default function Home(): JSX.Element {
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl text-blue-700">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-blue-700">
                   Streamlined Cleaning Solutions
                 </h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl">
-                  Professional cleaning services tailored to your needs. We make
-                  your space shine so you can focus on what matters.
+                  Professional cleaning services tailored to your needs. We make your space shine so you can focus on
+                  what matters.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  <Link href="https://streamlinedcleaningsolutionsllc.booksy.com/a" target="_blank" rel="noopener noreferrer">
-                    Book Now
-                  </Link>
+                  <Link href="#contact">Book Now</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <Link href="#services">Our Services</Link>
                 </Button>
               </div>
             </div>
@@ -69,13 +54,9 @@ export default function Home(): JSX.Element {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">
-                Why Choose Us
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                Cleaning Excellence, Every Time
-              </h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
+              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Why Choose Us</div>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Cleaning Excellence, Every Time</h2>
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 We combine professional expertise with attention to detail to deliver exceptional cleaning results.
               </p>
             </div>
@@ -118,24 +99,44 @@ export default function Home(): JSX.Element {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">
-                Our Services
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                Professional Cleaning Solutions
-              </h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
+              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Our Services</div>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Professional Cleaning Solutions</h2>
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Tailored cleaning services to meet your specific needs.
               </p>
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-            <ServiceCard title="Residential Cleaning" description="Comprehensive home cleaning services customized to your preferences and schedule." icon={<Home className="h-8 w-8 text-blue-600" />} />
-            <ServiceCard title="Commercial Cleaning" description="Professional cleaning solutions for offices, retail spaces, and commercial properties." icon={<Building2 className="h-8 w-8 text-blue-600" />} />
-            <ServiceCard title="Deep Cleaning" description="Thorough cleaning of hard-to-reach areas and detailed attention to every surface." icon={<Scan className="h-8 w-8 text-blue-600" />} />
-            <ServiceCard title="Move In/Out Cleaning" description="Prepare your new home or leave your old one spotless with our specialized service." icon={<Truck className="h-8 w-8 text-blue-600" />} />
-            <ServiceCard title="Post-Construction" description="Remove dust, debris, and construction residue after renovation or building projects." icon={<Hammer className="h-8 w-8 text-blue-600" />} />
-            <ServiceCard title="Specialized Services" description="Carpet cleaning, window washing, and other specialized cleaning solutions." icon={<Star className="h-8 w-8 text-blue-600" />} />
+            <ServiceCard
+              title="Residential Cleaning"
+              description="Comprehensive home cleaning services customized to your preferences and schedule."
+              icon="Home"
+            />
+            <ServiceCard
+              title="Commercial Cleaning"
+              description="Professional cleaning solutions for offices, retail spaces, and commercial properties."
+              icon="Building2"
+            />
+            <ServiceCard
+              title="Deep Cleaning"
+              description="Thorough cleaning of hard-to-reach areas and detailed attention to every surface."
+              icon="Scan"
+            />
+            <ServiceCard
+              title="Move In/Out Cleaning"
+              description="Prepare your new home or leave your old one spotless with our specialized service."
+              icon="Truck"
+            />
+            <ServiceCard
+              title="Post-Construction"
+              description="Remove dust, debris, and construction residue after renovation or building projects."
+              icon="Hammer"
+            />
+            <ServiceCard
+              title="Specialized Services"
+              description="Carpet cleaning, window washing, and other specialized cleaning solutions."
+              icon="Star"
+            />
           </div>
           <div className="flex justify-center">
             <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
@@ -150,21 +151,32 @@ export default function Home(): JSX.Element {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">
-                Testimonials
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                What Our Clients Say
-              </h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
+              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Testimonials</div>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">What Our Clients Say</h2>
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Don't just take our word for it. Here's what our satisfied customers have to say.
               </p>
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-            <TestimonialCard quote="Streamlined Cleaning Solutions transformed my home. Their attention to detail is remarkable!" author="Sarah" role="Homeowner" rating={5} />
-            <TestimonialCard quote="As a business owner, I need reliable cleaning services. They never disappoint and always exceed expectations." author="Michael" role="Office Manager" rating={5} />
-            <TestimonialCard quote="I've tried many cleaning services, but none compare to the quality and consistency of Streamlined Cleaning." author="Jennifer" role="Property Manager" rating={5} />
+            <TestimonialCard
+              quote="Streamlined Cleaning Solutions transformed my home. Their attention to detail is remarkable!"
+              author="Sarah"
+              role="Homeowner"
+              rating={5}
+            />
+            <TestimonialCard
+              quote="As a business owner, I need reliable cleaning services. They never disappoint and always exceed expectations."
+              author="Michael"
+              role="Office Manager"
+              rating={5}
+            />
+            <TestimonialCard
+              quote="I've tried many cleaning services, but none compare to the quality and consistency of Streamlined Cleaning."
+              author="Jennifer"
+              role="Property Manager"
+              rating={5}
+            />
           </div>
         </div>
       </section>
@@ -174,47 +186,62 @@ export default function Home(): JSX.Element {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">
-                Contact Us
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                Ready for a Cleaner Space?
-              </h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl lg:text-base xl:text-xl">
-                Get in touch with us today for a free quote or to book a service.
+              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Contact Us</div>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Ready for a Cleaner Space?</h2>
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Get in touch with us today for a free quote or to schedule your cleaning service.
               </p>
             </div>
           </div>
-          <div className="mx-auto max-w-3xl py-12">
-            <ContactForm />
-          </div>
-          <div className="mt-12 flex flex-col items-center space-y-2 text-center text-gray-700">
-            <p>Call us: <a href="tel:+18636622847" className="text-blue-600 hover:underline">(863) 662-2847</a></p>
-            <p>Email: <a href="mailto:streamlinedcleaningsolutions@gmail.com" className="text-blue-600 hover:underline">streamlinedcleaningsolutions@gmail.com</a></p>
-            <div className="flex space-x-6 justify-center mt-4 text-blue-600">
-              <a href="https://www.facebook.com/StreamlinedCleaningSolutions" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <Facebook className="h-6 w-6" />
-              </a>
-              <a href="https://twitter.com/StreamlinedClean" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <Twitter className="h-6 w-6" />
-              </a>
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2">
+            <div className="flex flex-col justify-center space-y-4">
+              <div className="flex items-center space-x-3">
+                <PhoneCall className="h-6 w-6 text-blue-600" />
+                <span className="text-lg font-medium">Call us: (863) 662-2847</span>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold">Business Hours</h3>
+                <p className="text-gray-500">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                <p className="text-gray-500">Saturday: 9:00 AM - 4:00 PM</p>
+                <p className="text-gray-500">Sunday: Closed</p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold">Service Areas</h3>
+                <p className="text-gray-500">We proudly serve the greater metropolitan area and surrounding suburbs.</p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold">Follow Us</h3>
+                <div className="flex space-x-4">
+                  <Link
+                    href="https://www.facebook.com/streamlined.cleaning.solution.s.2025/?viewas=100000686899395"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    <Facebook className="h-6 w-6" />
+                    <span className="sr-only">Facebook</span>
+                  </Link>
+                  <Link
+                    href="https://x.com/StreamlinedCS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    <Twitter className="h-6 w-6" />
+                    <span className="sr-only">X (Twitter)</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-lg border bg-white p-6 shadow-sm">
+              <ContactForm />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Business Hours & Service Area */}
-      <div className="text-center text-sm text-gray-600 mt-12 px-4">
-        <p className="font-semibold">Business Hours</p>
-        <p>Monday – Saturday: 8:00 AM – 6:00 PM</p>
-        <p>Sunday: Closed</p>
-        <div className="mt-4">
-          <p>We proudly serve Lakeland and the greater Central Florida area.</p>
-        </div>
-      </div>
-
       {/* Footer */}
       <SiteFooter />
     </div>
-  );
+  )
 }
