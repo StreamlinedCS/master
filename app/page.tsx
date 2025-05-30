@@ -1,11 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, Sparkles, Clock, Shield, PhoneCall, Facebook, Twitter, Home, Scan, Truck, Building2, Briefcase, Star } from "lucide-react"
+import { CheckCircle, Sparkles, Clock, Shield, PhoneCall } from "lucide-react"
 import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
-import ContactForm from "@/components/contact-form"
 import SiteFooter from "@/components/site-footer"
+import { Facebook, Twitter } from "lucide-react"
 
 export default function Home() {
   return (
@@ -20,13 +20,37 @@ export default function Home() {
                   Streamlined Cleaning Solutions
                 </h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl">
-                  Professional cleaning services tailored to your needs. We make your space shine so you can focus on what matters.
+                  Professional cleaning services tailored to your needs. We make your space shine so you can focus on
+                  what matters.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  <Link href="#contact">Book Now</Link>
-                </Button>
+                {/* REPLACED: Square Book Now button */}
+                <a
+                  target="_top"
+                  href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
+                  rel="nofollow"
+                  style={{
+                    backgroundColor: "#006aff",
+                    border: "none",
+                    color: "white",
+                    height: "40px",
+                    textTransform: "uppercase",
+                    fontFamily: "'Square Market', sans-serif",
+                    letterSpacing: "1px",
+                    lineHeight: "38px",
+                    padding: "0 28px",
+                    borderRadius: "8px",
+                    fontWeight: 500,
+                    fontSize: "14px",
+                    cursor: "pointer",
+                    display: "inline-block",
+                    textAlign: "center",
+                  }}
+                >
+                  Book now
+                </a>
+
                 <Button asChild variant="outline" size="lg">
                   <Link href="#services">Our Services</Link>
                 </Button>
@@ -54,7 +78,7 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Why Choose Us</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Cleaning Excellence, Every Time</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 We combine professional expertise with attention to detail to deliver exceptional cleaning results.
               </p>
             </div>
@@ -99,40 +123,40 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Our Services</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Professional Cleaning Solutions</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Tailored cleaning services to meet your specific needs.
               </p>
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
             <ServiceCard
-              title="Standard Cleaning"
-              description="Routine cleaning that keeps your home fresh and tidy, including dusting, vacuuming, and sanitizing kitchens and bathrooms."
+              title="Residential Cleaning"
+              description="Comprehensive home cleaning services customized to your preferences and schedule."
               icon="Home"
             />
             <ServiceCard
+              title="Commercial Cleaning"
+              description="Professional cleaning solutions for offices, retail spaces, and commercial properties."
+              icon="Building2"
+            />
+            <ServiceCard
               title="Deep Cleaning"
-              description="An intensive top-to-bottom clean tackling built-up grime and hard-to-reach areas for a truly refreshed space."
+              description="Thorough cleaning of hard-to-reach areas and detailed attention to every surface."
               icon="Scan"
             />
             <ServiceCard
               title="Move In/Out Cleaning"
-              description="Thorough cleaning for empty homes to ensure they're spotless before move-in or after move-out."
+              description="Prepare your new home or leave your old one spotless with our specialized service."
               icon="Truck"
             />
             <ServiceCard
-              title="Apartment Complexes"
-              description="Reliable cleaning services for turnovers, common areas, and property management needs—perfect for busy landlords."
-              icon="Building2"
+              title="Post-Construction"
+              description="Remove dust, debris, and construction residue after renovation or building projects."
+              icon="Hammer"
             />
             <ServiceCard
-              title="Office Cleaning"
-              description="Maintain a professional and hygienic work environment with flexible cleaning options for businesses of all sizes."
-              icon="Briefcase"
-            />
-            <ServiceCard
-              title="Add-On Services"
-              description="Enhance your clean with extras like inside appliances, interior windows, baseboards, and more."
+              title="Specialized Services"
+              description="Carpet cleaning, window washing, and other specialized cleaning solutions."
               icon="Star"
             />
           </div>
@@ -151,7 +175,7 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Testimonials</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">What Our Clients Say</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Don't just take our word for it. Here's what our satisfied customers have to say.
               </p>
             </div>
@@ -186,12 +210,12 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Contact Us</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Ready for a Cleaner Space?</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Get in touch with us today for a free quote or to schedule your cleaning service.
               </p>
             </div>
           </div>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2">
+          <div className="mx-auto max-w-5xl space-y-6">
             <div className="flex flex-col justify-center space-y-4">
               <div className="flex items-center space-x-3">
                 <PhoneCall className="h-6 w-6 text-blue-600" />
@@ -230,9 +254,6 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
-            <div className="rounded-lg border bg-white p-6 shadow-sm">
-              <ContactForm />
             </div>
           </div>
         </div>
