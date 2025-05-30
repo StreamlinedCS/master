@@ -49,6 +49,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Booking Section - Square Widget */}
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-white">
+        <div className="container px-4 md:px-6 max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-6 text-blue-700">Schedule Your Cleaning</h2>
+          <div className="aspect-w-16 aspect-h-9">
+            <iframe
+              src="https://square.site/book/streamlinedcleaningsolutions"
+              width="100%"
+              height="600"
+              frameBorder="0"
+              scrolling="no"
+              title="Streamlined Cleaning Solutions Booking"
+              className="w-full h-full rounded-md shadow-md"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-white" id="features">
         <div className="container px-4 md:px-6">
