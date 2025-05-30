@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { CheckCircle, Sparkles, Clock, Shield, PhoneCall } from "lucide-react"
 import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
+import ContactForm from "@/components/contact-form"
 import SiteFooter from "@/components/site-footer"
 import { Facebook, Twitter } from "lucide-react"
 
@@ -24,37 +25,37 @@ export default function Home() {
                   what matters.
                 </p>
               </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                {/* REPLACED: Square Book Now button */}
-                <a
-                  target="_top"
-                  href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
-                  rel="nofollow"
-                  style={{
-                    backgroundColor: "#006aff",
-                    border: "none",
-                    color: "white",
-                    height: "40px",
-                    textTransform: "uppercase",
-                    fontFamily: "'Square Market', sans-serif",
-                    letterSpacing: "1px",
-                    lineHeight: "38px",
-                    padding: "0 28px",
-                    borderRadius: "8px",
-                    fontWeight: 500,
-                    fontSize: "14px",
-                    cursor: "pointer",
-                    display: "inline-block",
-                    textAlign: "center",
-                  }}
-                >
-                  Book now
-                </a>
 
-                <Button asChild variant="outline" size="lg">
-                  <Link href="#services">Our Services</Link>
-                </Button>
-              </div>
+              {/* Square Book Now button */}
+              <a
+                target="_top"
+                href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
+                rel="nofollow"
+                style={{
+                  backgroundColor: "#006aff",
+                  border: "none",
+                  color: "white",
+                  height: "40px",
+                  textTransform: "uppercase",
+                  fontFamily: "'Square Market', sans-serif",
+                  letterSpacing: "1px",
+                  lineHeight: "38px",
+                  padding: "0 28px",
+                  borderRadius: "8px",
+                  fontWeight: "500",
+                  fontSize: "14px",
+                  cursor: "pointer",
+                  display: "inline-block",
+                  marginBottom: "1rem"
+                }}
+              >
+                Book now
+              </a>
+
+              {/* Our Services button only */}
+              <Button asChild variant="outline" size="lg">
+                <Link href="#services">Our Services</Link>
+              </Button>
             </div>
             <div className="flex justify-center items-center">
               <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
@@ -188,15 +189,15 @@ export default function Home() {
               rating={5}
             />
             <TestimonialCard
-              quote="As a business owner, I need reliable cleaning services. They never disappoint and always exceed expectations."
+              quote="Professional, reliable, and thorough. Highly recommended for office cleaning."
               author="Michael"
-              role="Office Manager"
+              role="Business Owner"
               rating={5}
             />
             <TestimonialCard
-              quote="I've tried many cleaning services, but none compare to the quality and consistency of Streamlined Cleaning."
-              author="Jennifer"
-              role="Property Manager"
+              quote="They made moving out stress-free with their excellent move-out cleaning service."
+              author="Jessica"
+              role="Apartment Renter"
               rating={5}
             />
           </div>
@@ -215,7 +216,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="mx-auto max-w-5xl space-y-6">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2">
             <div className="flex flex-col justify-center space-y-4">
               <div className="flex items-center space-x-3">
                 <PhoneCall className="h-6 w-6 text-blue-600" />
@@ -254,6 +255,9 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
+            </div>
+            <div className="rounded-lg border bg-white p-6 shadow-sm">
+              <ContactForm />
             </div>
           </div>
         </div>
