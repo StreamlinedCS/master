@@ -10,7 +10,7 @@ import SiteFooter from "@/components/site-footer"
 export default function Home() {
   return (
     <div
-      className="flex flex-col min-h-screen bg-[url('/images/background-cleaning.png')] bg-cover bg-center bg-no-repeat"
+      className="flex flex-col min-h-screen bg-[url('/images/background-cleaning.png')] bg-cover bg-top bg-no-repeat bg-fixed"
     >
       {/* Hero Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-white/80">
