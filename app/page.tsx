@@ -22,8 +22,8 @@ export default function Home() {
         />
       </div>
 
-      {/* Main content container with transparent background for readability */}
-      <div className="relative min-h-screen bg-white/90">
+      {/* Main content container with NO background color or overlay */}
+      <div className="relative min-h-screen">
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
@@ -148,8 +148,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50/80" id="contact">
+        {/* Contact Section - restored to your original with no background overlay */}
+        <section className="w-full py-12 md:py-24 lg:py-32" id="contact">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Get In Touch</h2>
