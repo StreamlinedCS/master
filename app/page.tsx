@@ -9,21 +9,18 @@ import SiteFooter from "@/components/site-footer"
 
 export default function Home() {
   return (
-    <div>
-      {/* Background image hero section */}
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
       <section
-        className="relative w-full h-[500px] md:h-[600px] bg-no-repeat bg-contain bg-center"
+        className="relative w-full h-[400px] md:h-[600px] bg-no-repeat bg-cover bg-center"
         style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
       >
-        {/* Overlay for contrast */}
-        <div className="absolute inset-0 bg-white bg-opacity-70"></div>
-
-        {/* Content on top */}
+        {/* Text content on top */}
         <div className="relative z-10 flex flex-col justify-center items-center h-full px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-blue-700">
+          <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
             Streamlined Cleaning Solutions
           </h1>
-          <p className="mt-4 max-w-xl text-gray-800 md:text-xl">
+          <p className="mt-4 max-w-xl text-white md:text-xl drop-shadow-md">
             Professional cleaning services tailored to your needs. We make your space shine.
           </p>
           <div className="mt-6 flex gap-4">
@@ -36,7 +33,7 @@ export default function Home() {
               Book Now
             </a>
             <Link href="#services" passHref>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-blue-700">
                 Our Services
               </Button>
             </Link>
@@ -167,17 +164,16 @@ export default function Home() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Follow Us</h3>
-                <div className="flex space-x-4 text-blue-600">
-                  <a href="https://facebook.com/streamlinedcleaningsolutions" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <Facebook className="h-6 w-6" />
-                  </a>
-                  <a href="https://twitter.com/streamlinedclean" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                    <Twitter className="h-6 w-6" />
-                  </a>
+                <div className="flex space-x-4">
+                  <Link href="https://www.facebook.com/streamlined.cleaning.solution.s.2025/?viewas=100000686899395" target="_blank" rel="noopener noreferrer">
+                    <Facebook className="h-6 w-6 text-blue-700 hover:text-blue-800" />
+                  </Link>
+                  <Link href="https://twitter.com/StreamlinedCle1" target="_blank" rel="noopener noreferrer">
+                    <Twitter className="h-6 w-6 text-blue-500 hover:text-blue-600" />
+                  </Link>
                 </div>
               </div>
             </div>
-
             <ContactForm />
           </div>
         </div>
