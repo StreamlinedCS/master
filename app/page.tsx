@@ -10,34 +10,31 @@ import SiteFooter from "@/components/site-footer"
 export default function HomePage() {
   return (
     <main
-      className="relative min-h-screen flex flex-col"
+      className="relative flex flex-col min-h-screen"
       style={{
         backgroundImage: "url('/images/background-cleaning.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center top",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
-        filter: "brightness(1) contrast(1)", // neutral filter to keep image bright
+        minHeight: "100vh",
       }}
     >
-      {/* Very light overlay to slightly darken background for contrast */}
-      <div className="absolute inset-0 bg-black opacity-5 pointer-events-none"></div>
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-black opacity-30 pointer-events-none"></div>
 
       {/* Content container with relative z-index so it appears above overlay */}
       <div className="relative z-10 flex flex-col min-h-screen">
-
         {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-blue-50 to-green-50 bg-opacity-90">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-
-              {/* Text Block with subtle semi-transparent white background for readability */}
-              <div className="flex flex-col justify-center space-y-4 bg-white bg-opacity-70 p-8 rounded-lg shadow-lg">
+              <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-blue-700 drop-shadow-md">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-blue-700">
                     Streamlined Cleaning Solutions
                   </h1>
-                  <p className="max-w-[600px] text-gray-700 md:text-xl drop-shadow-sm">
+                  <p className="max-w-[600px] text-gray-500 md:text-xl">
                     Professional cleaning services tailored to your needs. We make your space shine so you can focus on
                     what matters.
                   </p>
@@ -65,7 +62,6 @@ export default function HomePage() {
                       width: "auto",
                       minWidth: "120px",
                       textAlign: "center",
-                      boxShadow: "0 4px 8px rgb(0 106 255 / 0.4)",
                     }}
                   >
                     Book now
@@ -75,8 +71,6 @@ export default function HomePage() {
                   </Button>
                 </div>
               </div>
-
-              {/* Logo Image */}
               <div className="flex justify-center items-center">
                 <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
                   <Image
@@ -88,56 +82,63 @@ export default function HomePage() {
                   />
                 </div>
               </div>
-
             </div>
           </div>
         </section>
 
         {/* Features Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white bg-opacity-90" id="features">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2 bg-white bg-opacity-70 p-6 rounded-lg shadow-md max-w-[900px] mx-auto">
+              <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Why Choose Us</div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight drop-shadow-sm">Cleaning Excellence, Every Time</h2>
-                <p className="text-gray-700 md:text-xl/relaxed drop-shadow-sm">
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Cleaning Excellence, Every Time</h2>
+                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
                   We combine professional expertise with attention to detail to deliver exceptional cleaning results.
                 </p>
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-4">
-              <div className="flex flex-col items-center space-y-2 rounded-lg border p-4 shadow-sm bg-white bg-opacity-80">
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-4 shadow-sm">
                 <Sparkles className="h-10 w-10 text-blue-600" />
-                <h3 className="text-xl font-bold drop-shadow-sm">Spotless Results</h3>
-                <p className="text-center text-sm text-gray-700">Our thorough cleaning process ensures your space is immaculate.</p>
+                <h3 className="text-xl font-bold">Spotless Results</h3>
+                <p className="text-center text-sm text-gray-500">
+                  Our thorough cleaning process ensures your space is immaculate.
+                </p>
               </div>
-              <div className="flex flex-col items-center space-y-2 rounded-lg border p-4 shadow-sm bg-white bg-opacity-80">
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-4 shadow-sm">
                 <Clock className="h-10 w-10 text-blue-600" />
-                <h3 className="text-xl font-bold drop-shadow-sm">Reliable Service</h3>
-                <p className="text-center text-sm text-gray-700">We arrive on time, every time, with all the supplies needed.</p>
+                <h3 className="text-xl font-bold">Reliable Service</h3>
+                <p className="text-center text-sm text-gray-500">
+                  We arrive on time, every time, with all the supplies needed.
+                </p>
               </div>
-              <div className="flex flex-col items-center space-y-2 rounded-lg border p-4 shadow-sm bg-white bg-opacity-80">
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-4 shadow-sm">
                 <Shield className="h-10 w-10 text-blue-600" />
-                <h3 className="text-xl font-bold drop-shadow-sm">Trusted Team</h3>
-                <p className="text-center text-sm text-gray-700">Our vetted professionals are background-checked and trained.</p>
+                <h3 className="text-xl font-bold">Trusted Team</h3>
+                <p className="text-center text-sm text-gray-500">
+                  Our vetted professionals are background-checked and trained.
+                </p>
               </div>
-              <div className="flex flex-col items-center space-y-2 rounded-lg border p-4 shadow-sm bg-white bg-opacity-80">
+              <div className="flex flex-col items-center space-y-2 rounded-lg border p-4 shadow-sm">
                 <CheckCircle className="h-10 w-10 text-blue-600" />
-                <h3 className="text-xl font-bold drop-shadow-sm">Satisfaction Guaranteed</h3>
-                <p className="text-center text-sm text-gray-700">Not happy? We'll come back and make it right at no extra cost.</p>
+                <h3 className="text-xl font-bold">Satisfaction Guaranteed</h3>
+                <p className="text-center text-sm text-gray-500">
+                  Not happy? We'll come back and make it right at no extra cost.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Services Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 bg-opacity-90" id="services">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2 bg-white bg-opacity-70 p-6 rounded-lg shadow-md max-w-[900px] mx-auto">
+              <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Our Services</div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight drop-shadow-sm">Professional Cleaning Solutions</h2>
-                <p className="text-gray-700 md:text-xl/relaxed drop-shadow-sm">
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Professional Cleaning Solutions</h2>
+                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
                   Tailored cleaning services to meet your specific needs.
                 </p>
               </div>
@@ -183,35 +184,32 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white bg-opacity-90">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2 bg-white bg-opacity-70 p-6 rounded-lg shadow-md max-w-[900px] mx-auto">
+              <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Testimonials</div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight drop-shadow-sm">What Our Clients Say</h2>
-                <p className="text-gray-700 md:text-xl/relaxed drop-shadow-sm">
-                  Don't just take our word for it. Here's what our satisfied customers have to say.
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">What Our Clients Say</h2>
+                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
+                  Hear directly from our satisfied customers.
                 </p>
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
               <TestimonialCard
-                quote="Streamlined Cleaning Solutions transformed my home. Their attention to detail is remarkable!"
-                author="Sarah"
-                role="Homeowner"
-                rating={5}
+                name="Amanda J."
+                quote="The team was punctual and did an amazing job! Highly recommend."
+                avatar="/images/testimonials/amanda.jpg"
               />
               <TestimonialCard
-                quote="As a business owner, I need reliable cleaning services. They never disappoint and always exceed expectations."
-                author="Michael"
-                role="Office Manager"
-                rating={5}
+                name="Carlos M."
+                quote="Our office has never looked better. Professional and thorough."
+                avatar="/images/testimonials/carlos.jpg"
               />
               <TestimonialCard
-                quote="I've tried many cleaning services, but none compare to the quality and consistency of Streamlined Cleaning."
-                author="Jennifer"
-                role="Apartment Manager"
-                rating={5}
+                name="Lisa K."
+                quote="I loved the deep cleaning service – they got into every nook and cranny."
+                avatar="/images/testimonials/lisa.jpg"
               />
             </div>
           </div>
@@ -219,22 +217,11 @@ export default function HomePage() {
 
         {/* Contact Section */}
         <section
-          className="w-full py-12 md:py-24 lg:py-32"
           id="contact"
+          className="w-full py-12 md:py-24 lg:py-32 bg-blue-700 text-white"
         >
-          <div className="container px-4 md:px-6 max-w-4xl mx-auto bg-white bg-opacity-70 p-8 rounded-lg shadow-lg">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-blue-700 drop-shadow-sm">
-                Get In Touch
-              </h2>
-              <p className="max-w-[700px] text-gray-700 md:text-lg drop-shadow-sm">
-                Have questions or want to book a cleaning? Use the form below or call us directly.
-              </p>
-              <div className="flex space-x-4 text-blue-600">
-                <PhoneCall className="h-6 w-6" />
-                <span>863-662-2874</span>
-              </div>
-            </div>
+          <div className="container px-4 md:px-6">
+            <h2 className="mb-8 text-center text-4xl font-bold">Get in Touch</h2>
             <ContactForm />
           </div>
         </section>
