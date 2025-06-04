@@ -9,36 +9,37 @@ import SiteFooter from "@/components/site-footer"
 
 export default function Home() {
   return (
-    <div
-      className="flex flex-col min-h-screen bg-[url('/images/background-cleaning.png')] bg-cover bg-[position:50%_60%] bg-no-repeat"
-    >
-      {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white/80">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-            <div className="flex flex-col justify-center space-y-4 text-center lg:text-left">
-              <div className="space-y-2">
-                <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-blue-700">
-                  Streamlined Cleaning Solutions
-                </h1>
-                <p className="max-w-[600px] text-gray-700 md:text-xl mx-auto lg:mx-0">
-                  Professional cleaning services tailored to your needs. We make your space shine so you can focus on what matters.
-                </p>
-              </div>
-              <div className="flex justify-center lg:justify-start gap-4 pt-4">
-                <a
-                  target="_top"
-                  href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
-                  rel="nofollow"
-                  className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-semibold uppercase tracking-wide shadow hover:bg-blue-700 transition"
-                >
-                  Book Now
-                </a>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="#services">Our Services</Link>
-                </Button>
-              </div>
-            </div>
+    <div>
+      {/* Background image hero section */}
+      <section
+        className="relative w-full h-[500px] md:h-[600px] bg-no-repeat bg-contain bg-center"
+        style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
+      >
+        {/* Overlay for contrast */}
+        <div className="absolute inset-0 bg-white bg-opacity-70"></div>
+
+        {/* Content on top */}
+        <div className="relative z-10 flex flex-col justify-center items-center h-full px-4 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-blue-700">
+            Streamlined Cleaning Solutions
+          </h1>
+          <p className="mt-4 max-w-xl text-gray-800 md:text-xl">
+            Professional cleaning services tailored to your needs. We make your space shine.
+          </p>
+          <div className="mt-6 flex gap-4">
+            <a
+              href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
+              target="_top"
+              rel="nofollow"
+              className="rounded bg-blue-600 px-6 py-2 text-white font-semibold uppercase tracking-wide hover:bg-blue-700 transition"
+            >
+              Book Now
+            </a>
+            <Link href="#services" passHref>
+              <Button variant="outline" size="lg">
+                Our Services
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -166,26 +167,22 @@ export default function Home() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Follow Us</h3>
-                <div className="flex space-x-4">
-                  <Link href="https://www.facebook.com/streamlined.cleaning.solution.s.2025/?viewas=100000686899395" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 transition-colors">
+                <div className="flex space-x-4 text-blue-600">
+                  <a href="https://facebook.com/streamlinedcleaningsolutions" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                     <Facebook className="h-6 w-6" />
-                    <span className="sr-only">Facebook</span>
-                  </Link>
-                  <Link href="https://x.com/StreamlinedCS" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 transition-colors">
+                  </a>
+                  <a href="https://twitter.com/streamlinedclean" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                     <Twitter className="h-6 w-6" />
-                    <span className="sr-only">X (Twitter)</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
-            <div className="rounded-lg border bg-white p-6 shadow-sm">
-              <ContactForm />
-            </div>
+
+            <ContactForm />
           </div>
         </div>
       </section>
 
-      {/* Footer */}
       <SiteFooter />
     </div>
   )
