@@ -1,7 +1,18 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, Sparkles, Clock, Shield, PhoneCall } from "lucide-react"
+import {
+  CheckCircle,
+  Sparkles,
+  Clock,
+  Shield,
+  Home,
+  Building2,
+  Scan,
+  Truck,
+  Hammer,
+  Star,
+} from "lucide-react"
 import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
 import ContactForm from "@/components/contact-form"
@@ -11,7 +22,7 @@ import { useEffect, useState } from "react"
 export default function Home() {
   const [activeSection, setActiveSection] = useState("")
 
-  // Smooth scroll + active link highlighting (optional UX polish)
+  // Smooth scroll + active link highlighting
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["services", "contact"]
@@ -37,10 +48,7 @@ export default function Home() {
         className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
       />
-      <div
-        aria-hidden="true"
-        className="fixed inset-0 -z-5 bg-black opacity-30"
-      />
+      <div aria-hidden="true" className="fixed inset-0 -z-5 bg-black opacity-30" />
 
       {/* Container */}
       <div className="relative z-10 flex-grow flex flex-col px-8 md:px-16 lg:px-32 py-16 max-w-7xl mx-auto">
@@ -61,7 +69,9 @@ export default function Home() {
             <a
               href="#services"
               className={`cursor-pointer transition-colors duration-300 hover:text-blue-600 ${
-                activeSection === "services" ? "text-blue-700 underline underline-offset-4" : "text-gray-700"
+                activeSection === "services"
+                  ? "text-blue-700 underline underline-offset-4"
+                  : "text-gray-700"
               }`}
             >
               Services
@@ -69,7 +79,9 @@ export default function Home() {
             <a
               href="#contact"
               className={`cursor-pointer transition-colors duration-300 hover:text-blue-600 ${
-                activeSection === "contact" ? "text-blue-700 underline underline-offset-4" : "text-gray-700"
+                activeSection === "contact"
+                  ? "text-blue-700 underline underline-offset-4"
+                  : "text-gray-700"
               }`}
             >
               Contact
@@ -77,7 +89,7 @@ export default function Home() {
             <a
               href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
               target="_top"
-              rel="nofollow"
+              rel="noopener noreferrer"
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md shadow-lg transition"
             >
               Book Now
@@ -98,7 +110,7 @@ export default function Home() {
               <Link
                 href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
                 target="_top"
-                rel="nofollow"
+                rel="noopener noreferrer"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg px-8 py-4 shadow-lg transition-transform transform hover:scale-105"
               >
                 Book Now
@@ -167,32 +179,32 @@ export default function Home() {
             <ServiceCard
               title="Residential Cleaning"
               description="Comprehensive home cleaning services customized to your preferences and schedule."
-              icon="Home"
+              icon={<Home className="h-8 w-8 text-blue-600" />}
             />
             <ServiceCard
               title="Commercial Cleaning"
               description="Professional cleaning solutions for offices, retail spaces, and commercial properties."
-              icon="Building2"
+              icon={<Building2 className="h-8 w-8 text-blue-600" />}
             />
             <ServiceCard
               title="Deep Cleaning"
               description="Thorough cleaning of hard-to-reach areas and detailed attention to every surface."
-              icon="Scan"
+              icon={<Scan className="h-8 w-8 text-blue-600" />}
             />
             <ServiceCard
               title="Move In/Out Cleaning"
               description="Prepare your new home or leave your old one spotless with our specialized service."
-              icon="Truck"
+              icon={<Truck className="h-8 w-8 text-blue-600" />}
             />
             <ServiceCard
               title="Post-Construction"
               description="Remove dust, debris, and construction residue after renovation or building projects."
-              icon="Hammer"
+              icon={<Hammer className="h-8 w-8 text-blue-600" />}
             />
             <ServiceCard
               title="Specialized Services"
               description="Carpet cleaning, window washing, and other specialized cleaning solutions."
-              icon="Star"
+              icon={<Star className="h-8 w-8 text-blue-600" />}
             />
           </div>
           <div className="flex justify-center mt-16">
@@ -241,7 +253,6 @@ export default function Home() {
           </h2>
           <ContactForm />
         </section>
-
       </div>
 
       {/* Footer */}
