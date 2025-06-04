@@ -17,10 +17,11 @@ export default function HomePage() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
+        filter: "brightness(0.95) contrast(1.05)", // subtle brightness & contrast adjustment
       }}
     >
-      {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black opacity-30 pointer-events-none"></div>
+      {/* Overlay for readability with reduced opacity */}
+      <div className="absolute inset-0 bg-black opacity-10 pointer-events-none"></div>
 
       {/* Content container with relative z-index so it appears above overlay */}
       <div className="relative z-10 flex flex-col min-h-screen">
@@ -210,7 +211,7 @@ export default function HomePage() {
               <TestimonialCard
                 quote="I've tried many cleaning services, but none compare to the quality and consistency of Streamlined Cleaning."
                 author="Jennifer"
-                role="Property Manager"
+                role="Apartment Manager"
                 rating={5}
               />
             </div>
@@ -218,52 +219,24 @@ export default function HomePage() {
         </section>
 
         {/* Contact Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50 bg-opacity-90" id="contact">
-          <div className="container px-4 md:px-6">
+        <section
+          className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-blue-50 to-green-50 bg-opacity-90"
+          id="contact"
+        >
+          <div className="container px-4 md:px-6 max-w-4xl mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Contact Us</div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Ready for a Cleaner Space?</h2>
-                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
-                  Get in touch with us today for a free quote or to schedule your cleaning service.
-                </p>
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-blue-700">
+                Get In Touch
+              </h2>
+              <p className="max-w-[700px] text-gray-500 md:text-lg">
+                Have questions or want to book a cleaning? Use the form below or call us directly.
+              </p>
+              <div className="flex space-x-4 text-blue-600">
+                <PhoneCall className="h-6 w-6" />
+                <span>863-662-2874</span>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="flex items-center space-x-3">
-                  <PhoneCall className="h-6 w-6 text-blue-600" />
-                  <span className="text-lg font-medium">Call us: (863) 662-2847</span>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold">Business Hours</h3>
-                  <p className="text-gray-500">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                  <p className="text-gray-500">Saturday: 9:00 AM - 4:00 PM</p>
-                  <p className="text-gray-500">Sunday: Closed</p>
-                </div>
-                <div className="flex space-x-6">
-                  <Link
-                    href="https://www.facebook.com/StreamlinedCleaningSolutions"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="h-8 w-8 text-blue-600 hover:text-blue-800" />
-                  </Link>
-                  <Link
-                    href="https://twitter.com/StreamlinedCS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Twitter"
-                  >
-                    <Twitter className="h-8 w-8 text-blue-600 hover:text-blue-800" />
-                  </Link>
-                </div>
-              </div>
-              <div>
-                <ContactForm />
-              </div>
-            </div>
+            <ContactForm />
           </div>
         </section>
 
