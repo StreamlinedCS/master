@@ -18,8 +18,7 @@ export default function Home() {
       />
 
       {/* Page content container */}
-      <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12">
-
+      <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12 pb-32">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="flex flex-col justify-center space-y-6 max-w-xl">
@@ -38,16 +37,11 @@ export default function Home() {
               >
                 Book now
               </a>
-              <Button
-                asChild
-                variant="default"  /* Changed from outline to default for visibility */
-                size="lg"
-                className="w-auto"
-              >
-                <Link href="#services" className="text-blue-700 font-semibold hover:text-blue-900">
+              <Link href="#services">
+                <a className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg">
                   Our Services
-                </Link>
-              </Button>
+                </a>
+              </Link>
             </div>
           </div>
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
@@ -67,19 +61,19 @@ export default function Home() {
             icon: <Sparkles className="h-10 w-10 text-blue-400" />,
             title: "Spotless Results",
             description: "Our thorough cleaning process ensures your space is immaculate."
-          },{
+          }, {
             icon: <Clock className="h-10 w-10 text-blue-400" />,
             title: "Reliable Service",
             description: "We arrive on time, every time, with all the supplies needed."
-          },{
+          }, {
             icon: <Shield className="h-10 w-10 text-blue-400" />,
             title: "Trusted Team",
             description: "Our vetted professionals are background-checked and trained."
-          },{
+          }, {
             icon: <CheckCircle className="h-10 w-10 text-blue-400" />,
             title: "Satisfaction Guaranteed",
             description: "Not happy? We'll come back and make it right at no extra cost."
-          }].map(({icon, title, description}) => (
+          }].map(({ icon, title, description }) => (
             <div key={title} className="flex flex-col items-center text-center">
               {icon}
               <h3 className="mt-4 mb-2 text-xl font-semibold drop-shadow-lg">{title}</h3>
@@ -165,9 +159,8 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="max-w-7xl mx-auto mt-24 mb-24">
+        <section id="contact" className="max-w-7xl mx-auto mt-24 mb-32">
           <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">Contact Us</h2>
-          {/* Removed whiteText prop to restore original styling */}
           <ContactForm />
         </section>
 
