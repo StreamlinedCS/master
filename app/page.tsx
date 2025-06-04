@@ -10,12 +10,15 @@ import SiteFooter from "@/components/site-footer"
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-blue-400 to-green-300">
+      {/* Hero Section with Background Image */}
+      <section
+        className="w-full py-12 md:py-24 lg:py-32 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
+      >
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="flex flex-col justify-center space-y-4 text-center lg:text-left">
-              <div className="space-y-2">
+              <div className="space-y-2 bg-white/70 p-6 rounded-xl">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-blue-900">
                   Streamlined Cleaning Solutions
                 </h1>
@@ -25,7 +28,6 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col gap-4 min-[400px]:flex-row justify-center lg:justify-start">
-                {/* Square Book Now button */}
                 <a
                   target="_top"
                   href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
@@ -68,7 +70,7 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Why Choose Us</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Cleaning Excellence, Every Time</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 We combine professional expertise with attention to detail to deliver exceptional cleaning results.
               </p>
             </div>
@@ -113,7 +115,7 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Our Services</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Professional Cleaning Solutions</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Tailored cleaning services to meet your specific needs.
               </p>
             </div>
@@ -141,7 +143,7 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Testimonials</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">What Our Clients Say</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Don't just take our word for it. Here's what our satisfied customers have to say.
               </p>
             </div>
@@ -161,7 +163,7 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Contact Us</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Ready for a Cleaner Space?</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Get in touch with us today for a free quote or to schedule your cleaning service.
               </p>
             </div>
