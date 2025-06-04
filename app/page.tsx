@@ -1,56 +1,118 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, Sparkles, Clock, Shield, PhoneCall, Facebook, Twitter } from "lucide-react"
+import { CheckCircle, Sparkles, Clock, Shield, PhoneCall } from "lucide-react"
 import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
 import ContactForm from "@/components/contact-form"
 import SiteFooter from "@/components/site-footer"
+import { useEffect, useState } from "react"
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState("")
+
+  // Smooth scroll + active link highlighting (optional UX polish)
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["services", "contact"]
+      let current = ""
+      sections.forEach((id) => {
+        const section = document.getElementById(id)
+        if (section && window.scrollY >= section.offsetTop - 150) {
+          current = id
+        }
+      })
+      setActiveSection(current)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
-    <main className="relative min-h-screen flex flex-col text-white">
-      {/* Fixed full opacity background image */}
+    <main className="relative min-h-screen flex flex-col font-sans text-gray-900 bg-gradient-to-b from-white/90 via-white/70 to-white/90">
+
+      {/* Background image with subtle dark overlay for text contrast */}
       <div
         aria-hidden="true"
         className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
       />
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 -z-5 bg-black opacity-30"
+      />
 
-      {/* Page content container */}
-      <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12">
+      {/* Container */}
+      <div className="relative z-10 flex-grow flex flex-col px-8 md:px-16 lg:px-32 py-16 max-w-7xl mx-auto">
+
+        {/* Header with logo and navigation */}
+        <header className="flex items-center justify-between mb-16">
+          <div className="relative w-28 h-14 sm:w-36 sm:h-18">
+            <Image
+              src="/images/logo.png"
+              alt="Streamlined Cleaning Solutions Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+
+          <nav className="hidden md:flex space-x-10 text-lg font-semibold">
+            <a
+              href="#services"
+              className={`cursor-pointer transition-colors duration-300 hover:text-blue-600 ${
+                activeSection === "services" ? "text-blue-700 underline underline-offset-4" : "text-gray-700"
+              }`}
+            >
+              Services
+            </a>
+            <a
+              href="#contact"
+              className={`cursor-pointer transition-colors duration-300 hover:text-blue-600 ${
+                activeSection === "contact" ? "text-blue-700 underline underline-offset-4" : "text-gray-700"
+              }`}
+            >
+              Contact
+            </a>
+            <a
+              href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
+              target="_top"
+              rel="nofollow"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md shadow-lg transition"
+            >
+              Book Now
+            </a>
+          </nav>
+        </header>
 
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-          <div className="flex flex-col justify-center space-y-6 max-w-xl">
-            <h1 className="text-4xl sm:text-5xl font-extrabold drop-shadow-lg leading-tight">
+        <section className="flex flex-col-reverse lg:flex-row items-center gap-16 lg:gap-24 mb-20">
+          <div className="max-w-xl text-center lg:text-left space-y-6">
+            <h1 className="text-5xl font-extrabold tracking-tight leading-tight drop-shadow-lg">
               Streamlined Cleaning Solutions
             </h1>
-            <p className="text-lg sm:text-xl drop-shadow-md max-w-lg">
+            <p className="text-xl text-gray-800 drop-shadow-md">
               Professional cleaning services tailored to your needs. We make your space shine so you can focus on what matters.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <a
+            <div className="flex justify-center lg:justify-start gap-6 mt-6">
+              <Link
                 href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
                 target="_top"
                 rel="nofollow"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg px-8 py-4 shadow-lg transition-transform transform hover:scale-105"
               >
-                Book now
+                Book Now
+              </Link>
+              <a
+                href="#services"
+                className="inline-block border-2 border-blue-600 text-blue-600 font-semibold rounded-lg px-8 py-4 hover:bg-blue-600 hover:text-white transition-transform transform hover:scale-105"
+              >
+                Our Services
               </a>
-              <Button
-                asChild
-                variant="default"  /* Changed from outline to default for visibility */
-                size="lg"
-                className="w-auto"
-              >
-                <Link href="#services" className="text-blue-700 font-semibold hover:text-blue-900">
-                  Our Services
-                </Link>
-              </Button>
             </div>
           </div>
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+
+          <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] drop-shadow-xl">
             <Image
               src="/images/logo.png"
               alt="Streamlined Cleaning Solutions Logo"
@@ -62,118 +124,128 @@ export default function Home() {
         </section>
 
         {/* Features Section */}
-        <section className="max-w-7xl mx-auto mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {[{
-            icon: <Sparkles className="h-10 w-10 text-blue-400" />,
-            title: "Spotless Results",
-            description: "Our thorough cleaning process ensures your space is immaculate."
-          },{
-            icon: <Clock className="h-10 w-10 text-blue-400" />,
-            title: "Reliable Service",
-            description: "We arrive on time, every time, with all the supplies needed."
-          },{
-            icon: <Shield className="h-10 w-10 text-blue-400" />,
-            title: "Trusted Team",
-            description: "Our vetted professionals are background-checked and trained."
-          },{
-            icon: <CheckCircle className="h-10 w-10 text-blue-400" />,
-            title: "Satisfaction Guaranteed",
-            description: "Not happy? We'll come back and make it right at no extra cost."
-          }].map(({icon, title, description}) => (
-            <div key={title} className="flex flex-col items-center text-center">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-28 text-center">
+          {[
+            {
+              icon: <Sparkles className="mx-auto h-12 w-12 text-blue-600" />,
+              title: "Spotless Results",
+              description: "Our thorough cleaning process ensures your space is immaculate.",
+            },
+            {
+              icon: <Clock className="mx-auto h-12 w-12 text-blue-600" />,
+              title: "Reliable Service",
+              description: "We arrive on time, every time, with all the supplies needed.",
+            },
+            {
+              icon: <Shield className="mx-auto h-12 w-12 text-blue-600" />,
+              title: "Trusted Team",
+              description: "Our vetted professionals are background-checked and trained.",
+            },
+            {
+              icon: <CheckCircle className="mx-auto h-12 w-12 text-blue-600" />,
+              title: "Satisfaction Guaranteed",
+              description: "Not happy? We'll come back and make it right at no extra cost.",
+            },
+          ].map(({ icon, title, description }) => (
+            <div
+              key={title}
+              className="bg-white/90 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
               {icon}
-              <h3 className="mt-4 mb-2 text-xl font-semibold drop-shadow-lg">{title}</h3>
-              <p className="max-w-xs drop-shadow-md">{description}</p>
+              <h3 className="mt-6 mb-2 text-2xl font-semibold text-gray-900">{title}</h3>
+              <p className="text-gray-700">{description}</p>
             </div>
           ))}
         </section>
 
         {/* Services Section */}
-        <section id="services" className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <section id="services" className="mb-32">
+          <h2 className="text-4xl font-extrabold mb-12 text-center text-gray-900 drop-shadow-md">
+            Our Services
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
             <ServiceCard
               title="Residential Cleaning"
               description="Comprehensive home cleaning services customized to your preferences and schedule."
               icon="Home"
-              whiteText
             />
             <ServiceCard
               title="Commercial Cleaning"
               description="Professional cleaning solutions for offices, retail spaces, and commercial properties."
               icon="Building2"
-              whiteText
             />
             <ServiceCard
               title="Deep Cleaning"
               description="Thorough cleaning of hard-to-reach areas and detailed attention to every surface."
               icon="Scan"
-              whiteText
             />
             <ServiceCard
               title="Move In/Out Cleaning"
               description="Prepare your new home or leave your old one spotless with our specialized service."
               icon="Truck"
-              whiteText
             />
             <ServiceCard
               title="Post-Construction"
               description="Remove dust, debris, and construction residue after renovation or building projects."
               icon="Hammer"
-              whiteText
             />
             <ServiceCard
               title="Specialized Services"
               description="Carpet cleaning, window washing, and other specialized cleaning solutions."
               icon="Star"
-              whiteText
             />
           </div>
-          <div className="flex justify-center mt-12">
-            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 w-auto">
+          <div className="flex justify-center mt-16">
+            <Button
+              asChild
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 px-12 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+            >
               <Link href="#contact">Request a Quote</Link>
             </Button>
           </div>
         </section>
 
         {/* Testimonials Section */}
-        <section className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">What Our Clients Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <section className="mb-32">
+          <h2 className="text-4xl font-extrabold mb-12 text-center text-gray-900 drop-shadow-md">
+            What Our Clients Say
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
             <TestimonialCard
               quote="Streamlined Cleaning Solutions transformed my home. Their attention to detail is remarkable!"
               author="Sarah"
               role="Homeowner"
-              rating={5}
-              whiteText
             />
             <TestimonialCard
               quote="As a business owner, I need reliable cleaning services. They never disappoint and always exceed expectations."
               author="Michael"
               role="Office Manager"
-              rating={5}
-              whiteText
             />
             <TestimonialCard
               quote="I've tried many cleaning services, but none compare to the quality and consistency of Streamlined Cleaning."
               author="Jennifer"
               role="Property Manager"
-              rating={5}
-              whiteText
             />
           </div>
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="max-w-7xl mx-auto mt-24 mb-24">
-          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">Contact Us</h2>
-          {/* Removed whiteText prop to restore original styling */}
+        <section
+          id="contact"
+          className="mb-24 max-w-3xl mx-auto bg-white rounded-xl shadow-xl p-12"
+          aria-label="Contact form"
+        >
+          <h2 className="text-4xl font-extrabold mb-10 text-center text-gray-900 drop-shadow-md">
+            Contact Us
+          </h2>
           <ContactForm />
         </section>
 
-        {/* Footer */}
-        <SiteFooter whiteText />
       </div>
+
+      {/* Footer */}
+      <SiteFooter />
     </main>
   )
 }
