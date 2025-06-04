@@ -1,7 +1,15 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, Sparkles, Clock, Shield, PhoneCall, Facebook, Twitter } from "lucide-react"
+import {
+  CheckCircle,
+  Sparkles,
+  Clock,
+  Shield,
+  PhoneCall,
+  Facebook,
+  Twitter,
+} from "lucide-react"
 import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
 import ContactForm from "@/components/contact-form"
@@ -18,7 +26,7 @@ export default function Home() {
       />
 
       {/* Page content container */}
-      <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12 pb-32">
+      <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12 pb-48">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="flex flex-col justify-center space-y-6 max-w-xl">
@@ -26,7 +34,8 @@ export default function Home() {
               Streamlined Cleaning Solutions
             </h1>
             <p className="text-lg sm:text-xl drop-shadow-md max-w-lg">
-              Professional cleaning services tailored to your needs. We make your space shine so you can focus on what matters.
+              Professional cleaning services tailored to your needs. We make
+              your space shine so you can focus on what matters.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -37,16 +46,19 @@ export default function Home() {
               >
                 Book now
               </a>
-              <Link href="#services">
-                <a className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg">
-                  Our Services
-                </a>
-              </Link>
+              <Button
+                asChild
+                variant="default"
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+              >
+                <Link href="#services">Our Services</Link>
+              </Button>
             </div>
           </div>
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
             <Image
-              src="/images/logo.png"
+              src="/images/logo_transparent.png"
               alt="Streamlined Cleaning Solutions Logo"
               fill
               className="object-contain"
@@ -57,26 +69,37 @@ export default function Home() {
 
         {/* Features Section */}
         <section className="max-w-7xl mx-auto mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {[{
-            icon: <Sparkles className="h-10 w-10 text-blue-400" />,
-            title: "Spotless Results",
-            description: "Our thorough cleaning process ensures your space is immaculate."
-          }, {
-            icon: <Clock className="h-10 w-10 text-blue-400" />,
-            title: "Reliable Service",
-            description: "We arrive on time, every time, with all the supplies needed."
-          }, {
-            icon: <Shield className="h-10 w-10 text-blue-400" />,
-            title: "Trusted Team",
-            description: "Our vetted professionals are background-checked and trained."
-          }, {
-            icon: <CheckCircle className="h-10 w-10 text-blue-400" />,
-            title: "Satisfaction Guaranteed",
-            description: "Not happy? We'll come back and make it right at no extra cost."
-          }].map(({ icon, title, description }) => (
+          {[
+            {
+              icon: <Sparkles className="h-10 w-10 text-blue-400" />,
+              title: "Spotless Results",
+              description:
+                "Our thorough cleaning process ensures your space is immaculate.",
+            },
+            {
+              icon: <Clock className="h-10 w-10 text-blue-400" />,
+              title: "Reliable Service",
+              description:
+                "We arrive on time, every time, with all the supplies needed.",
+            },
+            {
+              icon: <Shield className="h-10 w-10 text-blue-400" />,
+              title: "Trusted Team",
+              description:
+                "Our vetted professionals are background-checked and trained.",
+            },
+            {
+              icon: <CheckCircle className="h-10 w-10 text-blue-400" />,
+              title: "Satisfaction Guaranteed",
+              description:
+                "Not happy? We'll come back and make it right at no extra cost.",
+            },
+          ].map(({ icon, title, description }) => (
             <div key={title} className="flex flex-col items-center text-center">
               {icon}
-              <h3 className="mt-4 mb-2 text-xl font-semibold drop-shadow-lg">{title}</h3>
+              <h3 className="mt-4 mb-2 text-xl font-semibold drop-shadow-lg">
+                {title}
+              </h3>
               <p className="max-w-xs drop-shadow-md">{description}</p>
             </div>
           ))}
@@ -84,7 +107,9 @@ export default function Home() {
 
         {/* Services Section */}
         <section id="services" className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">Our Services</h2>
+          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">
+            Our Services
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <ServiceCard
               title="Residential Cleaning"
@@ -124,7 +149,11 @@ export default function Home() {
             />
           </div>
           <div className="flex justify-center mt-12">
-            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 w-auto">
+            <Button
+              asChild
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 w-auto"
+            >
               <Link href="#contact">Request a Quote</Link>
             </Button>
           </div>
@@ -132,7 +161,9 @@ export default function Home() {
 
         {/* Testimonials Section */}
         <section className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">What Our Clients Say</h2>
+          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">
+            What Our Clients Say
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <TestimonialCard
               quote="Streamlined Cleaning Solutions transformed my home. Their attention to detail is remarkable!"
@@ -159,8 +190,10 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="max-w-7xl mx-auto mt-24 mb-32">
-          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">Contact Us</h2>
+        <section id="contact" className="max-w-7xl mx-auto mt-24 mb-24">
+          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">
+            Contact Us
+          </h2>
           <ContactForm />
         </section>
 
