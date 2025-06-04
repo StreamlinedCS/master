@@ -241,32 +241,23 @@ export default function HomePage() {
                   <p className="text-gray-500">Saturday: 9:00 AM - 4:00 PM</p>
                   <p className="text-gray-500">Sunday: Closed</p>
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold">Service Areas</h3>
-                  <p className="text-gray-500">We proudly serve our local city Lakeland and central Florida.</p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold">Follow Us</h3>
-                  <div className="flex space-x-4">
-                    <Link
-                      href="https://www.facebook.com/streamlined.cleaning.solution.s.2025/?viewas=100000686899395"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
-                    >
-                      <Facebook className="h-6 w-6" />
-                      <span className="sr-only">Facebook</span>
-                    </Link>
-                    <Link
-                      href="https://twitter.com/cleaning_strm"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-400 hover:text-blue-600 transition-colors"
-                    >
-                      <Twitter className="h-6 w-6" />
-                      <span className="sr-only">Twitter</span>
-                    </Link>
-                  </div>
+                <div className="flex space-x-6">
+                  <Link
+                    href="https://www.facebook.com/StreamlinedCleaningSolutions"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="h-8 w-8 text-blue-600 hover:text-blue-800" />
+                  </Link>
+                  <Link
+                    href="https://twitter.com/StreamlinedCS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Twitter"
+                  >
+                    <Twitter className="h-8 w-8 text-blue-600 hover:text-blue-800" />
+                  </Link>
                 </div>
               </div>
               <div>
