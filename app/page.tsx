@@ -38,8 +38,15 @@ export default function Home() {
               >
                 Book now
               </a>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-700">
-                <Link href="#services">Our Services</Link>
+              <Button
+                asChild
+                variant="default"  /* Changed from outline to default for visibility */
+                size="lg"
+                className="w-auto"
+              >
+                <Link href="#services" className="text-blue-700 font-semibold hover:text-blue-900">
+                  Our Services
+                </Link>
               </Button>
             </div>
           </div>
@@ -160,7 +167,8 @@ export default function Home() {
         {/* Contact Section */}
         <section id="contact" className="max-w-7xl mx-auto mt-24 mb-24">
           <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">Contact Us</h2>
-          <ContactForm whiteText />
+          {/* Removed whiteText prop to restore original styling */}
+          <ContactForm />
         </section>
 
         {/* Footer */}
