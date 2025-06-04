@@ -1,16 +1,17 @@
+// app/page.tsx
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, Sparkles, Clock, Shield, PhoneCall } from "lucide-react"
+import { CheckCircle, Sparkles, Clock, Shield, PhoneCall, Facebook, Twitter } from "lucide-react"
 import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
 import ContactForm from "@/components/contact-form"
 import SiteFooter from "@/components/site-footer"
-import { Facebook, Twitter } from "lucide-react"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-blue-50 to-green-50">
         <div className="container px-4 md:px-6">
@@ -26,7 +27,6 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col gap-4 min-[400px]:flex-row">
-                {/* Square Book Now button */}
                 <a
                   target="_top"
                   href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
@@ -53,7 +53,6 @@ export default function Home() {
                 >
                   Book now
                 </a>
-                {/* Our Services button */}
                 <Button asChild variant="outline" size="lg" className="w-auto">
                   <Link href="#services">Our Services</Link>
                 </Button>
@@ -81,7 +80,7 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Why Choose Us</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Cleaning Excellence, Every Time</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
                 We combine professional expertise with attention to detail to deliver exceptional cleaning results.
               </p>
             </div>
@@ -126,7 +125,7 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Our Services</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Professional Cleaning Solutions</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
                 Tailored cleaning services to meet your specific needs.
               </p>
             </div>
@@ -178,7 +177,7 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Testimonials</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">What Our Clients Say</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
                 Don't just take our word for it. Here's what our satisfied customers have to say.
               </p>
             </div>
@@ -213,7 +212,7 @@ export default function Home() {
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Contact Us</div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Ready for a Cleaner Space?</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed">
                 Get in touch with us today for a free quote or to schedule your cleaning service.
               </p>
             </div>
@@ -232,7 +231,7 @@ export default function Home() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Service Areas</h3>
-                <p className="text-gray-500">We proudly serve the greater metropolitan area and surrounding suburbs.</p>
+                <p className="text-gray-500">We proudly serve our local city Lakeland and central Florida.</p>
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold">Follow Us</h3>
@@ -267,6 +266,6 @@ export default function Home() {
 
       {/* Footer */}
       <SiteFooter />
-    </div>
+    </main>
   )
 }
