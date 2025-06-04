@@ -1,4 +1,4 @@
-take thios code andc make it look professional with everything that there import Link from "next/link"
+import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, Sparkles, Clock, Shield, PhoneCall, Facebook, Twitter } from "lucide-react"
