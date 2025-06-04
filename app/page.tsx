@@ -1,7 +1,6 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, Sparkles, Clock, Shield, PhoneCall, Facebook, Twitter } from "lucide-react"
+import { Sparkles, Clock, Shield, CheckCircle } from "lucide-react"
 import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
 import ContactForm from "@/components/contact-form"
@@ -26,69 +25,31 @@ export default function HomePage() {
       {/* Content container with relative z-index so it appears above overlay */}
       <div className="relative z-10 flex flex-col min-h-screen">
         {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-blue-50 to-green-50 bg-opacity-90">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-blue-700">
-                    Streamlined Cleaning Solutions
-                  </h1>
-                  <p className="max-w-[600px] text-gray-500 md:text-xl">
-                    Professional cleaning services tailored to your needs. We make your space shine so you can focus on
-                    what matters.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-4 min-[400px]:flex-row">
-                  <a
-                    target="_top"
-                    href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
-                    rel="nofollow"
-                    style={{
-                      backgroundColor: "#006aff",
-                      border: "none",
-                      color: "white",
-                      height: "40px",
-                      textTransform: "uppercase",
-                      fontFamily: "'Square Market', sans-serif",
-                      letterSpacing: "1px",
-                      lineHeight: "38px",
-                      padding: "0 28px",
-                      borderRadius: "8px",
-                      fontWeight: "500",
-                      fontSize: "14px",
-                      cursor: "pointer",
-                      display: "inline-block",
-                      width: "auto",
-                      minWidth: "120px",
-                      textAlign: "center",
-                    }}
-                  >
-                    Book now
-                  </a>
-                  <Button asChild variant="outline" size="lg" className="w-auto">
-                    <Link href="#services">Our Services</Link>
-                  </Button>
-                </div>
-              </div>
-              <div className="flex justify-center items-center">
-                <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
-                  <Image
-                    src="/images/logo.png"
-                    alt="Streamlined Cleaning Solutions Logo"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
+        <section className="w-full py-24 flex flex-col items-center justify-center text-center px-4 md:px-6 bg-gradient-to-r from-blue-50 to-green-50 bg-opacity-90">
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-blue-700 mb-6">
+            Streamlined Cleaning Solutions
+          </h1>
+          <p className="max-w-xl text-gray-600 mb-10 text-lg md:text-xl">
+            Professional cleaning services tailored to your needs. We make your space shine so you can focus on what matters.
+          </p>
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <a
+              target="_top"
+              href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
+              rel="nofollow"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg px-8 py-3 text-sm uppercase tracking-wide transition-colors"
+            >
+              Book Now
+            </a>
+            <Button asChild variant="outline" size="lg" className="w-auto">
+              <Link href="#services">Our Services</Link>
+            </Button>
           </div>
         </section>
 
         {/* Features Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-white bg-opacity-90" id="features">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Why Choose Us</div>
@@ -133,7 +94,7 @@ export default function HomePage() {
 
         {/* Services Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 bg-opacity-90" id="services">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Our Services</div>
@@ -185,7 +146,7 @@ export default function HomePage() {
 
         {/* Testimonials Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-white bg-opacity-90">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Testimonials</div>
@@ -220,7 +181,7 @@ export default function HomePage() {
           id="contact"
           className="w-full py-12 md:py-24 lg:py-32 bg-blue-700 text-white"
         >
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto">
             <h2 className="mb-8 text-center text-4xl font-bold">Get in Touch</h2>
             <ContactForm />
           </div>
