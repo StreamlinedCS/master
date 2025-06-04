@@ -9,12 +9,21 @@ import SiteFooter from "@/components/site-footer"
 
 export default function Home() {
   return (
-    <div
-      className="flex flex-col min-h-screen bg-no-repeat bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
-    >
-      {/* Content wrapper with subtle white translucent bg for readability */}
-      <div className="bg-white/80 min-h-screen">
+    <>
+      {/* Full page background image */}
+      <div className="fixed inset-0 -z-10">
+        <Image
+          src="/images/background-cleaning.png"
+          alt="Cleaning background"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
+          priority
+          quality={100}
+        />
+      </div>
+
+      {/* Main content container with transparent background for readability */}
+      <div className="relative min-h-screen bg-white/90">
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
@@ -155,6 +164,6 @@ export default function Home() {
         {/* Footer */}
         <SiteFooter />
       </div>
-    </div>
+    </>
   )
 }
