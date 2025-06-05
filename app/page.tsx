@@ -56,7 +56,17 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          {/* Removed logo image per your last request */}
+
+          {/* Logo image back here */}
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+            <Image
+              src="/images/logo_transparent.png"
+              alt="Streamlined Cleaning Solutions Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </section>
 
         {/* Features Section */}
