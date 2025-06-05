@@ -42,7 +42,7 @@ export default function Home() {
                 href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
                 target="_top"
                 rel="nofollow"
-                className="inline-block bg-black hover:bg-gray-900 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg"
+                className="inline-block bg-black hover:bg-gray-800 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg"
               >
                 Book now
               </a>
@@ -50,21 +50,13 @@ export default function Home() {
                 asChild
                 variant="default"
                 size="lg"
-                className="bg-black hover:bg-gray-900 text-white font-semibold"
+                className="bg-black hover:bg-gray-800 text-white font-semibold"
               >
                 <Link href="#services">Our Services</Link>
               </Button>
             </div>
           </div>
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-            <Image
-              src="/images/logo_transparent.png"
-              alt="Streamlined Cleaning Solutions Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+          {/* Removed logo image per your last request */}
         </section>
 
         {/* Features Section */}
@@ -105,9 +97,7 @@ export default function Home() {
 
         {/* Services Section */}
         <section id="services" className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Our Services
-          </h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <ServiceCard
               title="Residential Cleaning"
@@ -150,7 +140,7 @@ export default function Home() {
             <Button
               asChild
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 w-auto"
+              className="bg-black hover:bg-gray-800 w-auto text-white font-semibold"
             >
               <Link href="#contact">Request a Quote</Link>
             </Button>
@@ -159,9 +149,7 @@ export default function Home() {
 
         {/* Testimonials Section */}
         <section className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            What Our Clients Say
-          </h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <TestimonialCard
               quote="Streamlined Cleaning Solutions transformed my home. Their attention to detail is remarkable!"
@@ -189,9 +177,7 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="max-w-7xl mx-auto mt-24 mb-24">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Contact Us
-          </h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
           <ContactForm />
         </section>
 
