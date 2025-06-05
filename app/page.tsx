@@ -56,50 +56,50 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Streamlined Cleaning Solutions",
-            "image": "https://streamlinedcleaningsolutions.com/images/logo_transparent.png",
+            name: "Streamlined Cleaning Solutions",
+            image: "https://streamlinedcleaningsolutions.com/images/logo_transparent.png",
             "@id": "https://streamlinedcleaningsolutions.com",
-            "url": "https://streamlinedcleaningsolutions.com",
-            "telephone": "+1-863-662-2874",
-            "address": {
+            url: "https://streamlinedcleaningsolutions.com",
+            telephone: "+1-863-662-2874",
+            address: {
               "@type": "PostalAddress",
-              "streetAddress": "5522 Autumn Ridge Rd",
-              "addressLocality": "Lakeland",
-              "addressRegion": "FL",
-              "postalCode": "33805",
-              "addressCountry": "US"
+              streetAddress: "5522 Autumn Ridge Rd",
+              addressLocality: "Lakeland",
+              addressRegion: "FL",
+              postalCode: "33805",
+              addressCountry: "US",
             },
-            "geo": {
+            geo: {
               "@type": "GeoCoordinates",
-              "latitude": 28.1062,
-              "longitude": -81.8971
+              latitude: 28.1062,
+              longitude: -81.8971,
             },
-            "openingHoursSpecification": {
+            openingHoursSpecification: {
               "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
+              dayOfWeek: [
                 "Monday",
                 "Tuesday",
                 "Wednesday",
                 "Thursday",
                 "Friday",
-                "Saturday"
+                "Saturday",
               ],
-              "opens": "08:00",
-              "closes": "18:00"
+              opens: "08:00",
+              closes: "18:00",
             },
-            "sameAs": [
+            sameAs: [
               "https://www.facebook.com/streamlinedcleaningsolutions",
-              "https://twitter.com/StreamlinedCS"
+              "https://twitter.com/StreamlinedCS",
             ],
-            "priceRange": "$$",
-            "description":
+            priceRange: "$$",
+            description:
               "Professional residential and commercial cleaning services in Lakeland, FL. Quality cleaning, reliable service, and customer satisfaction guaranteed.",
-            "aggregateRating": {
+            aggregateRating: {
               "@type": "AggregateRating",
-              "ratingValue": "5",
-              "reviewCount": "20"
-            }
-          })
+              ratingValue: "5",
+              reviewCount: "20",
+            },
+          }),
         }}
       />
 
@@ -111,6 +111,7 @@ export default function Home() {
         />
 
         <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12 pb-48">
+          {/* Hero Section */}
           <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
             <div className="flex flex-col justify-center space-y-6 max-w-xl">
               <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
@@ -140,7 +141,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+            <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[400px] lg:h-[400px]">
               <Image
                 src="/images/logo_transparent.png"
                 alt="Streamlined Cleaning Solutions Logo"
@@ -151,27 +152,29 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Benefits Section */}
           <section className="max-w-7xl mx-auto mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {[
               {
                 icon: <Sparkles className="h-10 w-10 text-black" />,
                 title: "Spotless Results",
-                description: "Our thorough cleaning process ensures your space is immaculate."
+                description: "Our thorough cleaning process ensures your space is immaculate.",
               },
               {
                 icon: <Clock className="h-10 w-10 text-black" />,
                 title: "Reliable Service",
-                description: "We arrive on time, every time, with all the supplies needed."
+                description: "We arrive on time, every time, with all the supplies needed.",
               },
               {
                 icon: <Shield className="h-10 w-10 text-black" />,
                 title: "Trusted Team",
-                description: "Our vetted professionals are background-checked and trained."
+                description: "Our vetted professionals are background-checked and trained.",
               },
               {
                 icon: <CheckCircle className="h-10 w-10 text-black" />,
                 title: "Satisfaction Guaranteed",
-                description: "Not happy? We'll come back and make it right at no extra cost."
+                description:
+                  "Not happy? We'll come back and make it right at no extra cost.",
               },
             ].map(({ icon, title, description }) => (
               <div key={title} className="flex flex-col items-center text-center">
@@ -182,6 +185,7 @@ export default function Home() {
             ))}
           </section>
 
+          {/* Services Section */}
           <section id="services" className="max-w-7xl mx-auto mt-24">
             <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -233,6 +237,7 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Testimonials Section */}
           <section className="max-w-7xl mx-auto mt-24">
             <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -260,6 +265,7 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Contact Section */}
           <section id="contact" className="max-w-7xl mx-auto mt-24 mb-24">
             <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
             <ContactForm />
