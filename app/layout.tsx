@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { PhoneCall } from "lucide-react";
-import Script from "next/script"; // <-- import Script here
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -67,36 +67,36 @@ export default function RootLayout({
                 <Link href="/" className="flex items-center space-x-2">
                   <div className="relative w-10 h-10">
                     <Image
-                      src="/images/logo.png"
+                      src="/images/logo_transparent.png"
                       alt="Streamlined Cleaning Solutions Logo"
                       fill
                       className="object-contain"
                     />
                   </div>
-                  <span className="text-2xl font-bold text-blue-700">SCS</span>
+                  <span className="text-2xl font-bold text-black">SCS</span>
                 </Link>
                 <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
                   <Link
                     href="/"
-                    className="hover:text-blue-600 transition-colors"
+                    className="hover:text-black transition-colors text-black"
                   >
                     Home
                   </Link>
                   <Link
                     href="/#services"
-                    className="hover:text-blue-600 transition-colors"
+                    className="hover:text-black transition-colors text-black"
                   >
                     Services
                   </Link>
                   <Link
                     href="/about"
-                    className="hover:text-blue-600 transition-colors"
+                    className="hover:text-black transition-colors text-black"
                   >
                     About
                   </Link>
                   <Link
                     href="/#contact"
-                    className="hover:text-blue-600 transition-colors"
+                    className="hover:text-black transition-colors text-black"
                   >
                     Contact
                   </Link>
@@ -104,13 +104,13 @@ export default function RootLayout({
                 <div className="flex items-center space-x-2">
                   <Button asChild variant="ghost" size="icon" className="md:hidden">
                     <Link href="/#contact">
-                      <PhoneCall className="h-5 w-5" />
+                      <PhoneCall className="h-5 w-5 text-black" />
                       <span className="sr-only">Contact</span>
                     </Link>
                   </Button>
                   <Button
                     asChild
-                    className="hidden md:inline-flex bg-blue-600 hover:bg-blue-700"
+                    className="hidden md:inline-flex bg-black hover:bg-neutral-800 text-white"
                   >
                     <Link href="/#contact">Get a Quote</Link>
                   </Button>
@@ -124,4 +124,3 @@ export default function RootLayout({
     </html>
   );
 }
-
