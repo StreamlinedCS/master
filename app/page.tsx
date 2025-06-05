@@ -118,7 +118,7 @@ export default function Home() {
                 Streamlined Cleaning Solutions
               </h1>
               <p className="text-lg sm:text-xl max-w-lg">
-                Professional cleaning services tailored to your needs. We make your space
+                Professional cleaning services tailored to your needs. We will make your space
                 shine so you can focus on what matters.
               </p>
               <div className="flex flex-wrap gap-4">
