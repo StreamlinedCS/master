@@ -25,26 +25,29 @@ export default function Home() {
         style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
       />
 
-      {/* Logo in Top-Left Corner */}
-      <div className="absolute top-4 left-4 z-20 w-24 h-24 sm:w-28 sm:h-28">
-        <Image
-          src="/images/logo_transparent.png"
-          alt="Streamlined Cleaning Solutions Logo"
-          fill
-          className="object-contain"
-          priority
-        />
-      </div>
-
       {/* Page Content */}
       <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12 pb-48">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="flex flex-col justify-center space-y-6 max-w-xl">
-            <h1 className="text-4xl sm:text-5xl font-extrabold drop-shadow-lg leading-tight">
-              Streamlined Cleaning Solutions
-            </h1>
-            <p className="text-lg sm:text-xl drop-shadow-md max-w-lg">
+            {/* Logo next to SCS */}
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12">
+                <Image
+                  src="/images/logo_transparent.png"
+                  alt="SCS Logo"
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                  priority
+                />
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+                SCS - Streamlined Cleaning Solutions
+              </h1>
+            </div>
+
+            <p className="text-lg sm:text-xl max-w-lg">
               Professional cleaning services tailored to your needs. We make your space shine so you can focus on what matters.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -66,6 +69,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
+
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
             <Image
               src="/images/logo_transparent.png"
@@ -83,37 +87,41 @@ export default function Home() {
             {
               icon: <Sparkles className="h-10 w-10 text-blue-400" />,
               title: "Spotless Results",
-              description: "Our thorough cleaning process ensures your space is immaculate.",
+              description:
+                "Our thorough cleaning process ensures your space is immaculate.",
             },
             {
               icon: <Clock className="h-10 w-10 text-blue-400" />,
               title: "Reliable Service",
-              description: "We arrive on time, every time, with all the supplies needed.",
+              description:
+                "We arrive on time, every time, with all the supplies needed.",
             },
             {
               icon: <Shield className="h-10 w-10 text-blue-400" />,
               title: "Trusted Team",
-              description: "Our vetted professionals are background-checked and trained.",
+              description:
+                "Our vetted professionals are background-checked and trained.",
             },
             {
               icon: <CheckCircle className="h-10 w-10 text-blue-400" />,
               title: "Satisfaction Guaranteed",
-              description: "Not happy? We'll come back and make it right at no extra cost.",
+              description:
+                "Not happy? We'll come back and make it right at no extra cost.",
             },
           ].map(({ icon, title, description }) => (
             <div key={title} className="flex flex-col items-center text-center">
               {icon}
-              <h3 className="mt-4 mb-2 text-xl font-semibold drop-shadow-lg">
+              <h3 className="mt-4 mb-2 text-xl font-semibold">
                 {title}
               </h3>
-              <p className="max-w-xs drop-shadow-md">{description}</p>
+              <p className="max-w-xs">{description}</p>
             </div>
           ))}
         </section>
 
         {/* Services Section */}
         <section id="services" className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">
+          <h2 className="text-3xl font-bold mb-8 text-center">
             Our Services
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -158,7 +166,7 @@ export default function Home() {
             <Button
               asChild
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 w-auto text-white"
+              className="bg-blue-600 hover:bg-blue-700 w-auto"
             >
               <Link href="#contact">Request a Quote</Link>
             </Button>
@@ -167,7 +175,7 @@ export default function Home() {
 
         {/* Testimonials Section */}
         <section className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">
+          <h2 className="text-3xl font-bold mb-8 text-center">
             What Our Clients Say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -196,62 +204,11 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32" id="contact">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Contact Us</div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Ready for a Cleaner Space?</h2>
-                <p className="max-w-[900px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Get in touch with us today for a free quote or to schedule your cleaning service.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="flex items-center space-x-3">
-                  <PhoneCall className="h-6 w-6 text-blue-600" />
-                  <span className="text-lg font-medium">Call us: (863) 662-2847</span>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold">Business Hours</h3>
-                  <p className="text-gray-700">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                  <p className="text-gray-700">Saturday: 9:00 AM - 4:00 PM</p>
-                  <p className="text-gray-700">Sunday: Closed</p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold">Service Areas</h3>
-                  <p className="text-gray-700">We proudly serve the greater metropolitan area and surrounding suburbs.</p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold">Follow Us</h3>
-                  <div className="flex space-x-4">
-                    <Link
-                      href="https://www.facebook.com/streamlined.cleaning.solution.s.2025/?viewas=100000686899395"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
-                    >
-                      <Facebook className="h-6 w-6" />
-                      <span className="sr-only">Facebook</span>
-                    </Link>
-                    <Link
-                      href="https://x.com/StreamlinedCS"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
-                    >
-                      <Twitter className="h-6 w-6" />
-                      <span className="sr-only">X (Twitter)</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="rounded-lg border bg-white p-6 shadow-sm">
-                <ContactForm />
-              </div>
-            </div>
-          </div>
+        <section className="max-w-7xl mx-auto mt-24 mb-24" id="contact">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Contact Us
+          </h2>
+          <ContactForm />
         </section>
 
         {/* Footer */}
