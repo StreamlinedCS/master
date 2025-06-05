@@ -42,7 +42,7 @@ export default function Home() {
                 href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
                 target="_top"
                 rel="nofollow"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg"
+                className="inline-block bg-black hover:bg-gray-900 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg"
               >
                 Book now
               </a>
@@ -50,7 +50,7 @@ export default function Home() {
                 asChild
                 variant="default"
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+                className="bg-black hover:bg-gray-900 text-white font-semibold"
               >
                 <Link href="#services">Our Services</Link>
               </Button>
