@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
   CheckCircle,
@@ -24,34 +25,8 @@ export default function Home() {
         style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
       />
 
-      {/* Left corner nav with links only (no logo) */}
-      <nav className="fixed top-0 left-0 z-20 flex items-center gap-8 bg-white bg-opacity-90 px-4 py-3 shadow-md">
-        <ul className="flex space-x-6 font-semibold text-lg">
-          <li>
-            <Link href="/">
-              <a className="hover:text-blue-600">Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="#services">
-              <a className="hover:text-blue-600">Services</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="#about">
-              <a className="hover:text-blue-600">About</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="#contact">
-              <a className="hover:text-blue-600">Contact</a>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-
-      {/* Page content container with top padding to avoid nav overlap */}
-      <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-20 pb-48">
+      {/* Page content container */}
+      <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12 pb-48">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="flex flex-col justify-center space-y-6 max-w-xl">
@@ -81,7 +56,15 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          {/* Removed the Image logo to avoid broken image icon */}
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+            <Image
+              src="/images/logo_transparent.png"
+              alt="Streamlined Cleaning Solutions Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </section>
 
         {/* Features Section */}
@@ -122,7 +105,9 @@ export default function Home() {
 
         {/* Services Section */}
         <section id="services" className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Our Services
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <ServiceCard
               title="Residential Cleaning"
@@ -174,7 +159,9 @@ export default function Home() {
 
         {/* Testimonials Section */}
         <section className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            What Our Clients Say
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <TestimonialCard
               quote="Streamlined Cleaning Solutions transformed my home. Their attention to detail is remarkable!"
@@ -202,7 +189,7 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="max-w-7xl mx-auto mt-24 mb-24">
-          <h2 className="text-3xl font-bold mb-8 text-center text-white drop-shadow-lg">
+          <h2 className="text-3xl font-bold mb-8 text-center">
             Contact Us
           </h2>
           <ContactForm />
