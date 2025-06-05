@@ -8,15 +8,11 @@ import {
   Sparkles,
   Clock,
   Shield,
-  PhoneCall,
-  Facebook,
-  Twitter,
   Star,
 } from "lucide-react";
-import TestimonialCard from "@/components/testimonial-card";
-import ServiceCard from "@/components/service-card";
 import ContactForm from "@/components/contact-form";
 import SiteFooter from "@/components/site-footer";
+import ServiceCard from "@/components/service-card";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -127,8 +123,7 @@ export default function Home() {
         <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12 pb-48">
           {/* Hero Section */}
           <section
-            className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12
-          animate-fade-in"
+            className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 animate-fade-in"
           >
             <div className="flex flex-col justify-center space-y-6 max-w-xl">
               <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
@@ -261,149 +256,68 @@ export default function Home() {
               />
             </div>
             <div className="flex justify-center mt-10">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-yellow-500 text-yellow-600 hover:bg-yellow-100 focus:ring-yellow-400"
-                asChild
-              >
-                <Link href="#pricing" aria-label="Jump to Pricing section">
-                  View Pricing
+              <Button asChild variant="outline" size="lg" className="px-10">
+                <Link href="/services" aria-label="See all services">
+                  See All Services
                 </Link>
               </Button>
-            </div>
-          </section>
-
-          {/* Pricing Section */}
-          <section
-            id="pricing"
-            className="max-w-5xl mx-auto mt-24 px-4 py-8 bg-yellow-50 rounded-lg shadow-md animate-fade-in delay-600"
-            aria-label="Service Pricing"
-          >
-            <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-              {[
-                {
-                  title: "Standard Cleaning",
-                  price: "$99",
-                  features: [
-                    "Kitchen, bathrooms, living areas",
-                    "Dusting and vacuuming",
-                    "Trash removal",
-                    "1-2 hours",
-                  ],
-                },
-                {
-                  title: "Deep Cleaning",
-                  price: "$199",
-                  features: [
-                    "Includes Standard Cleaning",
-                    "Baseboards, windows, vents",
-                    "Appliance exteriors",
-                    "3-4 hours",
-                  ],
-                },
-                {
-                  title: "Move In/Out Cleaning",
-                  price: "$249",
-                  features: [
-                    "Includes Deep Cleaning",
-                    "Inside cabinets and closets",
-                    "Carpet spot treatment",
-                    "4-6 hours",
-                  ],
-                },
-              ].map(({ title, price, features }) => (
-                <div
-                  key={title}
-                  className="bg-white rounded-lg shadow-lg p-6 flex flex-col"
-                >
-                  <h3 className="text-2xl font-semibold mb-4">{title}</h3>
-                  <p className="text-4xl font-extrabold mb-6 text-yellow-600">{price}</p>
-                  <ul className="mb-6 text-gray-700 flex-grow">
-                    {features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-center gap-2 mb-2"
-                        aria-label={feature}
-                      >
-                        <CheckCircle className="h-5 w-5 text-yellow-500 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    variant="yellow"
-                    className="w-full mt-auto"
-                    asChild
-                  >
-                    <a
-                      href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
-                      target="_top"
-                      rel="nofollow noopener noreferrer"
-                      aria-label={`Book ${title} service`}
-                    >
-                      Book Now
-                    </a>
-                  </Button>
-                </div>
-              ))}
             </div>
           </section>
 
           {/* Testimonials Section */}
           <section
             id="testimonials"
-            className="max-w-7xl mx-auto mt-24 animate-fade-in delay-800"
-            aria-label="Customer Testimonials"
+            className="max-w-7xl mx-auto mt-24 mb-16 animate-fade-in delay-600"
           >
-            <h2 className="text-3xl font-bold mb-8 text-center">What Our Customers Say</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <h2 className="text-3xl font-bold mb-10 text-center">Customer Reviews</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  id: 1,
-                  name: "Sarah M.",
-                  photo: "/images/customers/sarah.jpg",
+                  author: "Jane M.",
                   rating: 5,
-                  comment:
-                    "Streamlined Cleaning Solutions did an amazing job cleaning my home. They were prompt, professional, and thorough!",
+                  quote:
+                    "Streamlined Cleaning Solutions exceeded my expectations! My home has never looked better.",
                 },
                 {
-                  id: 2,
-                  name: "Michael B.",
-                  photo: "/images/customers/michael.jpg",
-                  rating: 4,
-                  comment:
-                    "Great service with attention to detail. Highly recommend for anyone needing reliable cleaning.",
+                  author: "Carlos T.",
+                  rating: 5,
+                  quote:
+                    "Reliable and thorough. They did a fantastic job cleaning our office space.",
                 },
                 {
-                  id: 3,
-                  name: "Jessica L.",
-                  photo: "/images/customers/jessica.jpg",
+                  author: "Melissa W.",
                   rating: 5,
-                  comment:
-                    "I love how spotless my apartment was after their deep cleaning service. Friendly and efficient team.",
+                  quote:
+                    "The team was professional and friendly. Highly recommend their deep cleaning service!",
                 },
-              ].map(({ id, name, photo, rating, comment }) => (
+                {
+                  author: "Kevin B.",
+                  rating: 5,
+                  quote:
+                    "Affordable and excellent service. They made moving out so much easier with their move-out cleaning.",
+                },
+                {
+                  author: "Emily R.",
+                  rating: 5,
+                  quote:
+                    "I appreciate their attention to detail and consistent quality every time.",
+                },
+                {
+                  author: "Sean P.",
+                  rating: 5,
+                  quote:
+                    "Fast, efficient, and trustworthy. Will definitely use Streamlined Cleaning Solutions again.",
+                },
+              ].map(({ author, rating, quote }) => (
                 <blockquote
-                  key={id}
-                  className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col"
+                  key={author}
+                  className="border border-yellow-400 rounded-lg p-6 bg-yellow-50 shadow-md"
                 >
-                  <div className="flex items-center gap-4 mb-4">
-                    <Image
-                      src={photo}
-                      alt={`Photo of ${name}`}
-                      width={60}
-                      height={60}
-                      className="rounded-full object-cover"
-                      loading="lazy"
-                    />
-                    <div>
-                      <p className="font-semibold text-gray-900">{name}</p>
-                      <StarRating rating={rating} />
-                    </div>
-                  </div>
-                  <p className="text-gray-700 italic">“{comment}”</p>
+                  <StarRating rating={rating} />
+                  <p className="mt-3 text-gray-800 italic">"{quote}"</p>
+                  <footer className="mt-4 text-right font-semibold text-yellow-900">
+                    – {author}
+                  </footer>
                 </blockquote>
               ))}
             </div>
@@ -412,8 +326,7 @@ export default function Home() {
           {/* Contact Section */}
           <section
             id="contact"
-            className="max-w-4xl mx-auto mt-24 mb-24 animate-fade-in delay-1000"
-            aria-label="Contact Streamlined Cleaning Solutions"
+            className="max-w-4xl mx-auto mt-20 animate-fade-in delay-800"
           >
             <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
             <ContactForm />
@@ -422,37 +335,6 @@ export default function Home() {
 
         <SiteFooter />
       </main>
-
-      <style jsx global>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in {
-          animation: fade-in 0.8s ease forwards;
-        }
-        .delay-200 {
-          animation-delay: 0.2s;
-        }
-        .delay-400 {
-          animation-delay: 0.4s;
-        }
-        .delay-600 {
-          animation-delay: 0.6s;
-        }
-        .delay-800 {
-          animation-delay: 0.8s;
-        }
-        .delay-1000 {
-          animation-delay: 1s;
-        }
-      `}</style>
     </>
   );
 }
