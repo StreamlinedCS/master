@@ -8,9 +8,6 @@ import {
   Sparkles,
   Clock,
   Shield,
-  PhoneCall,
-  Facebook,
-  Twitter,
 } from "lucide-react"
 import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
@@ -234,6 +231,61 @@ export default function Home() {
               >
                 <Link href="#contact">Request a Quote</Link>
               </Button>
+            </div>
+          </section>
+
+          {/* WHAT'S INCLUDED Section */}
+          <section
+            id="whats-included"
+            className="max-w-7xl mx-auto mt-20 px-6 md:px-0"
+          >
+            <h2 className="text-3xl font-bold mb-6 text-center">
+              What's Included in Our Cleaning Packages
+            </h2>
+            <p className="text-center max-w-3xl mx-auto mb-8">
+              Choose from Standard, Deep, or Move-In/Out cleaning. Pricing is based on square footage, starting at $145 for Standard, $240 for Deep, and variable for Move-In/Out. Additional add-ons available.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Standard Cleaning</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>General dusting and vacuuming</li>
+                  <li>Kitchen cleaning</li>
+                  <li>Bathroom cleaning</li>
+                  <li>Trash removal</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Deep Cleaning</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Includes all Standard Cleaning tasks</li>
+                  <li>Baseboard cleaning</li>
+                  <li>Inside fridge and oven cleaning</li>
+                  <li>Interior window cleaning</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Move-In/Out Cleaning</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>All Deep Cleaning tasks plus</li>
+                  <li>Extra detailed cleaning for walls, cabinets, and floors</li>
+                  <li>Pet stain and odor treatment available (add-on)</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Add-Ons</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Baseboard cleaning – $25</li>
+                  <li>Fridge cleaning – $25</li>
+                  <li>Oven cleaning – $25</li>
+                  <li>Interior window cleaning – $20</li>
+                  <li>Pet stain and odor treatment – $30</li>
+                </ul>
+              </div>
             </div>
           </section>
 
