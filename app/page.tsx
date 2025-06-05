@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
   CheckCircle,
@@ -82,40 +81,32 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-            <Image
-              src="/images/logo_transparent.png"
-              alt="Streamlined Cleaning Solutions Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+          {/* Removed the Image logo to avoid broken image icon */}
         </section>
 
         {/* Features Section */}
         <section className="max-w-7xl mx-auto mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {[
             {
-              icon: <Sparkles className="h-10 w-10 text-blue-400" />,
+              icon: <Sparkles className="h-10 w-10 text-black" />,
               title: "Spotless Results",
               description:
                 "Our thorough cleaning process ensures your space is immaculate.",
             },
             {
-              icon: <Clock className="h-10 w-10 text-blue-400" />,
+              icon: <Clock className="h-10 w-10 text-black" />,
               title: "Reliable Service",
               description:
                 "We arrive on time, every time, with all the supplies needed.",
             },
             {
-              icon: <Shield className="h-10 w-10 text-blue-400" />,
+              icon: <Shield className="h-10 w-10 text-black" />,
               title: "Trusted Team",
               description:
                 "Our vetted professionals are background-checked and trained.",
             },
             {
-              icon: <CheckCircle className="h-10 w-10 text-blue-400" />,
+              icon: <CheckCircle className="h-10 w-10 text-black" />,
               title: "Satisfaction Guaranteed",
               description:
                 "Not happy? We'll come back and make it right at no extra cost.",
@@ -214,7 +205,6 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-8 text-center text-white drop-shadow-lg">
             Contact Us
           </h2>
-          {/* Assuming the original ContactForm uses white text */}
           <ContactForm />
         </section>
 
