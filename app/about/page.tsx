@@ -12,7 +12,12 @@ export default function AboutPage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="relative w-[150px] h-[150px] mb-4">
-              <Image src="/images/logo.png" alt="Streamlined Cleaning Solutions Logo" fill className="object-contain" />
+              <Image
+                src="/images/logo_transparent.png"
+                alt="Streamlined Cleaning Solutions Logo"
+                fill
+                className="object-contain"
+              />
             </div>
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-blue-700">
