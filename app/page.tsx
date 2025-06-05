@@ -1,34 +1,40 @@
-import Head from "next/head"
-import Script from "next/script"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import Head from "next/head";
+import Script from "next/script";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import {
   CheckCircle,
   Sparkles,
   Clock,
   Shield,
-  PhoneCall,
-  Facebook,
-  Twitter,
-} from "lucide-react"
-import TestimonialCard from "@/components/testimonial-card"
-import ServiceCard from "@/components/service-card"
-import ContactForm from "@/components/contact-form"
-import SiteFooter from "@/components/site-footer"
+  Star,
+} from "lucide-react";
+import ContactForm from "@/components/contact-form";
+import SiteFooter from "@/components/site-footer";
+import ServiceCard from "@/components/service-card";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      document.documentElement.style.scrollBehavior = "smooth";
+    }
+  }, []);
+
   return (
     <>
       <Head>
-        <title>Streamlined Cleaning Solutions | Professional Cleaning Services</title>
+        <title>
+          Streamlined Cleaning Solutions | Professional Cleaning Services in Lakeland, FL
+        </title>
         <meta
           name="description"
-          content="Professional residential and commercial cleaning services in Lakeland, FL. Quality cleaning, reliable service, and customer satisfaction guaranteed."
+          content="Professional residential and commercial cleaning services in Lakeland, FL. Quality, reliable cleaning with satisfaction guaranteed."
         />
         <meta
           name="keywords"
-          content="cleaning services, residential cleaning, commercial cleaning, Lakeland, Florida, deep cleaning, move-in cleaning, post-construction cleaning"
+          content="cleaning services, residential cleaning, commercial cleaning, Lakeland FL, deep cleaning, move-in cleaning, post-construction cleaning"
         />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Jeremy Bell" />
@@ -38,14 +44,15 @@ export default function Home() {
         />
         <meta
           property="og:title"
-          content="Streamlined Cleaning Solutions | Professional Cleaning Services"
+          content="Streamlined Cleaning Solutions | Professional Cleaning Services in Lakeland, FL"
         />
         <meta
           property="og:description"
-          content="Professional residential and commercial cleaning services in Lakeland, FL. Quality cleaning, reliable service, and customer satisfaction guaranteed."
+          content="Professional residential and commercial cleaning services in Lakeland, FL. Quality, reliable cleaning with satisfaction guaranteed."
         />
         <meta property="og:url" content="https://streamlinedcleaningsolutions.com" />
         <meta property="og:type" content="website" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Script
@@ -57,7 +64,8 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Streamlined Cleaning Solutions",
-            image: "https://streamlinedcleaningsolutions.com/images/logo_transparent.png",
+            image:
+              "https://streamlinedcleaningsolutions.com/images/logo_transparent.png",
             "@id": "https://streamlinedcleaningsolutions.com",
             url: "https://streamlinedcleaningsolutions.com",
             telephone: "+1-863-662-2874",
@@ -93,7 +101,7 @@ export default function Home() {
             ],
             priceRange: "$$",
             description:
-              "Professional residential and commercial cleaning services in Lakeland, FL. Quality cleaning, reliable service, and customer satisfaction guaranteed.",
+              "Professional residential and commercial cleaning services in Lakeland, FL. Quality, reliable cleaning with satisfaction guaranteed.",
             aggregateRating: {
               "@type": "AggregateRating",
               ratingValue: "5",
@@ -103,30 +111,34 @@ export default function Home() {
         }}
       />
 
-      <main className="relative min-h-screen flex flex-col text-black">
+      <main className="relative min-h-screen flex flex-col text-black bg-white selection:bg-yellow-300 selection:text-black">
+        {/* Background image with blur */}
         <div
           aria-hidden="true"
-          className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+          className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-20 filter blur-sm"
           style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
         />
 
-        <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12 pb-48">
+        <div className="relative z-10 flex-grow flex flex-col px-4 sm:px-8 md:px-12 lg:px-24 py-10 md:py-16 pb-40 md:pb-48">
           {/* Hero Section */}
-          <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-            <div className="flex flex-col justify-center space-y-6 max-w-xl">
-              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+          <section
+            className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 sm:gap-14 md:gap-20 animate-fade-in"
+            aria-label="Hero introduction"
+          >
+            <div className="flex flex-col justify-center space-y-5 sm:space-y-6 max-w-xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
                 Streamlined Cleaning Solutions
               </h1>
-              <p className="text-lg sm:text-xl max-w-lg">
-                Professional cleaning services tailored to your needs. We make your space
-                shine so you can focus on what matters.
+              <p className="text-base sm:text-lg md:text-xl max-w-lg text-gray-800">
+                Professional cleaning services tailored to your needs. We make your
+                space shine so you can focus on what matters.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3 sm:gap-4">
                 <a
                   href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
                   target="_top"
-                  rel="nofollow"
-                  className="inline-block bg-black hover:bg-gray-800 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg"
+                  rel="nofollow noopener noreferrer"
+                  className="inline-block bg-black hover:bg-gray-900 text-white font-semibold rounded-md px-6 py-3 transition-shadow shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
                 >
                   Book now
                 </a>
@@ -134,61 +146,82 @@ export default function Home() {
                   asChild
                   variant="default"
                   size="lg"
-                  className="bg-black hover:bg-gray-800 text-white font-semibold"
+                  className="bg-black hover:bg-gray-900 text-white font-semibold focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
                 >
-                  <Link href="#services">Our Services</Link>
+                  <Link href="#services" aria-label="Jump to Our Services section">
+                    Our Services
+                  </Link>
                 </Button>
               </div>
             </div>
 
-            <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[400px] lg:h-[400px]">
+            <div className="relative w-60 h-60 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px]">
               <Image
                 src="/images/logo_transparent.png"
                 alt="Streamlined Cleaning Solutions Logo"
                 fill
                 className="object-contain"
                 priority
+                sizes="(max-width: 640px) 60vw, (max-width: 1024px) 40vw, 400px"
               />
             </div>
           </section>
 
           {/* Benefits Section */}
-          <section className="max-w-7xl mx-auto mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <section
+            className="max-w-7xl mx-auto mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10"
+            aria-label="Benefits of choosing Streamlined Cleaning Solutions"
+          >
             {[
               {
-                icon: <Sparkles className="h-10 w-10 text-black" />,
+                icon: <Sparkles className="h-10 w-10 text-yellow-500" aria-hidden="true" />,
                 title: "Spotless Results",
-                description: "Our thorough cleaning process ensures your space is immaculate.",
+                description:
+                  "Our thorough cleaning process ensures your space is immaculate.",
               },
               {
-                icon: <Clock className="h-10 w-10 text-black" />,
+                icon: <Clock className="h-10 w-10 text-yellow-500" aria-hidden="true" />,
                 title: "Reliable Service",
-                description: "We arrive on time, every time, with all the supplies needed.",
+                description:
+                  "We arrive on time, every time, with all the supplies needed.",
               },
               {
-                icon: <Shield className="h-10 w-10 text-black" />,
+                icon: <Shield className="h-10 w-10 text-yellow-500" aria-hidden="true" />,
                 title: "Trusted Team",
-                description: "Our vetted professionals are background-checked and trained.",
+                description:
+                  "Our vetted professionals are background-checked and trained.",
               },
               {
-                icon: <CheckCircle className="h-10 w-10 text-black" />,
+                icon: <CheckCircle className="h-10 w-10 text-yellow-500" aria-hidden="true" />,
                 title: "Satisfaction Guaranteed",
                 description:
                   "Not happy? We'll come back and make it right at no extra cost.",
               },
             ].map(({ icon, title, description }) => (
-              <div key={title} className="flex flex-col items-center text-center">
+              <article
+                key={title}
+                className="flex flex-col items-center text-center bg-white rounded-lg p-5 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                tabIndex={0}
+                aria-label={title}
+              >
                 {icon}
-                <h3 className="mt-4 mb-2 text-xl font-semibold">{title}</h3>
-                <p className="max-w-xs">{description}</p>
-              </div>
+                <h3 className="mt-3 mb-1 text-lg sm:text-xl font-semibold text-gray-900">
+                  {title}
+                </h3>
+                <p className="max-w-xs text-gray-700 text-sm sm:text-base">{description}</p>
+              </article>
             ))}
           </section>
 
           {/* Services Section */}
-          <section id="services" className="max-w-7xl mx-auto mt-24">
-            <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <section
+            id="services"
+            className="max-w-7xl mx-auto mt-20 animate-fade-in delay-200"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center">
+              Our Services
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
               <ServiceCard
                 title="Residential Cleaning"
                 description="Comprehensive home cleaning services customized to your preferences and schedule."
@@ -226,142 +259,108 @@ export default function Home() {
                 whiteText={false}
               />
             </div>
-            <div className="flex justify-center mt-12">
+            <div className="flex justify-center mt-8">
               <Button
                 asChild
+                variant="outline"
                 size="lg"
-                className="bg-black hover:bg-gray-800 w-auto text-white font-semibold"
+                className="px-8 sm:px-10"
+                aria-label="See all cleaning services"
               >
-                <Link href="#contact">Request a Quote</Link>
+                <Link href="/services">See All Services</Link>
               </Button>
             </div>
           </section>
 
-          {/* WHAT'S INCLUDED Section */}
-          <section
-            id="whats-included"
-            className="max-w-7xl mx-auto mt-20 px-6 md:px-0"
-          >
-            <div className="bg-white rounded-lg shadow-lg p-10">
-              <h2 className="text-3xl font-bold mb-6 text-center text-black">
-                What's Included in Our Cleaning Packages
-              </h2>
-              <p className="text-center max-w-3xl mx-auto mb-8 text-black">
-                Choose from Standard, Deep, or Move-In/Out cleaning. Pricing is based on square footage:
-              </p>
-
-              {/* Updated Pricing Table */}
-              <div className="overflow-x-auto mb-10">
-                <table className="w-full text-left border-collapse border border-gray-300">
-                  <thead>
-                    <tr className="bg-gray-100">
-                      <th className="py-3 px-4 border border-gray-300">Service Type</th>
-                      <th className="py-3 px-4 border border-gray-300">0–999 sq ft</th>
-                      <th className="py-3 px-4 border border-gray-300">1000–1499 sq ft</th>
-                      <th className="py-3 px-4 border border-gray-300">1500–1999 sq ft</th>
-                      <th className="py-3 px-4 border border-gray-300">2000–2499 sq ft</th>
-                      <th className="py-3 px-4 border border-gray-300">2500–2999 sq ft</th>
-                      <th className="py-3 px-4 border border-gray-300">3000+ sq ft</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Standard Clean</td>
-                      <td className="py-3 px-4 border border-gray-300">$120</td>
-                      <td className="py-3 px-4 border border-gray-300">$195</td>
-                      <td className="py-3 px-4 border border-gray-300">$270</td>
-                      <td className="py-3 px-4 border border-gray-300">$345</td>
-                      <td className="py-3 px-4 border border-gray-300">$420</td>
-                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
-                    </tr>
-                    <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Deep Clean</td>
-                      <td className="py-3 px-4 border border-gray-300">$190</td>
-                      <td className="py-3 px-4 border border-gray-300">$265</td>
-                      <td className="py-3 px-4 border border-gray-300">$340</td>
-                      <td className="py-3 px-4 border border-gray-300">$415</td>
-                      <td className="py-3 px-4 border border-gray-300">$490</td>
-                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
-                    </tr>
-                    <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Move-In/Out</td>
-                      <td className="py-3 px-4 border border-gray-300">$220</td>
-                      <td className="py-3 px-4 border border-gray-300">$295</td>
-                      <td className="py-3 px-4 border border-gray-300">$370</td>
-                      <td className="py-3 px-4 border border-gray-300">$445</td>
-                      <td className="py-3 px-4 border border-gray-300">$520</td>
-                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto text-black">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Standard Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>General dusting and vacuuming</li>
-                    <li>Kitchen cleaning</li>
-                    <li>Bathroom cleaning</li>
-                    <li>Trash removal</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Deep Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Includes all Standard Cleaning tasks</li>
-                    <li>Baseboard cleaning</li>
-                    <li>Inside fridge and oven cleaning</li>
-                    <li>Interior window cleaning</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Move-In/Out Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>All Deep Cleaning tasks plus</li>
-                    <li>Extra detailed cleaning for walls, cabinets, and floors</li>
-                    <li>Pet (add-on)</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Add-Ons</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Baseboard cleaning – $25</li>
-                    <li>Fridge cleaning – $25</li>
-                    <li>Oven cleaning – $25</li>
-                    <li>Interior window cleaning – $20</li>
-                    <li>Pet – $30</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* Testimonials Section */}
-          <section className="max-w-7xl mx-auto mt-24">
-            <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-              <TestimonialCard
-                author="Jessica P."
-                quote="Streamlined Cleaning Solutions transformed my home! They are punctual, professional, and thorough."
-              />
-              <TestimonialCard
-                author="Michael K."
-                quote="Great attention to detail and very reliable. Highly recommend for any residential or commercial needs."
-              />
-              <TestimonialCard
-                author="Sarah T."
-                quote="Their move-out cleaning saved my security deposit. Thank you for the exceptional service!"
-              />
+          <section
+            id="testimonials"
+            className="max-w-7xl mx-auto mt-20 mb-16 animate-fade-in delay-400"
+            aria-label="Customer testimonials"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center">
+              Customer Reviews
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {[
+                {
+                  author: "Jane M.",
+                  rating: 5,
+                  quote:
+                    "Streamlined Cleaning Solutions exceeded my expectations! My home has never looked better.",
+                },
+                {
+                  author: "Carlos T.",
+                  rating: 5,
+                  quote:
+                    "Reliable and thorough. They did a fantastic job cleaning our office space.",
+                },
+                {
+                  author: "Melissa W.",
+                  rating: 5,
+                  quote:
+                    "The team was professional and friendly. Highly recommend their deep cleaning service!",
+                },
+                {
+                  author: "Kevin B.",
+                  rating: 5,
+                  quote:
+                    "Affordable and excellent service. They made moving out so much easier with their move-out cleaning.",
+                },
+                {
+                  author: "Emily R.",
+                  rating: 5,
+                  quote:
+                    "I appreciate their attention to detail and consistent quality every time.",
+                },
+                {
+                  author: "Sean P.",
+                  rating: 5,
+                  quote:
+                    "Fast, efficient, and trustworthy. Will definitely use Streamlined Cleaning Solutions again.",
+                },
+              ].map(({ author, rating, quote }) => (
+                <blockquote
+                  key={author}
+                  className="bg-gray-50 rounded-lg p-6 shadow-md flex flex-col"
+                  tabIndex={0}
+                  aria-label={`Testimonial from ${author}`}
+                >
+                  <p className="text-gray-900 italic mb-4 flex-grow">{`"${quote}"`}</p>
+                  <footer className="mt-4 flex items-center justify-between">
+                    <div aria-label={`${rating} out of 5 stars`} role="img" className="flex gap-1 text-yellow-400">
+                      {[...Array(5)].map((_, i) =>
+                        i < rating ? (
+                          <Star
+                            key={i}
+                            className="h-5 w-5 text-yellow-400"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <Star
+                            key={i}
+                            className="h-5 w-5 text-gray-400"
+                            aria-hidden="true"
+                          />
+                        )
+                      )}
+                    </div>
+                    <cite className="not-italic font-semibold text-gray-800">{author}</cite>
+                  </footer>
+                </blockquote>
+              ))}
             </div>
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="max-w-7xl mx-auto mt-24 px-6 md:px-0">
-            <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
+          <section
+            id="contact"
+            className="max-w-3xl mx-auto mt-20 mb-20 px-4 sm:px-6 md:px-8"
+            aria-label="Contact form"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center">
+              Get in Touch
+            </h2>
             <ContactForm />
           </section>
         </div>
@@ -369,5 +368,5 @@ export default function Home() {
         <SiteFooter />
       </main>
     </>
-  )
+  );
 }
