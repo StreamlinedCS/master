@@ -190,15 +190,66 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="max-w-7xl mx-auto mt-24 mb-24">
-          <h2 className="text-3xl font-bold mb-8 drop-shadow-lg text-center">
-            Contact Us
-          </h2>
-          <ContactForm />
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50" id="contact">
+          <div className="container px-4 md:px-6 max-w-5xl mx-auto">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700">Contact Us</div>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Ready for a Cleaner Space?</h2>
+                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Get in touch with us today for a free quote or to schedule your cleaning service.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid grid-cols-1 gap-6 py-12 md:grid-cols-2">
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="flex items-center space-x-3">
+                  <PhoneCall className="h-6 w-6 text-blue-600" />
+                  <span className="text-lg font-medium">Call us: (863) 662-2847</span>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold">Business Hours</h3>
+                  <p className="text-gray-500">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                  <p className="text-gray-500">Saturday: 9:00 AM - 4:00 PM</p>
+                  <p className="text-gray-500">Sunday: Closed</p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold">Service Areas</h3>
+                  <p className="text-gray-500">We proudly serve the greater metropolitan area and surrounding suburbs.</p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold">Follow Us</h3>
+                  <div className="flex space-x-4">
+                    <Link
+                      href="https://www.facebook.com/streamlined.cleaning.solution.s.2025/?viewas=100000686899395"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 transition-colors"
+                    >
+                      <Facebook className="h-6 w-6" />
+                      <span className="sr-only">Facebook</span>
+                    </Link>
+                    <Link
+                      href="https://x.com/StreamlinedCS"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 transition-colors"
+                    >
+                      <Twitter className="h-6 w-6" />
+                      <span className="sr-only">X (Twitter)</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-lg border bg-white p-6 shadow-sm">
+                <ContactForm />
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Footer */}
-        <SiteFooter whiteText />
+        <SiteFooter />
       </div>
     </main>
   )
