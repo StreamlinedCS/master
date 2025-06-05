@@ -247,44 +247,50 @@ export default function Home() {
                 What's Included in Our Cleaning Packages
               </h2>
               <p className="text-center max-w-3xl mx-auto mb-8 text-black">
-                Choose from Standard, Deep, or Move-In/Out cleaning. Pricing is based on square footage as follows:
+                Choose from Standard, Deep, or Move-In/Out cleaning. Pricing is based on square footage:
               </p>
 
-              {/* Pricing Table */}
+              {/* Updated Pricing Table */}
               <div className="overflow-x-auto mb-10">
-                <table className="w-full text-left border-collapse">
+                <table className="w-full text-left border-collapse border border-gray-300">
                   <thead>
                     <tr className="bg-gray-100">
-                      <th className="py-3 px-4 border border-gray-300">Square Footage</th>
-                      <th className="py-3 px-4 border border-gray-300">Standard Cleaning</th>
-                      <th className="py-3 px-4 border border-gray-300">Deep Cleaning</th>
-                      <th className="py-3 px-4 border border-gray-300">Move In/Out Cleaning</th>
+                      <th className="py-3 px-4 border border-gray-300">Service Type</th>
+                      <th className="py-3 px-4 border border-gray-300">0–999 sq ft</th>
+                      <th className="py-3 px-4 border border-gray-300">1000–1499 sq ft</th>
+                      <th className="py-3 px-4 border border-gray-300">1500–1999 sq ft</th>
+                      <th className="py-3 px-4 border border-gray-300">2000–2499 sq ft</th>
+                      <th className="py-3 px-4 border border-gray-300">2500–2999 sq ft</th>
+                      <th className="py-3 px-4 border border-gray-300">3000+ sq ft</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300">Up to 1200 sqft</td>
-                      <td className="py-3 px-4 border border-gray-300">$145</td>
-                      <td className="py-3 px-4 border border-gray-300">$240</td>
-                      <td className="py-3 px-4 border border-gray-300">Varies</td>
+                      <td className="py-3 px-4 border border-gray-300 font-semibold">Standard Clean</td>
+                      <td className="py-3 px-4 border border-gray-300">$120</td>
+                      <td className="py-3 px-4 border border-gray-300">$195</td>
+                      <td className="py-3 px-4 border border-gray-300">$270</td>
+                      <td className="py-3 px-4 border border-gray-300">$345</td>
+                      <td className="py-3 px-4 border border-gray-300">$420</td>
+                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                     <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300">1201 - 1800 sqft</td>
-                      <td className="py-3 px-4 border border-gray-300">$160</td>
-                      <td className="py-3 px-4 border border-gray-300">$275</td>
-                      <td className="py-3 px-4 border border-gray-300">Varies</td>
+                      <td className="py-3 px-4 border border-gray-300 font-semibold">Deep Clean</td>
+                      <td className="py-3 px-4 border border-gray-300">$190</td>
+                      <td className="py-3 px-4 border border-gray-300">$265</td>
+                      <td className="py-3 px-4 border border-gray-300">$340</td>
+                      <td className="py-3 px-4 border border-gray-300">$415</td>
+                      <td className="py-3 px-4 border border-gray-300">$490</td>
+                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                     <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300">1801 - 2400 sqft</td>
-                      <td className="py-3 px-4 border border-gray-300">$185</td>
-                      <td className="py-3 px-4 border border-gray-300">$320</td>
-                      <td className="py-3 px-4 border border-gray-300">Varies</td>
-                    </tr>
-                    <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300">2401 - 3000 sqft</td>
+                      <td className="py-3 px-4 border border-gray-300 font-semibold">Move-In/Out</td>
                       <td className="py-3 px-4 border border-gray-300">$220</td>
+                      <td className="py-3 px-4 border border-gray-300">$295</td>
                       <td className="py-3 px-4 border border-gray-300">$370</td>
-                      <td className="py-3 px-4 border border-gray-300">Varies</td>
+                      <td className="py-3 px-4 border border-gray-300">$445</td>
+                      <td className="py-3 px-4 border border-gray-300">$520</td>
+                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                   </tbody>
                 </table>
