@@ -18,75 +18,61 @@ import SiteFooter from "@/components/site-footer"
 export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col text-black">
-      {/* Background Image */}
+      {/* Fixed full opacity background image */}
       <div
         aria-hidden="true"
         className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
       />
 
-      {/* Navigation */}
-      <nav className="w-full bg-white bg-opacity-90 fixed top-0 left-0 z-20 shadow-md">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-          {/* Left side: Logo + SCS + Nav Links */}
-          <div className="flex items-center space-x-4">
-            {/* Logo next to SCS */}
-            <div className="w-10 h-10 relative">
-              <Image
-                src="/images/logo_transparent.png"
-                alt="SCS Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-            <span className="font-bold text-xl">SCS</span>
-
-            {/* Nav Links */}
-            <ul className="hidden md:flex space-x-8 font-medium text-black">
-              <li>
-                <Link href="/" className="hover:text-blue-600">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="#services" className="hover:text-blue-600">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-blue-600">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="hover:text-blue-600">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Right side could have social icons or contact button if desired */}
-          <div className="hidden md:flex space-x-4">
-            <Link href="tel:8636622874" className="text-black hover:text-blue-600 font-semibold">
-              863-662-2874
+      {/* Left corner nav with logo and links */}
+      <nav className="fixed top-0 left-0 z-20 flex items-center gap-8 bg-white bg-opacity-90 px-4 py-3 shadow-md">
+        <Link href="/">
+          <a className="block w-12 h-12 relative">
+            <Image
+              src="/images/logo_transparent.png"
+              alt="Streamlined Cleaning Solutions Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </a>
+        </Link>
+        <ul className="flex space-x-6 font-semibold text-lg">
+          <li>
+            <Link href="/">
+              <a className="hover:text-blue-600">Home</a>
             </Link>
-          </div>
-        </div>
+          </li>
+          <li>
+            <Link href="#services">
+              <a className="hover:text-blue-600">Services</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="#about">
+              <a className="hover:text-blue-600">About</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="#contact">
+              <a className="hover:text-blue-600">Contact</a>
+            </Link>
+          </li>
+        </ul>
       </nav>
 
-      {/* Page Content */}
-      <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 pt-20 pb-48">
+      {/* Page content container with top padding to avoid nav overlap */}
+      <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-20 pb-48">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="flex flex-col justify-center space-y-6 max-w-xl">
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
               Streamlined Cleaning Solutions
             </h1>
-
             <p className="text-lg sm:text-xl max-w-lg">
-              Professional cleaning services tailored to your needs. We make your space shine so you can focus on what matters.
+              Professional cleaning services tailored to your needs. We make
+              your space shine so you can focus on what matters.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -107,9 +93,15 @@ export default function Home() {
               </Button>
             </div>
           </div>
-
-          {/* Remove logo from hero */}
-          {/* If you want, can add something else here */}
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+            <Image
+              src="/images/logo_transparent.png"
+              alt="Streamlined Cleaning Solutions Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </section>
 
         {/* Features Section */}
@@ -142,9 +134,7 @@ export default function Home() {
           ].map(({ icon, title, description }) => (
             <div key={title} className="flex flex-col items-center text-center">
               {icon}
-              <h3 className="mt-4 mb-2 text-xl font-semibold">
-                {title}
-              </h3>
+              <h3 className="mt-4 mb-2 text-xl font-semibold">{title}</h3>
               <p className="max-w-xs">{description}</p>
             </div>
           ))}
@@ -152,9 +142,7 @@ export default function Home() {
 
         {/* Services Section */}
         <section id="services" className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Our Services
-          </h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <ServiceCard
               title="Residential Cleaning"
@@ -235,10 +223,8 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section className="max-w-7xl mx-auto mt-24 mb-24" id="contact">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Contact Us
-          </h2>
+        <section id="contact" className="max-w-7xl mx-auto mt-24 mb-24">
+          <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
           <ContactForm />
         </section>
 
