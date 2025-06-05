@@ -25,27 +25,65 @@ export default function Home() {
         style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
       />
 
+      {/* Navigation */}
+      <nav className="w-full bg-white bg-opacity-90 fixed top-0 left-0 z-20 shadow-md">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+          {/* Left side: Logo + SCS + Nav Links */}
+          <div className="flex items-center space-x-4">
+            {/* Logo next to SCS */}
+            <div className="w-10 h-10 relative">
+              <Image
+                src="/images/logo_transparent.png"
+                alt="SCS Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <span className="font-bold text-xl">SCS</span>
+
+            {/* Nav Links */}
+            <ul className="hidden md:flex space-x-8 font-medium text-black">
+              <li>
+                <Link href="/" className="hover:text-blue-600">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="#services" className="hover:text-blue-600">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-blue-600">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="#contact" className="hover:text-blue-600">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Right side could have social icons or contact button if desired */}
+          <div className="hidden md:flex space-x-4">
+            <Link href="tel:8636622874" className="text-black hover:text-blue-600 font-semibold">
+              863-662-2874
+            </Link>
+          </div>
+        </div>
+      </nav>
+
       {/* Page Content */}
-      <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12 pb-48">
+      <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 pt-20 pb-48">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="flex flex-col justify-center space-y-6 max-w-xl">
-            {/* Logo next to SCS */}
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12">
-                <Image
-                  src="/images/logo_transparent.png"
-                  alt="SCS Logo"
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                  priority
-                />
-              </div>
-              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
-                SCS - Streamlined Cleaning Solutions
-              </h1>
-            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+              Streamlined Cleaning Solutions
+            </h1>
 
             <p className="text-lg sm:text-xl max-w-lg">
               Professional cleaning services tailored to your needs. We make your space shine so you can focus on what matters.
@@ -70,15 +108,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-            <Image
-              src="/images/logo_transparent.png"
-              alt="Streamlined Cleaning Solutions Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+          {/* Remove logo from hero */}
+          {/* If you want, can add something else here */}
         </section>
 
         {/* Features Section */}
