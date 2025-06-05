@@ -242,38 +242,16 @@ export default function Home() {
             id="whats-included"
             className="max-w-7xl mx-auto mt-20 px-6 md:px-0"
           >
-            <div className="bg-white rounded-lg shadow-lg p-10 text-black max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6 text-center">
-                What’s Included
+            <div className="bg-white rounded-lg shadow-lg p-10">
+              <h2 className="text-3xl font-bold mb-6 text-center text-black">
+                What's Included in Our Cleaning Packages
               </h2>
-              <p className="mb-8 text-center text-lg">
-                At Streamlined Cleaning Solutions, we keep things transparent so you know exactly what you’re getting. Here's what each service includes:
+              <p className="text-center max-w-3xl mx-auto mb-8 text-black">
+                Choose from Standard, Deep, or Move-In/Out cleaning. Pricing is based on square footage:
               </p>
 
-              <div className="space-y-6 max-w-md mx-auto">
-                <div>
-                  <p className="flex items-center gap-2 text-lg font-semibold">
-                    <span className="text-green-600">✅</span> Standard Clean
-                  </p>
-                  <p className="ml-7 mt-1">
-                    A general surface cleaning to keep your home tidy.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="font-semibold">Add-ons available for:</p>
-                  <ul className="list-disc list-inside ml-7 space-y-1">
-                    <li>Baseboards ($25)</li>
-                    <li>Fridge Interior ($25)</li>
-                    <li>Oven Interior ($25)</li>
-                    <li>Interior Windows ($20)</li>
-                    <li>Pet ($35)</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Pricing Table below */}
-              <div className="overflow-x-auto mt-12">
+              {/* Updated Pricing Table */}
+              <div className="overflow-x-auto mb-10">
                 <table className="w-full text-left border-collapse border border-gray-300">
                   <thead>
                     <tr className="bg-gray-100">
@@ -317,53 +295,73 @@ export default function Home() {
                   </tbody>
                 </table>
               </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto text-black">
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Standard Cleaning</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>General dusting and vacuuming</li>
+                    <li>Kitchen cleaning</li>
+                    <li>Bathroom cleaning</li>
+                    <li>Trash removal</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Deep Cleaning</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Includes all Standard Cleaning tasks</li>
+                    <li>Baseboard cleaning</li>
+                    <li>Inside fridge and oven cleaning</li>
+                    <li>Interior window cleaning</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Move-In/Out Cleaning</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>All Deep Cleaning tasks plus</li>
+                    <li>Extra detailed cleaning for walls, cabinets, and floors</li>
+                    <li>Pet (add-on)</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Add-Ons</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Baseboard cleaning – $25</li>
+                    <li>Fridge cleaning – $25</li>
+                    <li>Oven cleaning – $25</li>
+                    <li>Interior window cleaning – $20</li>
+                    <li>Pet – $30</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </section>
 
           {/* Testimonials Section */}
-          <section id="testimonials" className="max-w-7xl mx-auto mt-28 px-6 md:px-0">
-            <h2 className="text-3xl font-bold mb-10 text-center">What Our Clients Say</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {[
-                {
-                  name: "Alice M.",
-                  text: "Streamlined Cleaning Solutions did a fantastic job with our office. Very professional and thorough!",
-                  rating: 5,
-                },
-                {
-                  name: "Michael T.",
-                  text: "Our home has never looked better. Highly recommend their deep cleaning service.",
-                  rating: 5,
-                },
-                {
-                  name: "Sara L.",
-                  text: "Fast, friendly, and affordable. They handled our move-out cleaning flawlessly.",
-                  rating: 5,
-                },
-              ].map(({ name, text, rating }) => (
-                <div
-                  key={name}
-                  className="bg-white rounded-lg shadow-lg p-8 text-black"
-                >
-                  <p className="mb-4 italic">"{text}"</p>
-                  <div className="flex items-center mb-3">
-                    {/* Display filled stars with Unicode */}
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-yellow-500 text-xl">★</span>
-                    ))}
-                  </div>
-                  <p className="font-semibold text-right">— {name}</p>
-                </div>
-              ))}
+          <section className="max-w-7xl mx-auto mt-24">
+            <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+              <TestimonialCard
+                author="Jessica P."
+                quote="Streamlined Cleaning Solutions transformed my home! They are punctual, professional, and thorough."
+              />
+              <TestimonialCard
+                author="Michael K."
+                quote="Great attention to detail and very reliable. Highly recommend for any residential or commercial needs."
+              />
+              <TestimonialCard
+                author="Sarah T."
+                quote="Their move-out cleaning saved my security deposit. Thank you for the exceptional service!"
+              />
             </div>
           </section>
 
           {/* Contact Section */}
-          <section
-            id="contact"
-            className="max-w-7xl mx-auto mt-28 mb-16 px-6 md:px-0"
-          >
-            <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+          <section id="contact" className="max-w-7xl mx-auto mt-24 px-6 md:px-0">
+            <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
             <ContactForm />
           </section>
         </div>
