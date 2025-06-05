@@ -2,22 +2,34 @@ import Head from "next/head"
 import Script from "next/script"
 import Link from "next/link"
 import Image from "next/image"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import {
   CheckCircle,
   Sparkles,
   Clock,
   Shield,
-  PhoneCall,
-  Facebook,
-  Twitter,
+  Menu,
+  X,
+  Home as HomeIcon,
+  Building2,
 } from "lucide-react"
-import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
+import TestimonialCard from "@/components/testimonial-card"
 import ContactForm from "@/components/contact-form"
 import SiteFooter from "@/components/site-footer"
 
 export default function Home() {
+  const [navOpen, setNavOpen] = useState(false)
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 768) setNavOpen(false)
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
   return (
     <>
       <Head>
@@ -26,16 +38,8 @@ export default function Home() {
           name="description"
           content="Professional residential and commercial cleaning services in Lakeland, FL. Quality cleaning, reliable service, and customer satisfaction guaranteed."
         />
-        <meta
-          name="keywords"
-          content="cleaning services, residential cleaning, commercial cleaning, Lakeland, Florida, deep cleaning, move-in cleaning, post-construction cleaning"
-        />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Jeremy Bell" />
-        <meta
-          name="google-site-verification"
-          content="0GXeUMv_9ji0wuK4hPeI4CkmgptM4aJyzDnTIaoD25U"
-        />
         <meta
           property="og:title"
           content="Streamlined Cleaning Solutions | Professional Cleaning Services"
@@ -103,271 +107,267 @@ export default function Home() {
         }}
       />
 
-      <main className="relative min-h-screen flex flex-col text-black">
-        <div
-          aria-hidden="true"
-          className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
-        />
+      <header className="sticky top-0 z-50 bg-white bg-opacity-90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 lg:px-24 h-16">
+          <Link href="/" className="flex items-center space-x-3">
+            <Image
+              src="/images/logo_transparent.png"
+              alt="Streamlined Cleaning Solutions Logo"
+              width={40}
+              height={40}
+              className="object-contain"
+              priority
+            />
+            <span className="font-extrabold text-xl text-black select-none">
+              Streamlined Cleaning
+            </span>
+          </Link>
 
-        <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12 pb-48">
-          {/* Hero Section */}
-          <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-            <div className="flex flex-col justify-center space-y-6 max-w-xl">
-              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
-                Streamlined Cleaning Solutions
-              </h1>
-              <p className="text-lg sm:text-xl max-w-lg">
-                Professional cleaning services tailored to your needs. We make your space
-                shine so you can focus on what matters.
-              </p>
-              <div className="flex flex-wrap gap-4">
+          <ul className="hidden md:flex items-center space-x-8 text-black font-semibold">
+            <li>
+              <Link href="#services" className="hover:text-gray-700 transition">
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link href="#pricing" className="hover:text-gray-700 transition">
+                Pricing
+              </Link>
+            </li>
+            <li>
+              <Link href="#testimonials" className="hover:text-gray-700 transition">
+                Testimonials
+              </Link>
+            </li>
+            <li>
+              <Link href="#contact" className="hover:text-gray-700 transition">
+                Contact
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="inline-block bg-black text-white rounded-md px-5 py-2 hover:bg-gray-800 transition"
+              >
+                Book Now
+              </a>
+            </li>
+          </ul>
+
+          <button
+            className="md:hidden p-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-black"
+            aria-label={navOpen ? "Close menu" : "Open menu"}
+            onClick={() => setNavOpen(!navOpen)}
+          >
+            {navOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
+
+        {navOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200 shadow-md">
+            <ul className="flex flex-col space-y-3 px-6 py-4 text-black font-semibold">
+              <li>
+                <Link href="#services" onClick={() => setNavOpen(false)} className="block py-2 hover:text-gray-700">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="#pricing" onClick={() => setNavOpen(false)} className="block py-2 hover:text-gray-700">
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="#testimonials" onClick={() => setNavOpen(false)} className="block py-2 hover:text-gray-700">
+                  Testimonials
+                </Link>
+              </li>
+              <li>
+                <Link href="#contact" onClick={() => setNavOpen(false)} className="block py-2 hover:text-gray-700">
+                  Contact
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
-                  target="_top"
-                  rel="nofollow"
-                  className="inline-block bg-black hover:bg-gray-800 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                  className="block bg-black text-white rounded-md px-5 py-3 text-center hover:bg-gray-800 transition"
                 >
-                  Book now
+                  Book Now
                 </a>
-                <Button
-                  asChild
-                  variant="default"
-                  size="lg"
-                  className="bg-black hover:bg-gray-800 text-white font-semibold"
-                >
-                  <Link href="#services">Our Services</Link>
-                </Button>
-              </div>
-            </div>
+              </li>
+            </ul>
+          </div>
+        )}
+      </header>
 
-            <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[400px] lg:h-[400px]">
-              <Image
-                src="/images/logo_transparent.png"
-                alt="Streamlined Cleaning Solutions Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-          </section>
-
-          {/* Benefits Section */}
-          <section className="max-w-7xl mx-auto mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            {[
-              {
-                icon: <Sparkles className="h-10 w-10 text-black" />,
-                title: "Spotless Results",
-                description: "Our thorough cleaning process ensures your space is immaculate.",
-              },
-              {
-                icon: <Clock className="h-10 w-10 text-black" />,
-                title: "Reliable Service",
-                description: "We arrive on time, every time, with all the supplies needed.",
-              },
-              {
-                icon: <Shield className="h-10 w-10 text-black" />,
-                title: "Trusted Team",
-                description: "Our vetted professionals are background-checked and trained.",
-              },
-              {
-                icon: <CheckCircle className="h-10 w-10 text-black" />,
-                title: "Satisfaction Guaranteed",
-                description:
-                  "Not happy? We'll come back and make it right at no extra cost.",
-              },
-            ].map(({ icon, title, description }) => (
-              <div key={title} className="flex flex-col items-center text-center">
-                {icon}
-                <h3 className="mt-4 mb-2 text-xl font-semibold">{title}</h3>
-                <p className="max-w-xs">{description}</p>
-              </div>
-            ))}
-          </section>
-
-          {/* Services Section */}
-          <section id="services" className="max-w-7xl mx-auto mt-24">
-            <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-              <ServiceCard
-                title="Residential Cleaning"
-                description="Comprehensive home cleaning services customized to your preferences and schedule."
-                icon="Home"
-                whiteText={false}
-              />
-              <ServiceCard
-                title="Commercial Cleaning"
-                description="Professional cleaning solutions for offices, retail spaces, and commercial properties."
-                icon="Building2"
-                whiteText={false}
-              />
-              <ServiceCard
-                title="Deep Cleaning"
-                description="Thorough cleaning of hard-to-reach areas and detailed attention to every surface."
-                icon="Scan"
-                whiteText={false}
-              />
-              <ServiceCard
-                title="Move In/Out Cleaning"
-                description="Prepare your new home or leave your old one spotless with our specialized service."
-                icon="Truck"
-                whiteText={false}
-              />
-              <ServiceCard
-                title="Post-Construction"
-                description="Remove dust, debris, and construction residue after renovation or building projects."
-                icon="Hammer"
-                whiteText={false}
-              />
-              <ServiceCard
-                title="Specialized Services"
-                description="Carpet cleaning, window washing, and other specialized cleaning solutions."
-                icon="Star"
-                whiteText={false}
-              />
-            </div>
-            <div className="flex justify-center mt-12">
+      <main className="relative min-h-screen flex flex-col text-black bg-white">
+        {/* Hero Section */}
+        <section className="flex flex-col lg:flex-row items-center gap-12 px-6 md:px-12 lg:px-24 py-16 max-w-7xl mx-auto">
+          <div className="flex flex-col justify-center space-y-6 max-w-xl text-center lg:text-left">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+              Streamlined Cleaning Solutions
+            </h1>
+            <p className="text-lg sm:text-xl max-w-lg mx-auto lg:mx-0">
+              Professional cleaning services tailored to your needs. We make your space
+              shine so you can focus on what matters.
+            </p>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+              <a
+                href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="inline-block bg-black hover:bg-gray-800 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg"
+              >
+                Book Now
+              </a>
               <Button
                 asChild
+                variant="default"
                 size="lg"
-                className="bg-black hover:bg-gray-800 w-auto text-white font-semibold"
+                className="bg-black hover:bg-gray-800 text-white font-semibold"
               >
-                <Link href="#contact">Request a Quote</Link>
+                <Link href="#services">Our Services</Link>
               </Button>
             </div>
-          </section>
+          </div>
 
-          {/* WHAT'S INCLUDED Section */}
-          <section
-            id="whats-included"
-            className="max-w-7xl mx-auto mt-20 px-6 md:px-0"
-          >
-            <div className="bg-white rounded-lg shadow-lg p-10">
-              <h2 className="text-3xl font-bold mb-6 text-center text-black">
-                What's Included in Our Cleaning Packages
-              </h2>
-              <p className="text-center max-w-3xl mx-auto mb-8 text-black">
-                Choose from Standard, Deep, or Move-In/Out cleaning. Pricing is based on square footage:
-              </p>
+          <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[400px] lg:h-[400px] mx-auto">
+            <Image
+              src="/images/logo_transparent.png"
+              alt="Streamlined Cleaning Solutions Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </section>
 
-              {/* Updated Pricing Table */}
-              <div className="overflow-x-auto mb-10">
-                <table className="w-full text-left border-collapse border border-gray-300">
-                  <thead>
-                    <tr className="bg-gray-100">
-                      <th className="py-3 px-4 border border-gray-300">Service Type</th>
-                      <th className="py-3 px-4 border border-gray-300">0–999 sq ft</th>
-                      <th className="py-3 px-4 border border-gray-300">1000–1499 sq ft</th>
-                      <th className="py-3 px-4 border border-gray-300">1500–1999 sq ft</th>
-                      <th className="py-3 px-4 border border-gray-300">2000–2499 sq ft</th>
-                      <th className="py-3 px-4 border border-gray-300">2500–2999 sq ft</th>
-                      <th className="py-3 px-4 border border-gray-300">3000+ sq ft</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Standard Clean</td>
-                      <td className="py-3 px-4 border border-gray-300">$120</td>
-                      <td className="py-3 px-4 border border-gray-300">$195</td>
-                      <td className="py-3 px-4 border border-gray-300">$270</td>
-                      <td className="py-3 px-4 border border-gray-300">$345</td>
-                      <td className="py-3 px-4 border border-gray-300">$420</td>
-                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
-                    </tr>
-                    <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Deep Clean</td>
-                      <td className="py-3 px-4 border border-gray-300">$190</td>
-                      <td className="py-3 px-4 border border-gray-300">$265</td>
-                      <td className="py-3 px-4 border border-gray-300">$340</td>
-                      <td className="py-3 px-4 border border-gray-300">$415</td>
-                      <td className="py-3 px-4 border border-gray-300">$490</td>
-                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
-                    </tr>
-                    <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Move-In/Out</td>
-                      <td className="py-3 px-4 border border-gray-300">$220</td>
-                      <td className="py-3 px-4 border border-gray-300">$295</td>
-                      <td className="py-3 px-4 border border-gray-300">$370</td>
-                      <td className="py-3 px-4 border border-gray-300">$445</td>
-                      <td className="py-3 px-4 border border-gray-300">$520</td>
-                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto text-black">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Standard Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>General dusting and vacuuming</li>
-                    <li>Kitchen cleaning</li>
-                    <li>Bathroom cleaning</li>
-                    <li>Trash removal</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Deep Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Includes all Standard Cleaning tasks</li>
-                    <li>Baseboard cleaning</li>
-                    <li>Inside fridge and oven cleaning</li>
-                    <li>Interior window cleaning</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Move-In/Out Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>All Deep Cleaning tasks plus</li>
-                    <li>Extra detailed cleaning for walls, cabinets, and floors</li>
-                    <li>Pet (add-on)</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Add-Ons</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Baseboard cleaning – $25</li>
-                    <li>Fridge cleaning – $25</li>
-                    <li>Oven cleaning – $25</li>
-                    <li>Interior window cleaning – $20</li>
-                    <li>Pet – $30</li>
-                  </ul>
-                </div>
-              </div>
+        {/* Benefits Section */}
+        <section
+          aria-label="Benefits Section"
+          className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
+        >
+          {[
+            {
+              icon: <Sparkles className="h-10 w-10 text-black" />,
+              title: "Spotless Results",
+              description: "Our thorough cleaning process ensures your space is immaculate.",
+            },
+            {
+              icon: <Clock className="h-10 w-10 text-black" />,
+              title: "Reliable Service",
+              description: "We arrive on time, every time, with all the supplies needed.",
+            },
+            {
+              icon: <Shield className="h-10 w-10 text-black" />,
+              title: "Trusted Team",
+              description: "Our vetted professionals are background-checked and trained.",
+            },
+            {
+              icon: <CheckCircle className="h-10 w-10 text-black" />,
+              title: "Satisfaction Guaranteed",
+              description: "Not happy? We'll come back and make it right at no extra cost.",
+            },
+          ].map(({ icon, title, description }) => (
+            <div key={title} className="flex flex-col items-center text-center">
+              {icon}
+              <h3 className="mt-4 mb-2 text-xl font-semibold">{title}</h3>
+              <p className="max-w-xs">{description}</p>
             </div>
-          </section>
+          ))}
+        </section>
 
-          {/* Testimonials Section */}
-          <section className="max-w-7xl mx-auto mt-24">
-            <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-              <TestimonialCard
-                author="Jessica P."
-                quote="Streamlined Cleaning Solutions transformed my home! They are punctual, professional, and thorough."
-              />
-              <TestimonialCard
-                author="Michael K."
-                quote="Great attention to detail and very reliable. Highly recommend for any residential or commercial needs."
-              />
-              <TestimonialCard
-                author="Sarah T."
-                quote="Their move-out cleaning saved my security deposit. Thank you for the exceptional service!"
-              />
-            </div>
-          </section>
+        {/* Services Section */}
+        <section
+          id="services"
+          aria-label="Services Section"
+          className="mt-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
+        >
+          <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <ServiceCard
+              title="Residential Cleaning"
+              description="Comprehensive home cleaning services customized to your preferences and schedule."
+              icon={<HomeIcon className="h-8 w-8 text-black" />}
+            />
+            <ServiceCard
+              title="Commercial Cleaning"
+              description="Reliable cleaning for offices, apartment complexes, and commercial spaces."
+              icon={<Building2 className="h-8 w-8 text-black" />}
+            />
+            <ServiceCard
+              title="Move In / Move Out"
+              description="Specialized cleaning for a fresh start in your new home or after moving out."
+              icon={<CheckCircle className="h-8 w-8 text-black" />}
+            />
+          </div>
+        </section>
 
-          {/* Contact Section */}
-          <section id="contact" className="max-w-7xl mx-auto mt-24 px-6 md:px-0">
-            <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
-            <ContactForm />
-          </section>
-        </div>
+        {/* Pricing / What's Included Section */}
+        <section
+          id="pricing"
+          aria-label="Pricing Section"
+          className="mt-24 bg-gray-50 py-16 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto rounded-lg"
+        >
+          <h2 className="text-3xl font-bold mb-8 text-center">What's Included</h2>
+          <ul className="max-w-3xl mx-auto space-y-4 list-disc list-inside text-lg">
+            <li>Dusting and wiping all surfaces</li>
+            <li>Vacuuming and mopping floors</li>
+            <li>Cleaning kitchen appliances and counters</li>
+            <li>Bathroom scrubbing and sanitizing</li>
+            <li>Trash removal and recycling</li>
+            <li>Deep cleaning options available upon request</li>
+          </ul>
+          <div className="flex justify-center mt-10">
+            <a
+              href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              className="bg-black text-white rounded-md px-7 py-3 font-semibold hover:bg-gray-800 transition"
+            >
+              Book Your Cleaning
+            </a>
+          </div>
+        </section>
 
-        <SiteFooter />
+        {/* Testimonials Section */}
+        <section
+          id="testimonials"
+          aria-label="Testimonials Section"
+          className="mt-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
+        >
+          <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <TestimonialCard
+              author="Sarah M."
+              quote="Streamlined Cleaning did an amazing job on my apartment. They were thorough and professional!"
+            />
+            <TestimonialCard
+              author="Michael B."
+              quote="Reliable and friendly staff. I trust them with my office cleaning needs."
+            />
+            <TestimonialCard
+              author="Emily R."
+              quote="Excellent move-in cleaning service. Made my new home feel brand new!"
+            />
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section
+          id="contact"
+          aria-label="Contact Section"
+          className="mt-24 px-6 md:px-12 lg:px-24 max-w-3xl mx-auto"
+        >
+          <h2 className="text-3xl font-bold mb-8 text-center">Get In Touch</h2>
+          <ContactForm />
+        </section>
       </main>
+
+      <SiteFooter />
     </>
   )
 }
