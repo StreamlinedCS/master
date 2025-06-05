@@ -25,19 +25,8 @@ export default function Home() {
         style={{ backgroundImage: "url('/images/background-cleaning.png')" }}
       />
 
-      {/* Left corner nav with logo and links */}
+      {/* Left corner nav with links only (no logo) */}
       <nav className="fixed top-0 left-0 z-20 flex items-center gap-8 bg-white bg-opacity-90 px-4 py-3 shadow-md">
-        <Link href="/">
-          <a className="block w-12 h-12 relative">
-            <Image
-              src="/images/logo_transparent.png"
-              alt="Streamlined Cleaning Solutions Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </a>
-        </Link>
         <ul className="flex space-x-6 font-semibold text-lg">
           <li>
             <Link href="/">
@@ -194,9 +183,7 @@ export default function Home() {
 
         {/* Testimonials Section */}
         <section className="max-w-7xl mx-auto mt-24">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            What Our Clients Say
-          </h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <TestimonialCard
               quote="Streamlined Cleaning Solutions transformed my home. Their attention to detail is remarkable!"
@@ -224,7 +211,10 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="max-w-7xl mx-auto mt-24 mb-24">
-          <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-white drop-shadow-lg">
+            Contact Us
+          </h2>
+          {/* Assuming the original ContactForm uses white text */}
           <ContactForm />
         </section>
 
