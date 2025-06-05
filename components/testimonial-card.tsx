@@ -14,7 +14,7 @@ export default function TestimonialCard({ quote, author, role, rating }: Testimo
       <CardContent className="p-6">
         <div className="flex mb-4">
           {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} className={`h-5 w-5 ${i < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}`} />
+            <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
           ))}
         </div>
         <p className="italic text-gray-600 mb-4">"{quote}"</p>
