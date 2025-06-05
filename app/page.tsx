@@ -8,6 +8,9 @@ import {
   Sparkles,
   Clock,
   Shield,
+  PhoneCall,
+  Facebook,
+  Twitter,
 } from "lucide-react"
 import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
@@ -239,52 +242,94 @@ export default function Home() {
             id="whats-included"
             className="max-w-7xl mx-auto mt-20 px-6 md:px-0"
           >
-            <h2 className="text-3xl font-bold mb-6 text-center">
-              What's Included in Our Cleaning Packages
-            </h2>
-            <p className="text-center max-w-3xl mx-auto mb-8">
-              Choose from Standard, Deep, or Move-In/Out cleaning. Pricing is based on square footage, starting at $145 for Standard, $240 for Deep, and variable for Move-In/Out. Additional add-ons available.
-            </p>
+            <div className="bg-white rounded-lg shadow-lg p-10">
+              <h2 className="text-3xl font-bold mb-6 text-center text-black">
+                What's Included in Our Cleaning Packages
+              </h2>
+              <p className="text-center max-w-3xl mx-auto mb-8 text-black">
+                Choose from Standard, Deep, or Move-In/Out cleaning. Pricing is based on square footage as follows:
+              </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Standard Cleaning</h3>
-                <ul className="list-disc list-inside space-y-1">
-                  <li>General dusting and vacuuming</li>
-                  <li>Kitchen cleaning</li>
-                  <li>Bathroom cleaning</li>
-                  <li>Trash removal</li>
-                </ul>
+              {/* Pricing Table */}
+              <div className="overflow-x-auto mb-10">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="py-3 px-4 border border-gray-300">Square Footage</th>
+                      <th className="py-3 px-4 border border-gray-300">Standard Cleaning</th>
+                      <th className="py-3 px-4 border border-gray-300">Deep Cleaning</th>
+                      <th className="py-3 px-4 border border-gray-300">Move In/Out Cleaning</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="odd:bg-white even:bg-gray-50">
+                      <td className="py-3 px-4 border border-gray-300">Up to 1200 sqft</td>
+                      <td className="py-3 px-4 border border-gray-300">$145</td>
+                      <td className="py-3 px-4 border border-gray-300">$240</td>
+                      <td className="py-3 px-4 border border-gray-300">Varies</td>
+                    </tr>
+                    <tr className="odd:bg-white even:bg-gray-50">
+                      <td className="py-3 px-4 border border-gray-300">1201 - 1800 sqft</td>
+                      <td className="py-3 px-4 border border-gray-300">$160</td>
+                      <td className="py-3 px-4 border border-gray-300">$275</td>
+                      <td className="py-3 px-4 border border-gray-300">Varies</td>
+                    </tr>
+                    <tr className="odd:bg-white even:bg-gray-50">
+                      <td className="py-3 px-4 border border-gray-300">1801 - 2400 sqft</td>
+                      <td className="py-3 px-4 border border-gray-300">$185</td>
+                      <td className="py-3 px-4 border border-gray-300">$320</td>
+                      <td className="py-3 px-4 border border-gray-300">Varies</td>
+                    </tr>
+                    <tr className="odd:bg-white even:bg-gray-50">
+                      <td className="py-3 px-4 border border-gray-300">2401 - 3000 sqft</td>
+                      <td className="py-3 px-4 border border-gray-300">$220</td>
+                      <td className="py-3 px-4 border border-gray-300">$370</td>
+                      <td className="py-3 px-4 border border-gray-300">Varies</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
 
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Deep Cleaning</h3>
-                <ul className="list-disc list-inside space-y-1">
-                  <li>Includes all Standard Cleaning tasks</li>
-                  <li>Baseboard cleaning</li>
-                  <li>Inside fridge and oven cleaning</li>
-                  <li>Interior window cleaning</li>
-                </ul>
-              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto text-black">
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Standard Cleaning</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>General dusting and vacuuming</li>
+                    <li>Kitchen cleaning</li>
+                    <li>Bathroom cleaning</li>
+                    <li>Trash removal</li>
+                  </ul>
+                </div>
 
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Move-In/Out Cleaning</h3>
-                <ul className="list-disc list-inside space-y-1">
-                  <li>All Deep Cleaning tasks plus</li>
-                  <li>Extra detailed cleaning for walls, cabinets, and floors</li>
-                  <li>Pet stain and odor treatment available (add-on)</li>
-                </ul>
-              </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Deep Cleaning</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Includes all Standard Cleaning tasks</li>
+                    <li>Baseboard cleaning</li>
+                    <li>Inside fridge and oven cleaning</li>
+                    <li>Interior window cleaning</li>
+                  </ul>
+                </div>
 
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Add-Ons</h3>
-                <ul className="list-disc list-inside space-y-1">
-                  <li>Baseboard cleaning – $25</li>
-                  <li>Fridge cleaning – $25</li>
-                  <li>Oven cleaning – $25</li>
-                  <li>Interior window cleaning – $20</li>
-                  <li>Pet stain and odor treatment – $30</li>
-                </ul>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Move-In/Out Cleaning</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>All Deep Cleaning tasks plus</li>
+                    <li>Extra detailed cleaning for walls, cabinets, and floors</li>
+                    <li>Pet stain and odor treatment available (add-on)</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Add-Ons</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Baseboard cleaning – $25</li>
+                    <li>Fridge cleaning – $25</li>
+                    <li>Oven cleaning – $25</li>
+                    <li>Interior window cleaning – $20</li>
+                    <li>Pet stain and odor treatment – $30</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </section>
@@ -294,37 +339,28 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               <TestimonialCard
-                quote="Streamlined Cleaning Solutions transformed my home. Their attention to detail is remarkable!"
-                author="Sarah"
-                role="Homeowner"
-                rating={5}
-                whiteText={false}
+                author="Jessica P."
+                quote="Streamlined Cleaning Solutions transformed my home! They are punctual, professional, and thorough."
               />
               <TestimonialCard
-                quote="As a business owner, I need reliable cleaning services. They never disappoint and always exceed expectations."
-                author="Michael"
-                role="Office Manager"
-                rating={5}
-                whiteText={false}
+                author="Michael K."
+                quote="Great attention to detail and very reliable. Highly recommend for any residential or commercial needs."
               />
               <TestimonialCard
-                quote="I've tried many cleaning services, but none compare to the quality and consistency of Streamlined Cleaning."
-                author="Jennifer"
-                role="Property Manager"
-                rating={5}
-                whiteText={false}
+                author="Sarah T."
+                quote="Their move-out cleaning saved my security deposit. Thank you for the exceptional service!"
               />
             </div>
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="max-w-7xl mx-auto mt-24 mb-24">
-            <h2 className="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+          <section id="contact" className="max-w-7xl mx-auto mt-24 px-6 md:px-0">
+            <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
             <ContactForm />
           </section>
-
-          <SiteFooter whiteText={false} />
         </div>
+
+        <SiteFooter />
       </main>
     </>
   )
