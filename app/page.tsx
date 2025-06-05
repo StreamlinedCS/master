@@ -250,8 +250,7 @@ export default function Home() {
           aria-label="Benefits Section"
           className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto"
         >
-          {[
-            {
+          {[{
               icon: <Sparkles className="h-10 w-10 text-black" />,
               title: "Spotless Results",
               description: "Our thorough cleaning process ensures your space is immaculate.",
