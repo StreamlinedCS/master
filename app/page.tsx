@@ -57,7 +57,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Streamlined Cleaning Solutions",
-            image: "https://streamlinedcleaningsolutions.com/images/logo_transparent.webp",
+            image: "https://streamlinedcleaningsolutions.com/images/logo_transparent_corner.webp",
             "@id": "https://streamlinedcleaningsolutions.com",
             url: "https://streamlinedcleaningsolutions.com",
             telephone: "+1-863-662-2874",
@@ -143,7 +143,7 @@ export default function Home() {
 
             <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[400px] lg:h-[400px]">
               <Image
-                src="/images/logo_transparent.webp"
+                src="/images/logo_transparent_main.webp"
                 alt="Streamlined Cleaning Solutions Logo"
                 fill
                 className="object-contain"
