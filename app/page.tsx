@@ -267,29 +267,29 @@ export default function Home() {
                   <tbody>
                     <tr className="odd:bg-white even:bg-gray-50">
                       <td className="py-3 px-4 border border-gray-300 font-semibold">Standard Clean</td>
-                      <td className="py-3 px-4 border border-gray-300">$120</td>
-                      <td className="py-3 px-4 border border-gray-300">$195</td>
-                      <td className="py-3 px-4 border border-gray-300">$270</td>
-                      <td className="py-3 px-4 border border-gray-300">$345</td>
-                      <td className="py-3 px-4 border border-gray-300">$420</td>
+                      <td className="py-3 px-4 border border-gray-300">$149.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$194.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$269.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$344.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$419.99</td>
                       <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                     <tr className="odd:bg-white even:bg-gray-50">
                       <td className="py-3 px-4 border border-gray-300 font-semibold">Deep Clean</td>
-                      <td className="py-3 px-4 border border-gray-300">$190</td>
-                      <td className="py-3 px-4 border border-gray-300">$265</td>
-                      <td className="py-3 px-4 border border-gray-300">$340</td>
-                      <td className="py-3 px-4 border border-gray-300">$415</td>
-                      <td className="py-3 px-4 border border-gray-300">$490</td>
+                      <td className="py-3 px-4 border border-gray-300">$189.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$264.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$339.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$414.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$489.99</td>
                       <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                     <tr className="odd:bg-white even:bg-gray-50">
                       <td className="py-3 px-4 border border-gray-300 font-semibold">Move-In/Out</td>
-                      <td className="py-3 px-4 border border-gray-300">$220</td>
-                      <td className="py-3 px-4 border border-gray-300">$295</td>
-                      <td className="py-3 px-4 border border-gray-300">$370</td>
-                      <td className="py-3 px-4 border border-gray-300">$445</td>
-                      <td className="py-3 px-4 border border-gray-300">$520</td>
+                      <td className="py-3 px-4 border border-gray-300">$219.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$294.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$369.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$444.99</td>
+                      <td className="py-3 px-4 border border-gray-300">$519.99</td>
                       <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                   </tbody>
@@ -329,11 +329,11 @@ export default function Home() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Add-Ons</h3>
                   <ul className="list-disc list-inside space-y-1">
-                    <li>Baseboard cleaning – $25</li>
-                    <li>Fridge cleaning – $25</li>
-                    <li>Oven cleaning – $25</li>
-                    <li>Interior window cleaning – $20</li>
-                    <li>Pet – $30</li>
+                    <li>Baseboard cleaning – $24.99</li>
+                    <li>Fridge cleaning – $24.99</li>
+                    <li>Oven cleaning – $24.99</li>
+                    <li>Interior window cleaning – $19.99</li>
+                    <li>Pet – $29.99</li>
                   </ul>
                 </div>
               </div>
