@@ -1,7 +1,6 @@
 import Head from "next/head"
 import Script from "next/script"
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
   CheckCircle,
@@ -142,12 +141,11 @@ export default function Home() {
             </div>
 
             <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[400px] lg:h-[400px]">
-              <Image
+              <img
                 src="/images/logo_transparent.png"
                 alt="Streamlined Cleaning Solutions Logo"
-                fill
-                className="object-contain"
-                priority
+                style={{ objectFit: "contain", width: "100%", height: "100%", position: "absolute", inset: 0 }}
+                loading="eager"
               />
             </div>
           </section>
@@ -279,90 +277,72 @@ export default function Home() {
                       <td className="py-3 px-4 border border-gray-300">$189</td>
                       <td className="py-3 px-4 border border-gray-300">$265</td>
                       <td className="py-3 px-4 border border-gray-300">$340</td>
-                      <td className="py-3 px-4 border border-gray-300">$415</td>
-                      <td className="py-3 px-4 border border-gray-300">$489</td>
+                      <td className="py-3 px-4 border border-gray-300">$399</td>
+                      <td className="py-3 px-4 border border-gray-300">$479</td>
                       <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                     <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Move-In/Out</td>
-                      <td className="py-3 px-4 border border-gray-300">$219</td>
-                      <td className="py-3 px-4 border border-gray-300">$295</td>
-                      <td className="py-3 px-4 border border-gray-300">$369</td>
-                      <td className="py-3 px-4 border border-gray-300">$445</td>
-                      <td className="py-3 px-4 border border-gray-300">$519</td>
+                      <td className="py-3 px-4 border border-gray-300 font-semibold">Move In/Out Clean</td>
+                      <td className="py-3 px-4 border border-gray-300">$225</td>
+                      <td className="py-3 px-4 border border-gray-300">$299</td>
+                      <td className="py-3 px-4 border border-gray-300">$375</td>
+                      <td className="py-3 px-4 border border-gray-300">$449</td>
+                      <td className="py-3 px-4 border border-gray-300">$529</td>
                       <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto text-black">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Standard Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>General dusting and vacuuming</li>
-                    <li>Kitchen cleaning</li>
-                    <li>Bathroom cleaning</li>
-                    <li>Trash removal</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Deep Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Includes all Standard Cleaning tasks</li>
-                    <li>Baseboard cleaning</li>
-                    <li>Inside fridge and oven cleaning</li>
-                    <li>Interior window cleaning</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Move-In/Out Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>All Deep Cleaning tasks plus</li>
-                    <li>Extra detailed cleaning for walls, cabinets, and floors</li>
-                    <li>Pet (add-on)</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Add-Ons</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Baseboard cleaning – $25</li>
-                    <li>Fridge cleaning – $25</li>
-                    <li>Oven cleaning – $25</li>
-                    <li>Interior window cleaning – $20</li>
-                    <li>Pet – $30</li>
-                  </ul>
-                </div>
-              </div>
+              <p className="text-center text-black">
+                * Custom quotes available for larger homes and special circumstances.
+              </p>
             </div>
           </section>
 
           {/* Testimonials Section */}
-          <section className="max-w-7xl mx-auto mt-24">
-            <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
+          <section id="testimonials" className="max-w-7xl mx-auto mt-20">
+            <h2 className="text-3xl font-bold mb-8 text-center text-black">What Our Clients Say</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               <TestimonialCard
-                author="Jessica P."
-                quote="Streamlined Cleaning Solutions transformed my home! They are punctual, professional, and thorough."
+                name="Emily R."
+                location="Lakeland, FL"
+                quote="Streamlined Cleaning Solutions transformed my home. They are reliable, thorough, and friendly!"
               />
               <TestimonialCard
-                author="Michael K."
-                quote="Great attention to detail and very reliable. Highly recommend for any residential or commercial needs."
+                name="Mark D."
+                location="Lakeland, FL"
+                quote="Our office has never looked better. Highly recommend their commercial cleaning services."
               />
               <TestimonialCard
-                author="Sarah T."
-                quote="Their move-out cleaning saved my security deposit. Thank you for the exceptional service!"
+                name="Sarah K."
+                location="Lakeland, FL"
+                quote="Excellent deep cleaning. They pay attention to detail and go above and beyond."
               />
             </div>
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="max-w-7xl mx-auto mt-24 px-6 md:px-0">
-            <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
-            <ContactForm />
+          <section
+            id="contact"
+            className="max-w-7xl mx-auto mt-20 px-6 md:px-0 bg-white rounded-lg shadow-lg p-10"
+          >
+            <h2 className="text-3xl font-bold mb-8 text-center text-black">Get in Touch</h2>
+            <div className="max-w-3xl mx-auto">
+              <ContactForm />
+            </div>
+            <div className="mt-10 text-center text-black">
+              <p>Call us: <a href="tel:+18636622874" className="underline">863-662-2874</a></p>
+              <p>Email: <a href="mailto:streamlinedcleaningsolutions@gmail.com" className="underline">streamlinedcleaningsolutions@gmail.com</a></p>
+              <p>
+                Follow us:
+                <a href="https://www.facebook.com/streamlinedcleaningsolutions" aria-label="Facebook" className="inline-block ml-2">
+                  <Facebook className="inline h-6 w-6" />
+                </a>
+                <a href="https://twitter.com/StreamlinedCS" aria-label="Twitter" className="inline-block ml-2">
+                  <Twitter className="inline h-6 w-6" />
+                </a>
+              </p>
+            </div>
           </section>
         </div>
 
