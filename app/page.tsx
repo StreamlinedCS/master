@@ -277,64 +277,90 @@ export default function Home() {
                     <tr className="odd:bg-white even:bg-gray-50">
                       <td className="py-3 px-4 border border-gray-300 font-semibold">Deep Clean</td>
                       <td className="py-3 px-4 border border-gray-300">$189</td>
-                      <td className="py-3 px-4 border border-gray-300">$269</td>
-                      <td className="py-3 px-4 border border-gray-300">$329</td>
-                      <td className="py-3 px-4 border border-gray-300">$449</td>
-                      <td className="py-3 px-4 border border-gray-300">$529</td>
+                      <td className="py-3 px-4 border border-gray-300">$265</td>
+                      <td className="py-3 px-4 border border-gray-300">$340</td>
+                      <td className="py-3 px-4 border border-gray-300">$415</td>
+                      <td className="py-3 px-4 border border-gray-300">$489</td>
                       <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                     <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Move In/Out Clean</td>
-                      <td className="py-3 px-4 border border-gray-300">$229</td>
-                      <td className="py-3 px-4 border border-gray-300">$279</td>
-                      <td className="py-3 px-4 border border-gray-300">$359</td>
-                      <td className="py-3 px-4 border border-gray-300">$459</td>
-                      <td className="py-3 px-4 border border-gray-300">$539</td>
+                      <td className="py-3 px-4 border border-gray-300 font-semibold">Move-In/Out</td>
+                      <td className="py-3 px-4 border border-gray-300">$219</td>
+                      <td className="py-3 px-4 border border-gray-300">$295</td>
+                      <td className="py-3 px-4 border border-gray-300">$369</td>
+                      <td className="py-3 px-4 border border-gray-300">$445</td>
+                      <td className="py-3 px-4 border border-gray-300">$519</td>
                       <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <p className="text-sm text-center max-w-2xl mx-auto text-black">
-                Prices are starting rates for regular homes. Larger homes, extra bedrooms, pet hair removal, or extensive dirt and grime will increase the price. Please contact us for a detailed quote.
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto text-black">
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Standard Cleaning</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>General dusting and vacuuming</li>
+                    <li>Kitchen cleaning</li>
+                    <li>Bathroom cleaning</li>
+                    <li>Trash removal</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Deep Cleaning</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Includes all Standard Cleaning tasks</li>
+                    <li>Baseboard cleaning</li>
+                    <li>Inside fridge and oven cleaning</li>
+                    <li>Interior window cleaning</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Move-In/Out Cleaning</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>All Deep Cleaning tasks plus</li>
+                    <li>Extra detailed cleaning for walls, cabinets, and floors</li>
+                    <li>Pet (add-on)</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Add-Ons</h3>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Baseboard cleaning – $25</li>
+                    <li>Fridge cleaning – $25</li>
+                    <li>Oven cleaning – $25</li>
+                    <li>Interior window cleaning – $20</li>
+                    <li>Pet – $30</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </section>
 
           {/* Testimonials Section */}
-          <section
-            id="testimonials"
-            className="max-w-7xl mx-auto mt-20"
-          >
+          <section className="max-w-7xl mx-auto mt-24">
             <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               <TestimonialCard
-                name="Anna K."
-                content="Streamlined Cleaning Solutions did an amazing job in my home. Everything was spotless, and the team was friendly and professional."
-                rating={5}
-                photo="/images/testimonials/anna_k.webp"
+                author="Jessica P."
+                quote="Streamlined Cleaning Solutions transformed my home! They are punctual, professional, and thorough."
               />
               <TestimonialCard
-                name="Michael R."
-                content="Reliable and thorough cleaning service. They took care of my office building with great attention to detail."
-                rating={5}
-                photo="/images/testimonials/michael_r.webp"
+                author="Michael K."
+                quote="Great attention to detail and very reliable. Highly recommend for any residential or commercial needs."
               />
               <TestimonialCard
-                name="Samantha P."
-                content="I highly recommend them for move-out cleaning. They made sure the place was perfect for the next tenant."
-                rating={5}
-                photo="/images/testimonials/samantha_p.webp"
+                author="Sarah T."
+                quote="Their move-out cleaning saved my security deposit. Thank you for the exceptional service!"
               />
             </div>
           </section>
 
           {/* Contact Section */}
-          <section
-            id="contact"
-            className="max-w-7xl mx-auto mt-20 mb-32 px-6 md:px-0"
-          >
+          <section id="contact" className="max-w-7xl mx-auto mt-24 px-6 md:px-0">
             <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
             <ContactForm />
           </section>
