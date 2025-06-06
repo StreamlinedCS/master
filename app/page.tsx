@@ -247,7 +247,7 @@ export default function Home() {
                 What's Included in Our Cleaning Packages
               </h2>
               <p className="text-center max-w-3xl mx-auto mb-8 text-black">
-                Choose from Standard, Deep, or Move-In/Out cleaning. Pricing is based on square footage:
+                Choose from Standard, Deep, or Move-In/Out cleaning. Pricing is based on square footage and condition of home:
               </p>
 
               {/* Updated Pricing Table */}
