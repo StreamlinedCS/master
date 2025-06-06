@@ -8,14 +8,49 @@ import {
   Sparkles,
   Clock,
   Shield,
-  PhoneCall,
-  Facebook,
-  Twitter,
 } from "lucide-react"
 import TestimonialCard from "@/components/testimonial-card"
 import ServiceCard from "@/components/service-card"
 import ContactForm from "@/components/contact-form"
 import SiteFooter from "@/components/site-footer"
+
+// Custom ButtonLink for consistent button styles (replaces raw <a>)
+const ButtonLink = ({
+  href,
+  children,
+  className = "",
+  ...props
+}: React.ComponentProps<"a"> & { children: React.ReactNode }) => (
+  <a
+    href={href}
+    target="_top"
+    rel="nofollow"
+    className={`inline-block bg-black hover:bg-gray-800 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg ${className}`}
+    {...props}
+  >
+    {children}
+  </a>
+)
+
+// Benefit card for the benefits section
+const BenefitCard = ({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode
+  title: string
+  description: string
+}) => (
+  <div className="flex flex-col items-center text-center">
+    {icon}
+    <h3 className="mt-4 mb-2 text-xl font-semibold">{title}</h3>
+    <p className="max-w-xs">{description}</p>
+  </div>
+)
+
+// Optionally: Move this Tailwind class to your CSS if not using JIT mode
+// .bg-background-cleaning { background-image: url('/images/background-cleaning.webp'); }
 
 export default function Home() {
   return (
@@ -46,6 +81,7 @@ export default function Home() {
         />
         <meta property="og:url" content="https://streamlinedcleaningsolutions.com" />
         <meta property="og:type" content="website" />
+        {/* For dynamic metadata in the future, consider getServerSideProps or getStaticProps */}
       </Head>
 
       <Script
@@ -106,10 +142,8 @@ export default function Home() {
       <main className="relative min-h-screen flex flex-col text-black">
         <div
           aria-hidden="true"
-          className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/background-cleaning.webp')" }}
+          className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat bg-background-cleaning"
         />
-
         <div className="relative z-10 flex-grow flex flex-col px-6 md:px-12 lg:px-24 py-12 pb-48">
           {/* Hero Section */}
           <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
@@ -122,14 +156,9 @@ export default function Home() {
                 shine so you can focus on what matters.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start"
-                  target="_top"
-                  rel="nofollow"
-                  className="inline-block bg-black hover:bg-gray-800 text-white font-semibold rounded-md px-7 py-3 transition-shadow shadow-lg"
-                >
+                <ButtonLink href="https://app.squareup.com/appointments/book/plcqv5v04vbj6r/LDRMQXMCSEHN3/start">
                   Book now
-                </a>
+                </ButtonLink>
                 <Button
                   asChild
                   variant="default"
@@ -140,7 +169,6 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-
             <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[400px] lg:h-[400px]">
               <Image
                 src="/images/logo_transparent.webp"
@@ -176,12 +204,8 @@ export default function Home() {
                 description:
                   "Not happy? We'll come back and make it right at no extra cost.",
               },
-            ].map(({ icon, title, description }) => (
-              <div key={title} className="flex flex-col items-center text-center">
-                {icon}
-                <h3 className="mt-4 mb-2 text-xl font-semibold">{title}</h3>
-                <p className="max-w-xs">{description}</p>
-              </div>
+            ].map((b) => (
+              <BenefitCard key={b.title} {...b} />
             ))}
           </section>
 
@@ -249,8 +273,7 @@ export default function Home() {
               <p className="text-center max-w-3xl mx-auto mb-8 text-black">
                 Choose from Standard, Deep, or Move-In/Out cleaning. Pricing is based on square footage and condition of home:
               </p>
-
-              {/* Updated Pricing Table */}
+              {/* Pricing Table */}
               <div className="overflow-x-auto mb-10">
                 <table className="w-full text-left border-collapse border border-gray-300">
                   <thead>
@@ -277,95 +300,67 @@ export default function Home() {
                     <tr className="odd:bg-white even:bg-gray-50">
                       <td className="py-3 px-4 border border-gray-300 font-semibold">Deep Clean</td>
                       <td className="py-3 px-4 border border-gray-300">$189</td>
-                      <td className="py-3 px-4 border border-gray-300">$265</td>
-                      <td className="py-3 px-4 border border-gray-300">$340</td>
-                      <td className="py-3 px-4 border border-gray-300">$415</td>
-                      <td className="py-3 px-4 border border-gray-300">$489</td>
+                      <td className="py-3 px-4 border border-gray-300">$269</td>
+                      <td className="py-3 px-4 border border-gray-300">$329</td>
+                      <td className="py-3 px-4 border border-gray-300">$449</td>
+                      <td className="py-3 px-4 border border-gray-300">$529</td>
                       <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                     <tr className="odd:bg-white even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Move-In/Out</td>
-                      <td className="py-3 px-4 border border-gray-300">$219</td>
-                      <td className="py-3 px-4 border border-gray-300">$295</td>
-                      <td className="py-3 px-4 border border-gray-300">$369</td>
-                      <td className="py-3 px-4 border border-gray-300">$445</td>
-                      <td className="py-3 px-4 border border-gray-300">$519</td>
+                      <td className="py-3 px-4 border border-gray-300 font-semibold">Move In/Out Clean</td>
+                      <td className="py-3 px-4 border border-gray-300">$229</td>
+                      <td className="py-3 px-4 border border-gray-300">$279</td>
+                      <td className="py-3 px-4 border border-gray-300">$359</td>
+                      <td className="py-3 px-4 border border-gray-300">$459</td>
+                      <td className="py-3 px-4 border border-gray-300">$539</td>
                       <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto text-black">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Standard Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>General dusting and vacuuming</li>
-                    <li>Kitchen cleaning</li>
-                    <li>Bathroom cleaning</li>
-                    <li>Trash removal</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Deep Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Includes all Standard Cleaning tasks</li>
-                    <li>Baseboard cleaning</li>
-                    <li>Inside fridge and oven cleaning</li>
-                    <li>Interior window cleaning</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Move-In/Out Cleaning</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>All Deep Cleaning tasks plus</li>
-                    <li>Extra detailed cleaning for walls, cabinets, and floors</li>
-                    <li>Pet (add-on)</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Add-Ons</h3>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Baseboard cleaning – $25</li>
-                    <li>Fridge cleaning – $25</li>
-                    <li>Oven cleaning – $25</li>
-                    <li>Interior window cleaning – $20</li>
-                    <li>Pet – $30</li>
-                  </ul>
-                </div>
-              </div>
+              <p className="text-sm text-center max-w-2xl mx-auto text-black">
+                Prices are starting rates for regular homes. Larger homes, extra bedrooms, pet hair removal, or extensive dirt and grime will increase the price. Please contact us for a detailed quote.
+              </p>
             </div>
           </section>
 
           {/* Testimonials Section */}
-          <section className="max-w-7xl mx-auto mt-24">
+          <section
+            id="testimonials"
+            className="max-w-7xl mx-auto mt-20"
+          >
             <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <TestimonialCard
-                author="Jessica P."
-                quote="Streamlined Cleaning Solutions transformed my home! They are punctual, professional, and thorough."
+                name="Anna K."
+                content="Streamlined Cleaning Solutions did an amazing job in my home. Everything was spotless, and the team was friendly and professional."
+                rating={5}
+                photo="/images/testimonials/anna_k.webp"
               />
               <TestimonialCard
-                author="Michael K."
-                quote="Great attention to detail and very reliable. Highly recommend for any residential or commercial needs."
+                name="Michael R."
+                content="Reliable and thorough cleaning service. They took care of my office building with great attention to detail."
+                rating={5}
+                photo="/images/testimonials/michael_r.webp"
               />
               <TestimonialCard
-                author="Sarah T."
-                quote="Their move-out cleaning saved my security deposit. Thank you for the exceptional service!"
+                name="Samantha P."
+                content="I highly recommend them for move-out cleaning. They made sure the place was perfect for the next tenant."
+                rating={5}
+                photo="/images/testimonials/samantha_p.webp"
               />
             </div>
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="max-w-7xl mx-auto mt-24 px-6 md:px-0">
+          <section
+            id="contact"
+            className="max-w-7xl mx-auto mt-20 mb-32 px-6 md:px-0"
+          >
             <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
             <ContactForm />
           </section>
         </div>
-
         <SiteFooter />
       </main>
     </>
