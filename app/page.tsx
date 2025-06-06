@@ -259,74 +259,83 @@ export default function Home() {
                       <th className="py-3 px-4 border border-gray-300">0–999 sq ft</th>
                       <th className="py-3 px-4 border border-gray-300">1000–1499 sq ft</th>
                       <th className="py-3 px-4 border border-gray-300">1500–1999 sq ft</th>
-                      <th className="py-3 px-4 border border-gray-300">2000+ sq ft</th>
+                      <th className="py-3 px-4 border border-gray-300">2000–2499 sq ft</th>
+                      <th className="py-3 px-4 border border-gray-300">2500–2999 sq ft</th>
+                      <th className="py-3 px-4 border border-gray-300">3000+ sq ft</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Standard Cleaning</td>
-                      <td className="py-3 px-4 border border-gray-300">$99.99</td>
-                      <td className="py-3 px-4 border border-gray-300">$125.99</td>
-                      <td className="py-3 px-4 border border-gray-300">$150.99</td>
-                      <td className="py-3 px-4 border border-gray-300">$180.99</td>
+                    <tr className="odd:bg-white even:bg-gray-50">
+                      <td className="py-3 px-4 border border-gray-300 font-semibold">Standard Clean</td>
+                      <td className="py-3 px-4 border border-gray-300">$149</td>
+                      <td className="py-3 px-4 border border-gray-300">$195</td>
+                      <td className="py-3 px-4 border border-gray-300">$269</td>
+                      <td className="py-3 px-4 border border-gray-300">$345</td>
+                      <td className="py-3 px-4 border border-gray-300">$419</td>
+                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
-                    <tr className="even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Deep Cleaning</td>
-                      <td className="py-3 px-4 border border-gray-300">$160.99</td>
-                      <td className="py-3 px-4 border border-gray-300">$180.99</td>
-                      <td className="py-3 px-4 border border-gray-300">$210.99</td>
-                      <td className="py-3 px-4 border border-gray-300">$245.99</td>
+                    <tr className="odd:bg-white even:bg-gray-50">
+                      <td className="py-3 px-4 border border-gray-300 font-semibold">Deep Clean</td>
+                      <td className="py-3 px-4 border border-gray-300">$189</td>
+                      <td className="py-3 px-4 border border-gray-300">$269</td>
+                      <td className="py-3 px-4 border border-gray-300">$329</td>
+                      <td className="py-3 px-4 border border-gray-300">$449</td>
+                      <td className="py-3 px-4 border border-gray-300">$529</td>
+                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
-                    <tr className="even:bg-gray-50">
-                      <td className="py-3 px-4 border border-gray-300 font-semibold">Move In / Out Cleaning</td>
-                      <td className="py-3 px-4 border border-gray-300">$185.99</td>
-                      <td className="py-3 px-4 border border-gray-300">$210.99</td>
-                      <td className="py-3 px-4 border border-gray-300">$240.99</td>
-                      <td className="py-3 px-4 border border-gray-300">$280.99</td>
+                    <tr className="odd:bg-white even:bg-gray-50">
+                      <td className="py-3 px-4 border border-gray-300 font-semibold">Move In/Out Clean</td>
+                      <td className="py-3 px-4 border border-gray-300">$229</td>
+                      <td className="py-3 px-4 border border-gray-300">$279</td>
+                      <td className="py-3 px-4 border border-gray-300">$359</td>
+                      <td className="py-3 px-4 border border-gray-300">$459</td>
+                      <td className="py-3 px-4 border border-gray-300">$539</td>
+                      <td className="py-3 px-4 border border-gray-300">Custom Quote</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <p className="max-w-3xl mx-auto text-center text-black">
-                Prices may vary based on property condition and specific requests.
-                <br />
-                <em>
-                  For detailed pricing and special requests, please{' '}
-                  <Link href="#contact" className="text-blue-600 underline">
-                    contact us
-                  </Link>
-                  .
-                </em>
+              <p className="text-sm text-center max-w-2xl mx-auto text-black">
+                Prices are starting rates for regular homes. Larger homes, extra bedrooms, pet hair removal, or extensive dirt and grime will increase the price. Please contact us for a detailed quote.
               </p>
             </div>
           </section>
 
           {/* Testimonials Section */}
-          <section id="testimonials" className="max-w-7xl mx-auto mt-20">
+          <section
+            id="testimonials"
+            className="max-w-7xl mx-auto mt-20"
+          >
             <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <TestimonialCard
-                quote="Streamlined Cleaning Solutions transformed my home! The team was professional and thorough."
-                name="Alice W."
-                location="Lakeland, FL"
+                name="Anna K."
+                content="Streamlined Cleaning Solutions did an amazing job in my home. Everything was spotless, and the team was friendly and professional."
+                rating={5}
+                photo="/images/testimonials/anna_k.webp"
               />
               <TestimonialCard
-                quote="Reliable, friendly, and exceptional service every time. Highly recommend!"
-                name="Carlos M."
-                location="Lakeland, FL"
+                name="Michael R."
+                content="Reliable and thorough cleaning service. They took care of my office building with great attention to detail."
+                rating={5}
+                photo="/images/testimonials/michael_r.webp"
               />
               <TestimonialCard
-                quote="Affordable prices and excellent quality. They made move-in cleaning hassle-free."
-                name="Sarah P."
-                location="Lakeland, FL"
+                name="Samantha P."
+                content="I highly recommend them for move-out cleaning. They made sure the place was perfect for the next tenant."
+                rating={5}
+                photo="/images/testimonials/samantha_p.webp"
               />
             </div>
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="max-w-7xl mx-auto mt-20 px-6 md:px-0">
-            <h2 className="text-3xl font-bold mb-6 text-center">Get in Touch</h2>
+          <section
+            id="contact"
+            className="max-w-7xl mx-auto mt-20 mb-32 px-6 md:px-0"
+          >
+            <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
             <ContactForm />
           </section>
         </div>
