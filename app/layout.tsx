@@ -67,7 +67,7 @@ export default function RootLayout({
                 <Link href="/" className="flex items-center space-x-2">
                   <div className="relative w-10 h-10">
                     <Image
-                      src="/images/logo_transparent.png"
+                      src="/images/logo_transparent_corner.webp"
                       alt="Streamlined Cleaning Solutions Logo"
                       fill
                       className="object-contain"
