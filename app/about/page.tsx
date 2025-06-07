@@ -13,7 +13,7 @@ export default function AboutPage() {
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="relative w-[150px] h-[150px] mb-4">
               <Image
-                src="/images/logo_transparent.png"
+                src="/images/logo_transparent_corner.webp"
                 alt="Streamlined Cleaning Solutions Logo"
                 fill
                 className="object-contain"
