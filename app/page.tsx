@@ -57,7 +57,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Streamlined Cleaning Solutions",
-            image: "https://streamlinedcleaningsolutions.com/images/logo_transparent_corner.webp",
+            image: "https://streamlinedcleaningsolutions.com/images/logo_transparent_main.webp",
             "@id": "https://streamlinedcleaningsolutions.com",
             url: "https://streamlinedcleaningsolutions.com",
             telephone: "+1-863-662-2874",
