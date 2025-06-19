@@ -282,11 +282,11 @@ export default function Home() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Add-Ons</h3>
                   <ul className="list-disc list-inside space-y-1">
-                    <li>Baseboard cleaning – $25</li>
-                    <li>Fridge cleaning – $25</li>
-                    <li>Oven cleaning – $25</li>
-                    <li>Interior window cleaning – $20</li>
-                    <li>Pet – $30</li>
+                    <li>Baseboard cleaning </li>
+                    <li>Fridge cleaning </li>
+                    <li>Oven cleaning </li>
+                    <li>Interior window cleaning </li>
+                    <li>Pet </li>
                   </ul>
                 </div>
               </div>
