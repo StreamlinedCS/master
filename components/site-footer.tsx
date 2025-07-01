@@ -11,7 +11,7 @@ export default function SiteFooter() {
             <p className="text-sm text-blue-200">Professional cleaning services for homes and businesses.</p>
             <div className="flex space-x-4 mt-4">
               <Link
-                href="https://www.facebook.com/streamlined.cleaning.solution.s.2025/?viewas=100000686899395"
+                href="https://www.facebook.com/share/1CA5xEdHxP/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-200 hover:text-white transition-colors"
