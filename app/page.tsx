@@ -302,12 +302,12 @@ export default function Home() {
                 quote="I had a client who needed a cleaning ASAP. I called Jeremy, and he totally nailed it! I'd totally recommend Streamlined Cleaning Solutions – they're super thorough, professional, and easy to work with. Thanks again for the awesome work!"
               />
               <TestimonialCard
-                author="Michael K."
-                quote="Great attention to detail and very reliable. Highly recommend for any residential or commercial needs."
+                author="Donna Roberts"
+                quote="My mom asked him to clean her church for her because she is not physically able to. She said he was so thorough, cleaning from top to bottom She was amazed at the cleanliness afterwards."
               />
               <TestimonialCard
-                author="Sarah T."
-                quote="Their move-out cleaning saved my security deposit. Thank you for the exceptional service!"
+                author="lynette Darrell"
+                quote="Very professional and great prices. Got the job done with awesome results."
               />
             </div>
           </section>
