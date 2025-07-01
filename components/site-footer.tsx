@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter } from "lucide-react"
+import { Facebook } from "lucide-react"
 
 export default function SiteFooter() {
   return (
@@ -25,7 +25,14 @@ export default function SiteFooter() {
                 rel="noopener noreferrer"
                 className="text-blue-200 hover:text-white transition-colors"
               >
-                <Twitter className="h-6 w-6" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-6 w-6"
+                >
+                  <path d="M16.6 3H21l-7.5 8.2L22 21h-6l-4.6-5.4L6.3 21H2l8-8.8L2 3h6l4.1 4.9L16.6 3z" />
+                </svg>
                 <span className="sr-only">X (Twitter)</span>
               </Link>
             </div>
