@@ -10,14 +10,19 @@ interface TestimonialCardProps {
 
 export default function TestimonialCard({ quote, author, role, rating }: TestimonialCardProps) {
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-md">
-      <CardContent className="p-6">
+    <Card className="overflow-hidden transition-all hover:shadow-md h-full flex flex-col">
+      <CardContent className="p-6 flex-grow flex flex-col">
         <div className="flex mb-4">
           {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+            <Star
+              key={i}
+              className={`h-5 w-5 ${
+                i < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
+              }`}
+            />
           ))}
         </div>
-        <p className="italic text-gray-600 mb-4">"{quote}"</p>
+        <p className="italic text-gray-600 flex-grow">"{quote}"</p>
       </CardContent>
       <CardFooter className="p-6 pt-0 border-t">
         <div>
