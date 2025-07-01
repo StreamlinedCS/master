@@ -303,11 +303,11 @@ export default function Home() {
               />
               <TestimonialCard
                 author="Donna Roberts"
-                quote="My mom asked him to clean her church for her because she is not physically able to. She said he was so thorough, cleaning from top to bottom She was amazed at the cleanliness afterwards."
+                quote="My mom asked him to clean her church for her because she is not physically able to. She said he was so thorough, cleaning from top to bottom She was amazed at the cleanliness afterwards."                                                  
               />
               <TestimonialCard
                 author="lynette Darrell"
-                quote="Very professional and great prices. Got the job done with awesome results."
+                quote="Very professional and great prices. Got the job done with awesome results."                                                                                                                                                                  
               />
             </div>
           </section>
