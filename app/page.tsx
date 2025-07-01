@@ -298,8 +298,8 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-8 text-center">What Our Clients Say</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               <TestimonialCard
-                author="Jessica P."
-                quote="Streamlined Cleaning Solutions transformed my home! They are punctual, professional, and thorough."
+                author="Jarrod Nyland"
+                quote="I had a client who needed a cleaning ASAP. I called Jeremy, and he totally nailed it! I'd totally recommend Streamlined Cleaning Solutions – they're super thorough, professional, and easy to work with. Thanks again for the awesome work!"
               />
               <TestimonialCard
                 author="Michael K."
