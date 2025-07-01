@@ -88,8 +88,8 @@ export default function Home() {
               closes: "18:00",
             },
             sameAs: [
-              "https://www.facebook.com/streamlinedcleaningsolutions",
-              "https://twitter.com/StreamlinedCS",
+              "https://www.facebook.com/share/1CA5xEdHxP/",
+              "https://x.com/StreamlinedCS",
             ],
             priceRange: "$$",
             description:
